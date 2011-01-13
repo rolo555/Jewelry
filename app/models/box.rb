@@ -10,7 +10,7 @@ class Box < ActiveRecord::Base
   validates_presence_of :code, :description
   validates_length_of :code, :maximum => 50, :if => "self.code.presence"
   validates_length_of :description, :maximum => 50, :if => "self.description.presence"
-  validates_uniqueness_of :code, :case_sensitive => false
+  validates_uniqueness_of :code, :case_sensitive => false, :scope => :product_id
 
   def before_validation
     sanitizate_strings :code, :description

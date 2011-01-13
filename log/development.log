@@ -1241,3 +1241,517 @@ Rendered _list_record_columns (86.0ms)
 Rendered _list_actions (15.0ms)
 Rendered _list_record (129.0ms)
 Completed in 174ms (View: 160, DB: 4) | 200 OK [http://localhost/products/2/row?_method=get]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 04:06:31) [GET]
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (11.0ms)
+  [4;36;1mBox Load (4.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (10.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (28.0ms)
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (76.0ms)
+Completed in 122ms (View: 110, DB: 8) | 200 OK [http://localhost/products]
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 08:42:10) [GET]
+  [4;35;1mSQL (122.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (19.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (23.0ms)
+Rendered _list_column_headings (24.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (22.0ms)
+  [4;35;1mBox Load (49.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (66.0ms)
+Rendered _list_actions (34.0ms)
+Rendered _list_record (133.0ms)
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (24.0ms)
+Rendered _list (248.0ms)
+Completed in 7336ms (View: 328, DB: 193) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 08:42:29) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"2"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendered _form_attribute (0.0ms)
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (18.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (22.0ms)
+Rendered _horizontal_subform (91.0ms)
+Rendered _form_association (134.0ms)
+Rendered _form (229.0ms)
+Rendered _update_form (261.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (51.0ms)
+Completed in 337ms (View: 56, DB: 0) | 200 OK [http://localhost/products/2/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 08:42:54) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"2", "record"=>{"name"=>"Anillos", "boxes"=>{"1294922549391"=>{"code"=>"co1", "description"=>"collar de oro 1"}, "3"=>{"code"=>"ao1", "id"=>"3", "description"=>"anillos de oro 1"}, "4"=>{"code"=>"ao2", "id"=>"4", "description"=>"anillos de oro 2"}}}}
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+  [4;35;1mBox Load (103.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".product_id = 2) LIMIT 1[0m
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos' AND "products".id <> 2) LIMIT 1[0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 2 AND "boxes".id <> 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".product_id = 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".product_id = 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos' AND "products".id <> 2) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".product_id = 2) LIMIT 1[0m
+  [4;36;1mSQL (43.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 12:42:54.569508', 'co1', 2, '2011-01-13 12:42:54.569508', 'collar de oro 1') RETURNING "id"[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 3) LIMIT 1[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 2 AND "boxes".id <> 4) LIMIT 1[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+Rendering on_update
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (13.0ms)
+Rendered _list_actions (14.0ms)
+Rendered _list_record (52.0ms)
+Rendered _messages (5.0ms)
+Completed in 1056ms (View: 169, DB: 153) | 200 OK [http://localhost/products/2]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 08:43:06) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"2"}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendered _form_attribute (3.0ms)
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (15.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (7.0ms)
+Rendered _horizontal_subform (151.0ms)
+Rendered _form_association (167.0ms)
+Rendered _form (210.0ms)
+Rendered _update_form (226.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 267ms (View: 16, DB: 0) | 200 OK [http://localhost/products/2/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 08:43:12) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"2", "record"=>{"name"=>"Anillos", "boxes"=>{"1294922586493"=>{"code"=>"", "description"=>""}, "3"=>{"code"=>"ao1", "id"=>"3", "description"=>"anillos de oro 1"}, "4"=>{"code"=>"ao2", "id"=>"4", "description"=>"anillos de oro 2"}, "5"=>{"code"=>"ao1", "id"=>"5", "description"=>"collar de oro 1"}}}}
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos' AND "products".id <> 2) LIMIT 1[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 2 AND "boxes".id <> 4) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 5) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_update
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (75.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (10.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (8.0ms)
+Rendered _horizontal_subform (153.0ms)
+Rendered _form_association (164.0ms)
+Rendered _form (187.0ms)
+Rendered _update_form (201.0ms)
+Rendered _messages (2.0ms)
+Completed in 293ms (View: 237, DB: 4) | 200 OK [http://localhost/products/2]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#row (for 127.0.0.1 at 2011-01-13 08:43:17) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (9.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (29.0ms)
+Completed in 53ms (View: 45, DB: 4) | 200 OK [http://localhost/products/2/row?_method=get]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 08:43:19) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"2"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+Rendered _form_attribute (3.0ms)
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+Rendered _horizontal_subform_header (4.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (14.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (10.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (10.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (9.0ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (9.0ms)
+Rendered _horizontal_subform (85.0ms)
+Rendered _form_association (100.0ms)
+Rendered _form (146.0ms)
+Rendered _update_form (233.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (10.0ms)
+Completed in 274ms (View: 16, DB: 0) | 200 OK [http://localhost/products/2/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 08:43:23) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"2", "record"=>{"name"=>"Anillos", "boxes"=>{"1294922599538"=>{"code"=>"", "description"=>""}, "3"=>{"code"=>"ao1", "id"=>"3", "description"=>"anillos de oro 1"}, "4"=>{"code"=>"ao2", "id"=>"4", "description"=>"anillos de oro 2"}}}}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+  [4;35;1mBox Destroy (1.0ms)[0m   [0mDELETE FROM "boxes" WHERE "id" = 5[0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos' AND "products".id <> 2) LIMIT 1[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 3) LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 2 AND "boxes".id <> 4) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos' AND "products".id <> 2) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 2 AND "boxes".id <> 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 2 AND "boxes".id <> 4) LIMIT 1[0m
+  [4;36;1mSQL (328.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_update
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (26.0ms)
+Rendered _messages (1.0ms)
+Completed in 507ms (View: 57, DB: 336) | 200 OK [http://localhost/products/2]
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 14:22:29) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (11.0ms)
+Rendered _horizontal_subform (45.0ms)
+Rendered _form_association (56.0ms)
+Rendered _form (102.0ms)
+Rendered _create_form (115.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (9.0ms)
+Completed in 150ms (View: 15, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-13 14:23:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "record"=>{"name"=>"Aretes", "boxes"=>{"1294942949636"=>{"code"=>"ao1", "description"=>"aretes de oro 1"}}}}
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;35;1mProduct Load (3.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes') LIMIT 1[0m
+  [4;35;1mSQL (18.0ms)[0m   [0mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES('Aretes', '2011-01-13 18:23:04.854318', '2011-01-13 18:23:04.854318') RETURNING "id"[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 18:23:04.902321', 'ao1', 3, '2011-01-13 18:23:04.902321', 'aretes de oro 1') RETURNING "id"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_create
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 3) [0m
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (25.0ms)
+Rendered _messages (1.0ms)
+Completed in 240ms (View: 87, DB: 22) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 14:23:07) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"3"}
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendered _form_attribute (3.0ms)
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (7.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (7.0ms)
+Rendered _horizontal_subform (45.0ms)
+Rendered _form_association (58.0ms)
+Rendered _form (153.0ms)
+Rendered _update_form (167.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (8.0ms)
+Completed in 199ms (View: 13, DB: 0) | 200 OK [http://localhost/products/3/edit?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 14:23:16) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"3", "record"=>{"name"=>"Aretes", "boxes"=>{"6"=>{"code"=>"ao1", "id"=>"6", "description"=>"aretes de oro 1"}, "1294942988163"=>{"code"=>"ac1", "description"=>""}}}}
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ac1' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes' AND "products".id <> 3) LIMIT 1[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 6) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ac1' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_update
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (6.0ms)
+Rendered _horizontal_subform (55.0ms)
+Rendered _form_association (63.0ms)
+Rendered _form (143.0ms)
+Rendered _update_form (157.0ms)
+Rendered _messages (1.0ms)
+Completed in 219ms (View: 186, DB: 5) | 200 OK [http://localhost/products/3]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 14:23:49) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"3", "record"=>{"name"=>"Aretes", "boxes"=>{"6"=>{"code"=>"ao1", "id"=>"6", "description"=>"aretes de oro 1"}, "1294942997030"=>{"code"=>"", "description"=>""}, "1294942997020"=>{"code"=>"ao2", "description"=>"aretes de oro 2"}}}}
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes' AND "products".id <> 3) LIMIT 1[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 6) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes' AND "products".id <> 3) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2' AND "boxes".product_id = 3) LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 18:23:49.189544', 'ao2', 3, '2011-01-13 18:23:49.189544', 'aretes de oro 2') RETURNING "id"[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 6) LIMIT 1[0m
+  [4;35;1mSQL (330.0ms)[0m   [0mCOMMIT[0m
+Rendering on_update
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 3) [0m
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (21.0ms)
+Rendered _messages (1.0ms)
+Completed in 493ms (View: 111, DB: 341) | 200 OK [http://localhost/products/3]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 14:23:52) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"3"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+Rendered _form_attribute (0.0ms)
+  [4;35;1mBox Load (10.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+Rendered _horizontal_subform_header (0.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _horizontal_subform_record (10.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _form_attribute (10.0ms)
+Rendered _horizontal_subform_record (10.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _form_attribute (10.0ms)
+Rendered _horizontal_subform_record (70.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (120.0ms)
+Rendered _form_association (130.0ms)
+Rendered _form (157.0ms)
+Rendered _update_form (168.0ms)
+Rendered _messages (0.0ms)
+Rendered _list_inline_adapter (10.0ms)
+Completed in 198ms (View: 10, DB: 0) | 200 OK [http://localhost/products/3/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 14:23:57) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"3", "record"=>{"name"=>"Aretes", "boxes"=>{"6"=>{"code"=>"ao1", "id"=>"6", "description"=>"aretes de oro 1"}, "7"=>{"code"=>"ao1", "id"=>"7", "description"=>"aretes de oro 2"}, "1294943032689"=>{"code"=>"", "description"=>""}}}}
+  [4;36;1mProduct Load (10.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes' AND "products".id <> 3) LIMIT 1[0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 6) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 7) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_update
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (77.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (6.0ms)
+Rendered _horizontal_subform (125.0ms)
+Rendered _form_association (134.0ms)
+Rendered _form (152.0ms)
+Rendered _update_form (164.0ms)
+Rendered _messages (1.0ms)
+Completed in 231ms (View: 201, DB: 10) | 200 OK [http://localhost/products/3]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 14:24:05) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "id"=>"3", "record"=>{"name"=>"Aretes", "boxes"=>{"6"=>{"code"=>"ao1", "id"=>"6", "description"=>"aretes de oro 1"}, "7"=>{"code"=>"ao1", "id"=>"7", "description"=>""}, "1294943037608"=>{"code"=>"", "description"=>""}}}}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 3) [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes' AND "products".id <> 3) LIMIT 1[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 6) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1' AND "boxes".product_id = 3 AND "boxes".id <> 7) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Rendering on_update
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (76.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (8.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (7.0ms)
+Rendered _horizontal_subform (128.0ms)
+Rendered _form_association (138.0ms)
+Rendered _form (156.0ms)
+Rendered _update_form (169.0ms)
+Rendered _messages (2.0ms)
+Completed in 229ms (View: 198, DB: 3) | 200 OK [http://localhost/products/3]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#row (for 127.0.0.1 at 2011-01-13 14:24:07) [GET]
+  Parameters: {"id"=>"3"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 3) [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 3) [0m
+Rendered _list_record_columns (7.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (25.0ms)
+Completed in 46ms (View: 41, DB: 3) | 200 OK [http://localhost/products/3/row?_method=get]
