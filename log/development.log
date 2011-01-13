@@ -278,3 +278,966 @@ Migrating to CreateProducts (20110112125623)
   [4;36;1mSQL (2.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110112125623'[0m
   [4;35;1mSQL (110.0ms)[0m   [0mCOMMIT[0m
   [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (87.0ms)[0m   [0mCREATE TABLE "boxes" ("id" serial primary key, "code" character varying(255), "description" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113055615')[0m
+  [4;35;1mSQL (39.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#index (for 127.0.0.1 at 2011-01-13 02:10:50) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".* FROM "boxes" ORDER BY "boxes"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".* FROM "boxes" ORDER BY "boxes"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (10.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (13.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (47.0ms)
+Completed in 6873ms (View: 118, DB: 3) | 200 OK [http://localhost/boxes]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#new (for 127.0.0.1 at 2011-01-13 02:11:03) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (19.0ms)
+Rendered _create_form (50.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 146ms (View: 18, DB: 0) | 200 OK [http://localhost/boxes/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#new (for 127.0.0.1 at 2011-01-13 02:12:01) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (15.0ms)
+Rendered _create_form (40.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (9.0ms)
+Completed in 72ms (View: 14, DB: 0) | 200 OK [http://localhost/boxes/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#create (for 127.0.0.1 at 2011-01-13 02:12:04) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "record"=>{"code"=>"afefa", "description"=>""}}
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (7.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'afefa') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (14.0ms)
+Rendered _create_form (42.0ms)
+Rendered _messages (2.0ms)
+Completed in 252ms (View: 72, DB: 9) | 200 OK [http://localhost/boxes]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#create (for 127.0.0.1 at 2011-01-13 02:12:17) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "record"=>{"code"=>"test", "description"=>"this si a test"}}
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'test') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'test') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "updated_at", "description") VALUES('2011-01-13 06:12:17.486316', 'test', '2011-01-13 06:12:17.486316', 'this si a test') RETURNING "id"[0m
+  [4;35;1mSQL (325.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (19.0ms)
+Rendered _list_record (33.0ms)
+Rendered _messages (1.0ms)
+Completed in 462ms (View: 117, DB: 330) | 200 OK [http://localhost/boxes]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#show (for 127.0.0.1 at 2011-01-13 02:12:20) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _show_columns (4.0ms)
+Rendered _show (25.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (9.0ms)
+Completed in 63ms (View: 16, DB: 0) | 200 OK [http://localhost/boxes/1?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#row (for 127.0.0.1 at 2011-01-13 02:12:24) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _list_record_columns (2.0ms)
+Rendered _list_actions (18.0ms)
+Rendered _list_record (33.0ms)
+Completed in 53ms (View: 49, DB: 3) | 200 OK [http://localhost/boxes/1/row?_method=get]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#show (for 127.0.0.1 at 2011-01-13 02:12:53) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mBox Load (3.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _show_columns (3.0ms)
+Rendered _show (21.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (8.0ms)
+Completed in 55ms (View: 12, DB: 0) | 200 OK [http://localhost/boxes/1?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#row (for 127.0.0.1 at 2011-01-13 02:12:57) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (21.0ms)
+Rendered _list_record (36.0ms)
+Completed in 57ms (View: 52, DB: 3) | 200 OK [http://localhost/boxes/1/row?_method=get]
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mDROP TABLE "boxes"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113055615'[0m
+  [4;35;1mSQL (75.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (60.0ms)[0m   [0mCREATE TABLE "boxes" ("id" serial primary key, "code" character varying(255), "description" character varying(255), "product_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113055615')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERROR: relation "products" does not exist
+: SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"products"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-13 02:50:51) [GET]
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "products" does not exist
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"products"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/products_controller.rb:2
+  app/controllers/boxes_controller.rb:2
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (56.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERROR: relation "products" does not exist
+: SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"products"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-13 02:51:08) [GET]
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "products" does not exist
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"products"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/products_controller.rb:2
+  app/controllers/boxes_controller.rb:2
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (60.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPGError: ERROR: relation "products" does not exist
+: SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+ FROM pg_attribute a LEFT JOIN pg_attrdef d
+ ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+ WHERE a.attrelid = '"products"'::regclass
+ AND a.attnum > 0 AND NOT a.attisdropped
+ ORDER BY a.attnum
+[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-13 02:51:13) [GET]
+
+ActiveRecord::StatementInvalid (PGError: ERROR:  relation "products" does not exist
+:             SELECT a.attname, format_type(a.atttypid, a.atttypmod), d.adsrc, a.attnotnull
+              FROM pg_attribute a LEFT JOIN pg_attrdef d
+                ON a.attrelid = d.adrelid AND a.attnum = d.adnum
+             WHERE a.attrelid = '"products"'::regclass
+               AND a.attnum > 0 AND NOT a.attisdropped
+             ORDER BY a.attnum
+):
+  app/controllers/products_controller.rb:2
+  app/controllers/boxes_controller.rb:2
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (67.0ms)[0m   [0mCREATE TABLE "products" ("id" serial primary key, "name" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113062515')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#index (for 127.0.0.1 at 2011-01-13 02:51:40) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".* FROM "boxes" ORDER BY "boxes"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".* FROM "boxes" ORDER BY "boxes"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (40.0ms)
+Completed in 92ms (View: 83, DB: 5) | 200 OK [http://localhost/boxes]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#new (for 127.0.0.1 at 2011-01-13 02:51:44) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (21.0ms)
+Rendered _create_form (40.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (13.0ms)
+Completed in 85ms (View: 19, DB: 0) | 200 OK [http://localhost/boxes/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 02:51:52) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (67.0ms)
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (14.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (41.0ms)
+Completed in 156ms (View: 146, DB: 2) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 02:51:54) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _form (15.0ms)
+Rendered _create_form (33.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (69.0ms)
+Completed in 133ms (View: 76, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 02:54:54) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (5.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (34.0ms)
+Completed in 79ms (View: 71, DB: 4) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 02:54:57) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (4.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (23.0ms)
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (12.0ms)
+Rendered _horizontal_subform (63.0ms)
+Rendered _form_association (76.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (117.0ms)
+Rendered _create_form (133.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 175ms (View: 18, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 02:55:39) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (5.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (34.0ms)
+Completed in 79ms (View: 71, DB: 3) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 02:55:42) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Thu Jan 13 02:55:42 -0400 2011#<NoMethodError: undefined method `nmae' for #<Product id: nil, name: nil, created_at: nil, updated_at: nil>> -- on the ActiveScaffold column = :nmae in ProductsController
+
+ActionView::TemplateError (undefined method `nmae' for #<Product id: nil, name: nil, created_at: nil, updated_at: nil>) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (108.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 02:55:52) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Thu Jan 13 02:55:52 -0400 2011#<NoMethodError: undefined method `nmae' for #<Product id: nil, name: nil, created_at: nil, updated_at: nil>> -- on the ActiveScaffold column = :nmae in ProductsController
+
+ActionView::TemplateError (undefined method `nmae' for #<Product id: nil, name: nil, created_at: nil, updated_at: nil>) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (144.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 02:56:16) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (13.0ms)
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (48.0ms)
+Rendered _form_association (58.0ms)
+Rendered _form (101.0ms)
+Rendered _create_form (117.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 154ms (View: 16, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-13 02:56:53) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "record"=>{"name"=>"Collar", "boxes"=>{"1294901776568"=>{"code"=>"co1", "description"=>"collar de oro 1"}}}}
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mROLLBACK[0m
+
+NoMethodError (undefined method `ssanitizate_strings' for #<Box:0x95d33f0>):
+  app/models/box.rb:16:in `before_validation'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (55.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-13 02:57:36) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "record"=>{"name"=>"Collar", "boxes"=>{"1294901776568"=>{"code"=>"co1", "description"=>"collar de oro 1"}}}}
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1') LIMIT 1[0m
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'collar') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'collar') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES('Collar', '2011-01-13 06:57:37.178874', '2011-01-13 06:57:37.178874') RETURNING "id"[0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 06:57:37.193875', 'co1', 1, '2011-01-13 06:57:37.193875', 'collar de oro 1') RETURNING "id"[0m
+  [4;35;1mSQL (336.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (2.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (21.0ms)
+Rendered _messages (1.0ms)
+Completed in 603ms (View: 51, DB: 344) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2011-01-13 02:57:44) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 1) [0m
+Rendered _show_columns (3.0ms)
+Rendered _show (69.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (8.0ms)
+Completed in 110ms (View: 13, DB: 0) | 200 OK [http://localhost/products/1?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#row (for 127.0.0.1 at 2011-01-13 02:57:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendered _list_record_columns (2.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (21.0ms)
+Completed in 41ms (View: 37, DB: 3) | 200 OK [http://localhost/products/1/row?_method=get]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 02:58:06) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (0.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT "boxes".* FROM "boxes" WHERE ("boxes".product_id = 1) [0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (9.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (10.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (24.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (138.0ms)
+Completed in 192ms (View: 176, DB: 3) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#nested (for 127.0.0.1 at 2011-01-13 02:58:19) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1", "associations"=>"boxes"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+
+ActionView::TemplateError (undefined method `render_component' for #<ActionView::Base:0x9289470>) on line #30 of vendor/plugins/active_scaffold/frontends/default/views/_nested.html.erb:
+27:           :constraints => @constraints,
+28:           :conditions => association.options[:conditions],
+29:           :label => h(@label),
+30:           :params => {:nested => true, :parent_column => column_name, :parent_model => association.active_record.name, :format => 'html'}
+31:         )
+32:       end
+33:     end
+
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.html.erb:30
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.html.erb:10:in `each'
+    vendor/plugins/active_scaffold/frontends/default/views/_nested.html.erb:10
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (67.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 03:33:01) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Thu Jan 13 03:33:01 -0400 2011#<NoMethodError: undefined method `list_of_boxes' for #<Product:0x9184c80>> -- on the ActiveScaffold column = :list_of_boxes in ProductsController
+
+ActionView::TemplateError (undefined method `list_of_boxes' for #<Product:0x9184c80>) on line #4 of vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:
+1:   <%= content_tag :td, mark_record(marked_records.include?(record.id.to_s), :id => record.id), :class => 'mark_record_column' if active_scaffold_config.list.mark_records %>
+2: <% active_scaffold_config.list.columns.each do |column| %>
+3:   <% authorized = record.authorized_for?(:crud_type => :read, :column => column.name) -%>
+4:   <% column_value = authorized ? get_column_value(record, column) : active_scaffold_config.list.empty_field_text -%>
+5: 
+6:   <td class="<%= column_class(column, column_value) %>" >
+7:     <%= authorized ? render_list_column(column_value, column, record) : column_value %>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:4
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record.html.erb:9
+    vendor/plugins/active_scaffold/frontends/default/views/_list.html.erb:16
+    vendor/plugins/active_scaffold/frontends/default/views/list.html.erb:30
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (97.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 03:34:00) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Thu Jan 13 03:34:00 -0400 2011#<NoMethodError: undefined method `list_of_boxes' for #<Product:0x93fd338>> -- on the ActiveScaffold column = :list_of_boxes in ProductsController
+
+ActionView::TemplateError (undefined method `list_of_boxes' for #<Product:0x93fd338>) on line #4 of vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:
+1:   <%= content_tag :td, mark_record(marked_records.include?(record.id.to_s), :id => record.id), :class => 'mark_record_column' if active_scaffold_config.list.mark_records %>
+2: <% active_scaffold_config.list.columns.each do |column| %>
+3:   <% authorized = record.authorized_for?(:crud_type => :read, :column => column.name) -%>
+4:   <% column_value = authorized ? get_column_value(record, column) : active_scaffold_config.list.empty_field_text -%>
+5: 
+6:   <td class="<%= column_class(column, column_value) %>" >
+7:     <%= authorized ? render_list_column(column_value, column, record) : column_value %>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:4
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record_columns.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record.html.erb:9
+    vendor/plugins/active_scaffold/frontends/default/views/_list.html.erb:16
+    vendor/plugins/active_scaffold/frontends/default/views/list.html.erb:30
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (154.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 03:35:27) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (73.0ms)
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (8.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (26.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (132.0ms)
+Completed in 181ms (View: 171, DB: 4) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 03:35:34) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendered _form_attribute (3.0ms)
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 1) [0m
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (17.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (67.0ms)
+Rendered _form_association (85.0ms)
+Rendered _form (192.0ms)
+Rendered _update_form (210.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (12.0ms)
+Completed in 257ms (View: 18, DB: 0) | 200 OK [http://localhost/products/1/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#update (for 127.0.0.1 at 2011-01-13 03:35:43) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "id"=>"1", "record"=>{"name"=>"Collar", "boxes"=>{"1"=>{"code"=>"co1", "id"=>"1", "description"=>"collar de oro 1"}, "1294904134390"=>{"code"=>"co2", "description"=>"collar de oro 2"}}}}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 1) [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co2') LIMIT 1[0m
+  [4;36;1mProduct Load (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'collar' AND "products".id <> 1) LIMIT 1[0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co2') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co2') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'collar' AND "products".id <> 1) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co2') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 07:35:43.393638', 'co2', 1, '2011-01-13 07:35:43.393638', 'collar de oro 2') RETURNING "id"[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'co1' AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (329.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_update
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (22.0ms)
+Rendered _messages (1.0ms)
+Completed in 606ms (View: 52, DB: 336) | 200 OK [http://localhost/products/1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 03:36:03) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (14.0ms)
+Rendered _list_column_headings (17.0ms)
+Rendered _messages (5.0ms)
+Rendered _list_messages (30.0ms)
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (23.0ms)
+Rendered _list_actions (19.0ms)
+Rendered _list_record (74.0ms)
+Rendered _list_pagination (6.0ms)
+Rendered _list (184.0ms)
+Completed in 304ms (View: 277, DB: 3) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit (for 127.0.0.1 at 2011-01-13 03:36:06) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+Rendered _form_attribute (3.0ms)
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes".product_id = 1) [0m
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (17.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (12.0ms)
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (82.0ms)
+Rendered _form_association (100.0ms)
+Rendered _form (146.0ms)
+Rendered _update_form (162.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (13.0ms)
+Completed in 211ms (View: 20, DB: 0) | 200 OK [http://localhost/products/1/edit?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#row (for 127.0.0.1 at 2011-01-13 03:36:10) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (11.0ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (35.0ms)
+Completed in 63ms (View: 54, DB: 4) | 200 OK [http://localhost/products/1/row?_method=get]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 03:36:11) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.0ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (82.0ms)
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (11.0ms)
+Rendered _horizontal_subform (121.0ms)
+Rendered _form_association (133.0ms)
+Rendered _form (480.0ms)
+Rendered _create_form (500.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 545ms (View: 18, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#edit_associated (for 127.0.0.1 at 2011-01-13 03:36:32) [GET]
+  Parameters: {"association"=>"boxes"}
+Rendering edit_associated
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.0ms)
+Completed in 56ms (View: 53, DB: 1) | 200 OK [http://localhost/products/edit_associated?association=boxes]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-13 03:36:39) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"1a2YkNosUzsQM1nKiqljqKHTXHlSZksORmSAoetI3y0=", "record"=>{"name"=>"Anillos", "boxes"=>{"1294904172293"=>{"code"=>"ao1", "description"=>"anillos de oro 1"}, "1294904192627"=>{"code"=>"ao2", "description"=>"anillos de oro 2"}}}}
+  [4;35;1mSQL (1.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1') LIMIT 1[0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2') LIMIT 1[0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'anillos') LIMIT 1[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO "products" ("name", "created_at", "updated_at") VALUES('Anillos', '2011-01-13 07:36:39.602853', '2011-01-13 07:36:39.602853') RETURNING "id"[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao1') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 07:36:39.625854', 'ao1', 2, '2011-01-13 07:36:39.625854', 'anillos de oro 1') RETURNING "id"[0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."code") = 'ao2') LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("created_at", "code", "product_id", "updated_at", "description") VALUES('2011-01-13 07:36:39.717860', 'ao2', 2, '2011-01-13 07:36:39.717860', 'anillos de oro 2') RETURNING "id"[0m
+  [4;35;1mSQL (329.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (16.0ms)
+Rendered _list_actions (17.0ms)
+Rendered _list_record (64.0ms)
+Rendered _messages (7.0ms)
+Completed in 735ms (View: 135, DB: 336) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#show (for 127.0.0.1 at 2011-01-13 03:36:44) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"2"}
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes".product_id = 2) [0m
+Rendered _show_columns (6.0ms)
+Rendered _show (20.0ms)
+Rendered _messages (4.0ms)
+Rendered _list_inline_adapter (19.0ms)
+Completed in 95ms (View: 27, DB: 0) | 200 OK [http://localhost/products/2?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#row (for 127.0.0.1 at 2011-01-13 03:36:52) [GET]
+  Parameters: {"id"=>"2"}
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 2) [0m
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (86.0ms)
+Rendered _list_actions (15.0ms)
+Rendered _list_record (129.0ms)
+Completed in 174ms (View: 160, DB: 4) | 200 OK [http://localhost/products/2/row?_method=get]
