@@ -1755,3 +1755,202 @@ Rendered _list_record_columns (7.0ms)
 Rendered _list_actions (5.0ms)
 Rendered _list_record (25.0ms)
 Completed in 46ms (View: 41, DB: 3) | 200 OK [http://localhost/products/3/row?_method=get]
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (57.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+Migrating to CreateProducts (20110113062515)
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (118.0ms)[0m   [0mCREATE TABLE "jewelries" ("id" serial primary key, "code" character varying(255), "weight" float, "description" character varying(255), "photo_file_name" character varying(255), "photo_content_type" character varying(255), "photo_file_size" integer, "photo_updated_at" timestamp, "product_id" integer, "purchase_date" date, "purchase_price" decimal, "sold" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113125940')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreatePeople (20110113183552)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE "people" ("id" serial primary key, "name" character varying(255), "age" integer, "fono" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113183552')[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-13 14:51:27) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (11.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (8.0ms)
+Rendered _horizontal_subform (40.0ms)
+Rendered _form_association (105.0ms)
+Rendered _form (139.0ms)
+Rendered _create_form (152.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (8.0ms)
+Completed in 184ms (View: 13, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+ActiveScaffold: extending RESTful routes for people
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2011-01-13 14:55:02) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "people" [0m
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/people
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (11.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (62.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (91.0ms)
+Completed in 149ms (View: 142, DB: 3) | 200 OK [http://localhost/people]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#new (for 127.0.0.1 at 2011-01-13 14:55:19) [GET]
+Rendering template within layouts/people
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (10.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form (21.0ms)
+Rendered _create_form (63.0ms)
+Completed in 92ms (View: 87, DB: 0) | 200 OK [http://localhost/people/new?_method=get]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#create (for 127.0.0.1 at 2011-01-13 14:55:28) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"W4YmLmqK6XIZeG2o4aFpyr3u8XKS3cfhh0zt59Lp3ss=", "record"=>{"name"=>"rolo", "fono"=>"777", "age"=>"24"}}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPerson Load (2.0ms)[0m   [0mSELECT "people".id FROM "people" WHERE (LOWER("people"."name") = 'rolo') LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "people".id FROM "people" WHERE (LOWER("people"."name") = 'rolo') LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "people" ("name", "fono", "created_at", "updated_at", "age") VALUES('rolo', 777, '2011-01-13 18:55:28.554734', '2011-01-13 18:55:28.554734', 24) RETURNING "id"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/people
+Completed in 450ms (DB: 4) | 302 Found [http://localhost/people]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2011-01-13 14:55:28) [GET]
+  [4;36;1mSQL (3.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "people" [0m
+  [4;35;1mPerson Load (1.0ms)[0m   [0mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/people
+Rendering list
+Rendered _list_header (16.0ms)
+Rendered _list_column_headings (12.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (10.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (9.0ms)
+Rendered _list_record (91.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (139.0ms)
+Completed in 192ms (View: 182, DB: 4) | 200 OK [http://localhost/people]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#index (for 127.0.0.1 at 2011-01-13 14:56:38) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "people" [0m
+  [4;36;1mPerson Load (0.0ms)[0m   [0;1mSELECT "people".* FROM "people" ORDER BY "people"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (15.0ms)
+Rendered _list_column_headings (11.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (10.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (21.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (66.0ms)
+Completed in 125ms (View: 118, DB: 2) | 200 OK [http://localhost/people]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#edit (for 127.0.0.1 at 2011-01-13 14:57:17) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;36;1mPerson Load (2.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Rendered _form_attribute (0.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _form_attribute (0.0ms)
+Rendered _form (7.0ms)
+Rendered _update_form (30.0ms)
+Rendered _messages (10.0ms)
+Rendered _list_inline_adapter (10.0ms)
+Completed in 71ms (View: 10, DB: 0) | 200 OK [http://localhost/people/1/edit?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing PeopleController#row (for 127.0.0.1 at 2011-01-13 14:57:20) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPerson Load (1.0ms)[0m   [0;1mSELECT * FROM "people" WHERE ("people"."id" = 1) [0m
+Rendered _list_record_columns (13.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (92.0ms)
+Completed in 110ms (View: 106, DB: 3) | 200 OK [http://localhost/people/1/row?_method=get]
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-13 15:04:36) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "products" [0m
+  [4;35;1mProduct Load (2.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (9.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (28.0ms)
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 2) [0m
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 3) [0m
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (7.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (86.0ms)
+Completed in 202ms (View: 190, DB: 6) | 200 OK [http://localhost/products]
