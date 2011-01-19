@@ -1,7 +1,7 @@
 class CreateBoxes < ActiveRecord::Migration
   def self.up
     create_table :boxes do |t|
-      t.string :code
+      t.string :box_code
       t.string :description
       t.integer :product_id
 

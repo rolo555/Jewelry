@@ -9,18 +9,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110113062515) do
+ActiveRecord::Schema.define(:version => 20110113183552) do
 
   create_table "boxes", :force => true do |t|
-    t.string   "code"
+    t.string   "box_code"
     t.string   "description"
     t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  create_table "jewelries", :force => true do |t|
+    t.string   "jewelry_code"
+    t.float    "weight"
+    t.string   "description"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.date     "purchase_date"
+    t.decimal  "purchase_price"
+    t.boolean  "sold"
+    t.integer  "box_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "name"
+    t.integer  "product_auto_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
