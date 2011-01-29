@@ -5938,3 +5938,1372 @@ Rendered _list_actions (15.6ms)
 Rendered _list_record (31.2ms)
 Rendered _messages (0.0ms)
 Completed in 406ms (View: 0, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-19 10:31:17) [DELETE]
+  Parameters: {"authenticity_token"=>"SQoN+i2vb4o/6C6cKe1buitffdb0DhEH7+KjRoaciaE=", "id"=>"3"}
+  [4;35;1mJewelry Load (0.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 3) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+[paperclip] Deleting attachments.
+[paperclip] deleting C:/Users/Rolo/Documents/Jewelry/Jewelry/public/system/photos/3/original/ruby_spartan1.png
+[paperclip] deleting C:/Users/Rolo/Documents/Jewelry/Jewelry/public/system/photos/3/thumbnail/ruby_spartan1.png
+  [4;35;1mJewelry Destroy (0.0ms)[0m   [0mDELETE FROM "jewelries" WHERE "id" = 3[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering destroy
+Rendered _messages (0.0ms)
+Completed in 109ms (View: 94, DB: 0) | 200 OK [http://localhost/jewelries/3?_method=delete&authenticity_token=SQoN%2Bi2vb4o%2F6C6cKe1buitffdb0DhEH7%2BKjRoaciaE%3D]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-19 10:31:18) [DELETE]
+  Parameters: {"authenticity_token"=>"SQoN+i2vb4o/6C6cKe1buitffdb0DhEH7+KjRoaciaE=", "iframe"=>"true", "id"=>"5", "associated_id"=>""}
+  [4;36;1mJewelry Load (0.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 5) [0m
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+[paperclip] Deleting attachments.
+  [4;36;1mJewelry Destroy (0.0ms)[0m   [0;1mDELETE FROM "jewelries" WHERE "id" = 5[0m
+  [4;35;1mSQL (327.6ms)[0m   [0mCOMMIT[0m
+Rendering destroy
+Rendered _messages (0.0ms)
+Completed in 343ms (View: 16, DB: 328) | 200 OK [http://localhost/jewelries/5?_method=delete&associated_id=&authenticity_token=SQoN%2Bi2vb4o%2F6C6cKe1buitffdb0DhEH7%2BKjRoaciaE%3D&iframe=true]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-19 10:31:21) [DELETE]
+  Parameters: {"authenticity_token"=>"SQoN+i2vb4o/6C6cKe1buitffdb0DhEH7+KjRoaciaE=", "iframe"=>"true", "id"=>"2", "associated_id"=>""}
+  [4;35;1mJewelry Load (0.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 2) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+[paperclip] Deleting attachments.
+[paperclip] deleting C:/Users/Rolo/Documents/Jewelry/Jewelry/public/system/photos/2/original/bruce_on_rails.jpg
+[paperclip] deleting C:/Users/Rolo/Documents/Jewelry/Jewelry/public/system/photos/2/thumbnail/bruce_on_rails.jpg
+  [4;35;1mJewelry Destroy (0.0ms)[0m   [0mDELETE FROM "jewelries" WHERE "id" = 2[0m
+  [4;36;1mSQL (312.0ms)[0m   [0;1mCOMMIT[0m
+Rendering destroy
+Rendered _messages (0.0ms)
+Completed in 359ms (View: 31, DB: 312) | 200 OK [http://localhost/jewelries/2?_method=delete&associated_id=&authenticity_token=SQoN%2Bi2vb4o%2F6C6cKe1buitffdb0DhEH7%2BKjRoaciaE%3D&iframe=true]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-19 10:31:22) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>""}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (0.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (0.0ms)
+Rendered _messages (0.0ms)
+Rendered _list_messages (15.6ms)
+Rendered _list_pagination (0.0ms)
+Rendered _list (31.2ms)
+Completed in 78ms (View: 47, DB: 0) | 200 OK [http://localhost/jewelries?associated_id=&iframe=true&page=1]
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (134.0ms)[0m   [0mDROP TABLE "jewelries"[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113125940'[0m
+  [4;35;1mSQL (27.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mDROP TABLE "products"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113062515'[0m
+  [4;35;1mSQL (26.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mDROP TABLE "boxes"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113055615'[0m
+  [4;35;1mSQL (47.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (157.0ms)[0m   [0mCREATE TABLE "boxes" ("id" serial primary key, "box_code" character varying(255), "description" character varying(255), "product_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113055615')[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (8.0ms)[0m   [0mCREATE TABLE "products" ("id" serial primary key, "name" character varying(255), "product_auto_code" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113062515')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (17.0ms)[0m   [0mCREATE TABLE "jewelries" ("id" serial primary key, "jewelry_code" character varying(255), "weight" float, "description" character varying(255), "photo_file_name" character varying(255), "photo_content_type" character varying(255), "photo_file_size" integer, "photo_updated_at" timestamp, "purchase_date" date, "purchase_price" decimal, "sold" boolean, "box_id" integer, "product_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113125940')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (55.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (479.1ms)[0m   [0mDROP TABLE "jewelries"[0m
+  [4;36;1mSQL (46.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113125940'[0m
+  [4;35;1mSQL (50.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (7.5ms)[0m   [0mDROP TABLE "products"[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113062515'[0m
+  [4;35;1mSQL (23.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mDROP TABLE "boxes"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113055615'[0m
+  [4;35;1mSQL (74.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (434.6ms)[0m   [0mCREATE TABLE "boxes" ("id" serial primary key, "box_code" character varying(255), "description" character varying(255), "product_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113055615')[0m
+  [4;35;1mSQL (29.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (9.0ms)[0m   [0mCREATE TABLE "products" ("id" serial primary key, "name" character varying(255), "product_auto_code" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113062515')[0m
+  [4;35;1mSQL (5.5ms)[0m   [0mCOMMIT[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (14.5ms)[0m   [0mCREATE TABLE "jewelries" ("id" serial primary key, "jewelry_code" character varying(255), "weight" float, "description" character varying(255), "photo_file_name" character varying(255), "photo_content_type" character varying(255), "photo_file_size" integer, "photo_updated_at" timestamp, "purchase_date" date, "purchase_price" decimal, "status" character varying(255), "box_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113125940')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+Migrating to CreateProducts (20110113062515)
+Migrating to CreateJewelries (20110113125940)
+Migrating to CreateExpenses (20110123215335)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (647.6ms)[0m   [0mCREATE TABLE "expenses" ("id" serial primary key, "concept" character varying(255), "amount" decimal, "jewelry_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110123215335')[0m
+  [4;35;1mSQL (5.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateExpenses (20110123215335)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mDROP TABLE "expenses"[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110123215335'[0m
+  [4;35;1mSQL (39.5ms)[0m   [0mCOMMIT[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mDROP TABLE "jewelries"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113125940'[0m
+  [4;35;1mSQL (6.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mDROP TABLE "products"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113062515'[0m
+  [4;35;1mSQL (6.5ms)[0m   [0mCOMMIT[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mDROP TABLE "boxes"[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20110113055615'[0m
+  [4;35;1mSQL (7.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (379.5ms)[0m   [0mCREATE TABLE "boxes" ("id" serial primary key, "box_code" character varying(255), "description" character varying(255), "product_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113055615')[0m
+  [4;35;1mSQL (38.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateProducts (20110113062515)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (32.5ms)[0m   [0mCREATE TABLE "products" ("id" serial primary key, "name" character varying(255), "product_auto_code" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113062515')[0m
+  [4;35;1mSQL (40.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateJewelries (20110113125940)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (14.0ms)[0m   [0mCREATE TABLE "jewelries" ("id" serial primary key, "jewelry_code" character varying(255), "weight" float, "description" text, "photo_file_name" character varying(255), "photo_content_type" character varying(255), "photo_file_size" integer, "photo_updated_at" timestamp, "purchase_date" date, "purchase_price" decimal, "status" character varying(255), "box_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110113125940')[0m
+  [4;35;1mSQL (5.0ms)[0m   [0mCOMMIT[0m
+Migrating to CreateExpenses (20110123215335)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (16.0ms)[0m   [0mCREATE TABLE "expenses" ("id" serial primary key, "concept" character varying(255), "amount" decimal, "jewelry_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110123215335')[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#index (for 127.0.0.1 at 2011-01-23 18:02:45) [GET]
+  [4;35;1mSQL (322.5ms)[0m   [0mSELECT count(*) AS count_all FROM "products" [0m
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".* FROM "products" ORDER BY "products"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (34.5ms)
+Rendered _list_column_headings (25.5ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (33.0ms)
+Rendered _list_pagination (21.0ms)
+Rendered _list (114.0ms)
+Completed in 7425ms (View: 235, DB: 324) | 200 OK [http://localhost/products]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#new (for 127.0.0.1 at 2011-01-23 18:02:56) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (3.5ms)
+Rendered _horizontal_subform_header (59.0ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (51.0ms)
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (27.0ms)
+Rendered _horizontal_subform (173.5ms)
+Rendered _form_association (234.0ms)
+Rendered _form (299.0ms)
+Rendered _create_form (587.1ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (32.5ms)
+Completed in 654ms (View: 40, DB: 0) | 200 OK [http://localhost/products/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-23 18:03:18) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "record"=>{"name"=>"Aretes", "boxes"=>{"1295820177135"=>{"box_code"=>"", "description"=>""}}}}
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mProduct Load (15.5ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes') LIMIT 1[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _form_attribute (3.5ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (16.5ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" WHERE ((product_id IS NULL)) [0m
+Rendered _form_association_footer (9.5ms)
+Rendered _horizontal_subform (54.5ms)
+Rendered _form_association (67.5ms)
+Rendered _form (121.0ms)
+Rendered _create_form (142.0ms)
+Rendered _messages (1.5ms)
+Completed in 836ms (View: 257, DB: 18) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ProductsController#create (for 127.0.0.1 at 2011-01-23 18:03:31) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "record"=>{"name"=>"Aretes", "boxes"=>{"1295820199244"=>{"box_code"=>"ao1", "description"=>"Aretes de Oro"}}}}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.5ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;36;1mProduct Load (0.5ms)[0m   [0;1mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes') LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id IS NULL) LIMIT 1[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "products".id FROM "products" WHERE (LOWER("products"."name") = 'aretes') LIMIT 1[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "products" ("name", "created_at", "updated_at", "product_auto_code") VALUES('Aretes', '2011-01-23 22:03:32.047593', '2011-01-23 22:03:32.047593', NULL) RETURNING "id"[0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1) LIMIT 1[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "boxes" ("box_code", "created_at", "product_id", "updated_at", "description") VALUES('ao1', '2011-01-23 22:03:32.061094', 1, '2011-01-23 22:03:32.061094', 'Aretes de Oro') RETURNING "id"[0m
+  [4;35;1mSQL (2.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+  [4;36;1mBox Load (2.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."product_id" = 1) [0m
+Rendered _list_record_columns (17.5ms)
+Rendered _list_actions (29.0ms)
+Rendered _list_record (77.0ms)
+Rendered _messages (2.0ms)
+Completed in 533ms (View: 110, DB: 11) | 200 OK [http://localhost/products]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#index (for 127.0.0.1 at 2011-01-23 18:03:36) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".* FROM "boxes" ORDER BY "boxes"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (12.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (13.5ms)
+Rendered _list_record_columns (3.5ms)
+Rendered _list_actions (10.5ms)
+Rendered _list_record (29.5ms)
+Rendered _list_pagination (2.5ms)
+Rendered _list (86.0ms)
+Completed in 151ms (View: 139, DB: 3) | 200 OK [http://localhost/boxes]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#edit (for 127.0.0.1 at 2011-01-23 18:03:41) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mBox Load (1.5ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _form_attribute (8.5ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form (41.5ms)
+Rendered _update_form (94.0ms)
+Rendered _messages (5.5ms)
+Rendered _list_inline_adapter (25.5ms)
+Completed in 181ms (View: 38, DB: 0) | 200 OK [http://localhost/boxes/1/edit?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing BoxesController#row (for 127.0.0.1 at 2011-01-23 18:03:44) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mBox Load (1.5ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _list_record_columns (6.0ms)
+Rendered _list_actions (11.0ms)
+Rendered _list_record (109.0ms)
+Completed in 145ms (View: 135, DB: 3) | 200 OK [http://localhost/boxes/1/row?_method=get]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2011-01-23 18:03:54) [GET]
+
+ActionController::RoutingError (No route matches "/jewleries" with {:method=>:get}):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:04:15) [GET]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (0.5ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (13.5ms)
+Rendered _list_pagination (2.5ms)
+Rendered _list (115.5ms)
+Completed in 175ms (View: 163, DB: 3) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:04:19) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (23.0ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (14.0ms)
+Rendered _horizontal_subform (66.0ms)
+Rendered _form_association (78.0ms)
+Rendered _form_attribute (3.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (6.5ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (193.0ms)
+Rendered _create_form (211.5ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (12.5ms)
+Completed in 257ms (View: 20, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:04:25) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (21.5ms)
+Completed in 403ms (View: 396, DB: 2) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:04:35) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"", "purchase_price"=>"", "weight"=>"", "description"=>"", "purchase_date(1i)"=>""}}
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;35;1mBox Load (4.5ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mJewelry Load (1.5ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_create
+Rendered _messages (1.5ms)
+Rendered _form_messages (14.5ms)
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (18.0ms)
+  [4;35;1mSQL (0.5ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (9.5ms)
+Rendered _horizontal_subform (50.5ms)
+Rendered _form_association (60.5ms)
+Rendered _form_attribute (4.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (5.5ms)
+Rendered _form_attribute (3.5ms)
+Rendered _form (169.5ms)
+Rendered _create_form (204.5ms)
+Rendered _messages (0.0ms)
+Completed in 263ms (View: 2, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:05:15) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"10", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"19", "purchase_price"=>"100", "weight"=>"15", "description"=>"description", "purchase_date(1i)"=>"2011"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (362.5ms)[0m   [0mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:05:15.748261', 100.0, NULL, '2011-01-23 22:05:15.748261', NULL, 15.0, NULL, '2011-10-19', NULL, 'description', 1, NULL) RETURNING "id"[0m
+[paperclip] Saving attachments.
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (3.5ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.5ms)
+
+ActionView::TemplateError (undefined local variable or method `decription' for #<Jewelry:0x9672b70>) on line #9 of vendor/plugins/active_scaffold/frontends/default/views/_list_actions.html.erb:
+6:     <% active_scaffold_config.action_links.each :member do |link| -%>
+7:       <% next if skip_action_link(link) -%>
+8:       <td>
+9:         <%= record.authorized_for?(:crud_type => link.crud_type, :action => link.action) ? render_action_link(link, url_options, record) : "<a class='disabled #{link.action}'>#{link.label}</a>".html_safe -%>
+10:       </td>
+11:     <% end -%>
+12:   </tr>
+
+    app/models/jewelry.rb:23:in `to_label'
+    vendor/plugins/active_scaffold/frontends/default/views/_list_actions.html.erb:9
+    vendor/plugins/active_scaffold/frontends/default/views/_list_actions.html.erb:6
+    vendor/plugins/active_scaffold/frontends/default/views/_list_record.html.erb:10
+    vendor/plugins/active_scaffold/frontends/default/views/on_create.js.rjs:6:in `_run_rjs_vendor47plugins47active_scaffold47frontends47default47views47on_create46js46rjs'
+    vendor/plugins/active_scaffold/frontends/default/views/on_create.js.rjs:1:in `_run_rjs_vendor47plugins47active_scaffold47frontends47default47views47on_create46js46rjs'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (93.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:07:36) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (2.5ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.0ms)
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (9.5ms)
+Rendered _horizontal_subform (46.5ms)
+Rendered _form_association (56.5ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (4.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (155.5ms)
+Rendered _create_form (168.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (8.5ms)
+Completed in 202ms (View: 14, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:07:37) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>""}
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Box with ID=):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (41.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:07:40) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.0ms)
+Completed in 46ms (View: 42, DB: 3) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:07:57) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"11", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"19", "purchase_price"=>"5", "weight"=>"5", "description"=>"description", "purchase_date(1i)"=>"2014"}}
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:07:58.000364', 5.0, NULL, '2011-01-23 22:07:58.000364', NULL, 5.0, NULL, '2014-11-19', NULL, 'description', 1, NULL) RETURNING "id"[0m
+[paperclip] Saving attachments.
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (328.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (24.0ms)
+Rendered _messages (1.0ms)
+Completed in 417ms (View: 2, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:12:33) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "iframe"=>"true", "id"=>"2", "associated_id"=>"1"}
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 2) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+[paperclip] Deleting attachments.
+  [4;35;1mJewelry Destroy (0.5ms)[0m   [0mDELETE FROM "jewelries" WHERE "id" = 2[0m
+  [4;36;1mSQL (325.0ms)[0m   [0;1mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.0ms)
+Completed in 377ms (View: 44, DB: 327) | 200 OK [http://localhost/jewelries/2?_method=delete&associated_id=1&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D&iframe=true]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:12:33) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>"1"}
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.5ms)
+Rendered _list_record (23.0ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (68.5ms)
+Completed in 100ms (View: 93, DB: 3) | 200 OK [http://localhost/jewelries?associated_id=1&iframe=true&page=1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:12:37) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "iframe"=>"true", "id"=>"1", "associated_id"=>"1"}
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+[paperclip] Deleting attachments.
+  [4;35;1mJewelry Destroy (0.5ms)[0m   [0mDELETE FROM "jewelries" WHERE "id" = 1[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.5ms)
+Completed in 33ms (View: 24, DB: 4) | 200 OK [http://localhost/jewelries/1?_method=delete&associated_id=1&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D&iframe=true]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:12:37) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>"1"}
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (39.0ms)
+Completed in 70ms (View: 62, DB: 4) | 200 OK [http://localhost/jewelries?associated_id=1&iframe=true&page=1]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:12:39) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (2.5ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (16.0ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (47.5ms)
+Rendered _form_association (58.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (0.5ms)
+Rendered _form_attribute (4.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (160.0ms)
+Rendered _create_form (173.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_inline_adapter (9.5ms)
+Completed in 208ms (View: 16, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:12:42) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (15.0ms)
+Completed in 113ms (View: 108, DB: 3) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:12:53) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"11", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"19", "purchase_price"=>"5", "weight"=>"5", "description"=>"description", "purchase_date(1i)"=>"2015"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;35;1mProduct Load (1.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:12:53.111339', 5.0, NULL, '2011-01-23 22:12:53.111339', NULL, 5.0, NULL, '2015-11-19', NULL, 'description', 1, NULL) RETURNING "id"[0m
+  [4;35;1mExpense Load (1.5ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 3) LIMIT 1[0m
+  [4;36;1mJewelry Load (0.5ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 3) [0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.5ms)
+Rendered _list_actions (6.5ms)
+Rendered _list_record (22.0ms)
+Rendered _messages (1.5ms)
+Completed in 216ms (View: 2, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:13:04) [GET]
+  [4;36;1mExpense Load (2.0ms)[0m   [0;1mSELECT * FROM "expenses" [0m
+Rendering template within layouts/expenses
+Rendering expenses/index
+Completed in 26ms (View: 15, DB: 3) | 200 OK [http://localhost/expenses]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:14:08) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "iframe"=>"true", "id"=>"3", "associated_id"=>"1"}
+  [4;36;1mJewelry Load (1.5ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 3) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+[paperclip] Deleting attachments.
+  [4;36;1mJewelry Destroy (0.5ms)[0m   [0;1mDELETE FROM "jewelries" WHERE "id" = 3[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.5ms)
+Completed in 34ms (View: 25, DB: 5) | 200 OK [http://localhost/jewelries/3?_method=delete&associated_id=1&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D&iframe=true]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:14:08) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>"1"}
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (39.0ms)
+Completed in 71ms (View: 62, DB: 2) | 200 OK [http://localhost/jewelries?associated_id=1&iframe=true&page=1]
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:15:46) [GET]
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;36;1mExpense Load (0.5ms)[0m   [0;1mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.5ms)
+Rendered _list_column_headings (18.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (11.5ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (49.5ms)
+Completed in 100ms (View: 91, DB: 3) | 200 OK [http://localhost/expenses]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:15:51) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (3.5ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (23.0ms)
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (0.0ms)[0m   [0;1mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (14.0ms)
+Rendered _horizontal_subform (66.0ms)
+Rendered _form_association (78.5ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (6.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (125.5ms)
+Rendered _create_form (144.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (12.5ms)
+Completed in 190ms (View: 20, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:15:53) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>""}
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 0) [0m
+
+ActiveRecord::RecordNotFound (Couldn't find Box with ID=):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (45.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:15:54) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (4.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (25.5ms)
+Completed in 65ms (View: 58, DB: 2) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:16:08) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"10", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"18", "purchase_price"=>"5", "weight"=>"4", "description"=>"description", "purchase_date(1i)"=>"2016"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:16:08.998213', 5.0, NULL, '2011-01-23 22:16:08.998213', NULL, 4.0, NULL, '2016-10-18', NULL, 'description', 1, NULL) RETURNING "id"[0m
+  [4;36;1mExpense Load (1.0ms)[0m   [0;1mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 4) LIMIT 1[0m
+  [4;35;1mJewelry Load (0.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 4) [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.5ms)
+Rendered _list_actions (9.5ms)
+Rendered _list_record (27.5ms)
+Rendered _messages (1.5ms)
+Completed in 108ms (View: 1, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:16:13) [GET]
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;36;1mExpense Load (1.0ms)[0m   [0;1mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (19.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (54.5ms)
+Completed in 181ms (View: 171, DB: 3) | 200 OK [http://localhost/expenses]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:17:29) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "iframe"=>"true", "id"=>"4", "associated_id"=>"1"}
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 4) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+[paperclip] Deleting attachments.
+  [4;35;1mJewelry Destroy (0.5ms)[0m   [0mDELETE FROM "jewelries" WHERE "id" = 4[0m
+  [4;36;1mSQL (333.0ms)[0m   [0;1mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.0ms)
+Completed in 366ms (View: 25, DB: 336) | 200 OK [http://localhost/jewelries/4?_method=delete&associated_id=1&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D&iframe=true]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:17:29) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>"1"}
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (78.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (12.5ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (111.0ms)
+Completed in 144ms (View: 134, DB: 2) | 200 OK [http://localhost/jewelries?associated_id=1&iframe=true&page=1]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:17:35) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (3.5ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (25.5ms)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (9.5ms)
+Rendered _horizontal_subform (139.0ms)
+Rendered _form_association (150.0ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (5.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (185.5ms)
+Rendered _create_form (200.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_inline_adapter (12.5ms)
+Completed in 244ms (View: 19, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:18:19) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (93.0ms)
+Completed in 122ms (View: 118, DB: 1) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:18:35) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"9", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"17", "purchase_price"=>"5", "weight"=>"5", "description"=>"des", "purchase_date(1i)"=>"2014"}}
+  [4;35;1mSQL (0.5ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mJewelry Load (0.5ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;35;1mProduct Load (0.5ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:18:35.940372', 5.0, NULL, '2011-01-23 22:18:35.940372', NULL, 5.0, NULL, '2014-09-17', NULL, 'des', 1, NULL) RETURNING "id"[0m
+  [4;35;1mExpense Load (1.5ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 5) LIMIT 1[0m
+  [4;36;1mJewelry Load (0.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 5) [0m
+  [4;35;1mBox Load (0.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.5ms)
+Rendered _list_actions (6.5ms)
+Rendered _list_record (23.0ms)
+Rendered _messages (1.5ms)
+Completed in 95ms (View: 2, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mExpense Load (2.0ms)[0m   [0mSELECT * FROM "expenses" [0m
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+Migrating to CreateProducts (20110113062515)
+Migrating to CreateJewelries (20110113125940)
+Migrating to CreateExpenses (20110123215335)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:25:44) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.5ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (8.5ms)
+Rendered _list_record (26.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (73.0ms)
+Completed in 182ms (View: 174, DB: 4) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:25:45) [GET]
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;35;1mExpense Load (1.0ms)[0m   [0mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (10.5ms)
+Rendered _list_column_headings (27.5ms)
+Rendered _messages (3.0ms)
+Rendered _list_messages (19.0ms)
+Rendered _list_pagination (3.0ms)
+Rendered _list (78.5ms)
+Completed in 162ms (View: 142, DB: 4) | 200 OK [http://localhost/expenses]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:25:57) [GET]
+  [4;36;1mSQL (1.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (14.0ms)
+Rendered _list_record_columns (5.5ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (30.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (86.0ms)
+Completed in 150ms (View: 136, DB: 4) | 200 OK [http://localhost/jewelries]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:26:03) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "id"=>"5"}
+  [4;35;1mJewelry Load (2.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 5) [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mExpense Load (1.5ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 5) LIMIT 1[0m
+[paperclip] Deleting attachments.
+  [4;36;1mJewelry Destroy (0.5ms)[0m   [0;1mDELETE FROM "jewelries" WHERE "id" = 5[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.5ms)
+Completed in 53ms (View: 32, DB: 5) | 200 OK [http://localhost/jewelries/5?_method=delete&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:26:03) [GET]
+  Parameters: {"page"=>"1"}
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (8.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (14.5ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (50.0ms)
+Completed in 93ms (View: 79, DB: 4) | 200 OK [http://localhost/jewelries?page=1]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:26:04) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (4.0ms)
+Rendered _form_attribute (3.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (24.0ms)
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (15.0ms)
+Rendered _horizontal_subform (68.5ms)
+Rendered _form_association (82.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form_attribute (6.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (129.5ms)
+Rendered _create_form (148.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_inline_adapter (12.0ms)
+Completed in 193ms (View: 20, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:26:07) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (3.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _horizontal_subform_record (21.0ms)
+Completed in 57ms (View: 50, DB: 2) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:26:21) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"11", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"19", "purchase_price"=>"5", "weight"=>"5", "description"=>"des", "purchase_date(1i)"=>"2015"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (2.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;36;1mProduct Load (2.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:26:21.938547', 5.0, NULL, '2011-01-23 22:26:21.938547', NULL, 5.0, NULL, '2015-11-19', NULL, 'des', 1, NULL) RETURNING "id"[0m
+  [4;36;1mExpense Load (1.5ms)[0m   [0;1mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 6) LIMIT 1[0m
+  [4;35;1mJewelry Load (0.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 6) [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (326.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.5ms)
+Rendered _list_actions (9.5ms)
+Rendered _list_record (26.5ms)
+Rendered _messages (1.5ms)
+Completed in 638ms (View: 1, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:26:26) [GET]
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;36;1mExpense Load (1.0ms)[0m   [0;1mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (22.5ms)
+Rendered _messages (1.5ms)
+Rendered _list_messages (15.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (63.5ms)
+Completed in 128ms (View: 114, DB: 5) | 200 OK [http://localhost/expenses]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#destroy (for 127.0.0.1 at 2011-01-23 18:27:24) [DELETE]
+  Parameters: {"authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "iframe"=>"true", "id"=>"6", "associated_id"=>"1"}
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 6) [0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mExpense Load (1.0ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 6) LIMIT 1[0m
+[paperclip] Deleting attachments.
+  [4;36;1mJewelry Destroy (0.5ms)[0m   [0;1mDELETE FROM "jewelries" WHERE "id" = 6[0m
+  [4;35;1mSQL (330.5ms)[0m   [0mCOMMIT[0m
+Rendering destroy
+Rendered _messages (1.5ms)
+Completed in 366ms (View: 25, DB: 334) | 200 OK [http://localhost/jewelries/6?_method=delete&associated_id=1&authenticity_token=49kPs%2F%2FpLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE%3D&iframe=true]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-23 18:27:25) [GET]
+  Parameters: {"iframe"=>"true", "page"=>"1", "associated_id"=>"1"}
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (0.5ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering list
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (38.5ms)
+Completed in 69ms (View: 60, DB: 2) | 200 OK [http://localhost/jewelries?associated_id=1&iframe=true&page=1]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-23 18:27:25) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (2.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.5ms)
+  [4;35;1mSQL (1.5ms)[0m   [0mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (10.0ms)
+Rendered _horizontal_subform (47.0ms)
+Rendered _form_association (56.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (0.5ms)
+Rendered _form_attribute (4.0ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (85.5ms)
+Rendered _create_form (97.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (8.5ms)
+Completed in 130ms (View: 14, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-23 18:27:51) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;36;1mBox Load (1.5ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (15.5ms)
+Completed in 43ms (View: 39, DB: 3) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-23 18:28:00) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"49kPs//pLa0XlP9HXTEPR2qwCPO9TEauBlwUTJIrbSE=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"11", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"18", "purchase_price"=>"5", "weight"=>"5", "description"=>"des", "purchase_date(1i)"=>"2014"}}
+  [4;36;1mSQL (0.5ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mBox Load (1.5ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;36;1mBox Load (0.5ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mJewelry Load (1.5ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;36;1mProduct Load (1.0ms)[0m   [0;1mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-23 22:28:00.813102', 5.0, NULL, '2011-01-23 22:28:00.813102', NULL, 5.0, NULL, '2014-11-18', NULL, 'des', 1, NULL) RETURNING "id"[0m
+  [4;36;1mExpense Load (1.5ms)[0m   [0;1mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 7) LIMIT 1[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO "expenses" ("concept", "created_at", "updated_at", "amount", "jewelry_id") VALUES(NULL, '2011-01-23 22:28:00.813102', '2011-01-23 22:28:00.813102', NULL, 7) RETURNING "id"[0m
+[paperclip] Saving attachments.
+  [4;36;1mExpense Update (2.0ms)[0m   [0;1mUPDATE "expenses" SET "updated_at" = '2011-01-23 22:28:00.837105', "amount" = 5.0, "concept" = 'Compra de joya.' WHERE "id" = 1[0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mSQL (131.0ms)[0m   [0;1mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (22.5ms)
+Rendered _messages (1.5ms)
+Completed in 237ms (View: 2, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-23 18:28:03) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;35;1mExpense Load (1.0ms)[0m   [0mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mJewelry Load (1.5ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.5ms)
+Rendered _list_column_headings (18.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (10.5ms)
+Rendered _list_record_columns (6.5ms)
+Rendered _list_actions (7.5ms)
+Rendered _list_record (26.5ms)
+Rendered _list_pagination (1.5ms)
+Rendered _list (79.5ms)
+Completed in 129ms (View: 118, DB: 6) | 200 OK [http://localhost/expenses]
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit (for 127.0.0.1 at 2011-01-23 18:28:10) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"7", "parent_controller"=>"expenses"}
+  [4;36;1mJewelry Load (2.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+  [4;35;1mBox Load (1.5ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendered _horizontal_subform_header (2.5ms)
+Rendered _form_attribute (3.5ms)
+Rendered _form_attribute (2.0ms)
+Rendered _horizontal_subform_record (22.5ms)
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (0.5ms)[0m   [0mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (13.5ms)
+Rendered _horizontal_subform (64.0ms)
+Rendered _form_association (80.5ms)
+Rendered _form_attribute (2.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (6.5ms)
+Rendered _form_attribute (1.5ms)
+Rendered _form (126.0ms)
+Rendered _update_form (144.5ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (12.0ms)
+Completed in 259ms (View: 85, DB: 0) | 200 OK [http://localhost/jewelries/7/edit?_method=get&parent_controller=expenses&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#row (for 127.0.0.1 at 2011-01-23 18:28:28) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mExpense Load (2.0ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses"."id" = 1) [0m
+  [4;36;1mJewelry Load (2.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+Rendered _list_record_columns (10.5ms)
+Rendered _list_actions (6.5ms)
+Rendered _list_record (30.0ms)
+Completed in 54ms (View: 47, DB: 6) | 200 OK [http://localhost/expenses/1/row?_method=get]
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
