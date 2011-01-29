@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  concept: MyString
+  amount: 9.99
+  payment_id: 1
+  payment_type: MyString
+
+two:
+  concept: MyString
+  amount: 9.99
+  payment_id: 1
+  payment_type: MyString
