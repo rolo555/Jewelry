@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  concept: MyString
+  amount: 9.99
+  jewelry_id: 1
+
+two:
+  concept: MyString
+  amount: 9.99
+  jewelry_id: 1
