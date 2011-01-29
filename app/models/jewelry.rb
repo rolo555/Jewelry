@@ -33,6 +33,7 @@ class Jewelry < ActiveRecord::Base
     self.expense.amount = self.purchase_price
     copy_product_auto_code
     self.expense.save
+    box.product.increase_product_auto_code
   end
 
   private
