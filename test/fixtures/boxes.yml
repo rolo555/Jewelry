@@ -3,6 +3,7 @@
 one:
   box_code: MyString
   description: MyString
+  product: one
 
 two:
   box_code: MyString

@@ -31,7 +31,13 @@ class Jewelry < ActiveRecord::Base
   def after_save
     self.expense.concept = "Compra de joya."
     self.expense.amount = self.purchase_price
+    copy_product_auto_code
     self.expense.save
   end
 
+  private
+  
+  def copy_product_auto_code
+    self.product_auto_code = box.product.product_auto_code 
+  end
 end

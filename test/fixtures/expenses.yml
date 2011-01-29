@@ -3,7 +3,7 @@
 one:
   concept: MyString
   amount: 9.99
-  jewelry_id: 1
+  jewelry: one
 
 two:
   concept: MyString

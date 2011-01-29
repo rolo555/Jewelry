@@ -7,6 +7,7 @@ one:
   purchase_date: 2011-01-13
   purchase_price: 9.99
   status: MyString
+  box: one
 
 two:
   jewelry_code: MyString
