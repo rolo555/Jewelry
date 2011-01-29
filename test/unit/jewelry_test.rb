@@ -6,17 +6,17 @@ class JewelryTest < ActiveSupport::TestCase
     assert_equal 123, jewelry.product_auto_code
   end
 
-  test "after save jewelry should copy its box.product.product_auto_code" do
+  test "before create jewelry should copy its box.product.product_auto_code" do
     jewelry = jewelries :one
     product_auto_code = jewelry.box.product.product_auto_code
-    jewelry.save
+    jewelry.before_create
     assert_equal product_auto_code, jewelry.product_auto_code
   end
 
-  test "after save jewelry should call product.increase_product_auto_code" do
+  test "before create jewelry should call product.increase_product_auto_code" do
     jewelry = jewelries :one
     stub(jewelry.box.product).increase_product_auto_code
-    jewelry.save
+    jewelry.before_create
     assert_received(jewelry.box.product) {|subject| subject.increase_product_auto_code}
   end
 end
