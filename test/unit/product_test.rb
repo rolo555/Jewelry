@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+  test "increase product_auto_code" do
+    product = products :one
+    assert_difference "product.product_auto_code" do
+      product.increase_product_auto_code
+    end
   end
 end
