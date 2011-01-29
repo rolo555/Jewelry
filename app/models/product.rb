@@ -24,7 +24,7 @@ class Product < ActiveRecord::Base
     self.save
   end
 
-  def after_create
+  def before_create
     self.product_auto_code = 0
   end
 end
