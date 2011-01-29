@@ -23,4 +23,8 @@ class Product < ActiveRecord::Base
     self.product_auto_code = self.product_auto_code + 1
     self.save
   end
+
+  def after_create
+    self.product_auto_code = 0
+  end
 end
