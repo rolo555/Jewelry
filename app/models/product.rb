@@ -5,7 +5,6 @@ class Product < ActiveRecord::Base
 
   #Relaciones
   has_many :boxes, :dependent => :destroy
-  has_many :jewelries, :through => :boxes
 
   #Validaciones
   validates_presence_of :name, :boxes
