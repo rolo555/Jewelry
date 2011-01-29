@@ -1,25 +1,18 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  code: MyString
+  jewelry_code: MyString
   weight: 1.5
   description: MyString
-  photo_file_name: MyString
-  photo_content_type: MyString
-  photo_file_size: 1
-  photo_updated_at: 2011-01-13 08:59:40
-  product_id: 1
   purchase_date: 2011-01-13
   purchase_price: 9.99
+  status: MyString
 
 two:
-  code: MyString
+  jewelry_code: MyString
   weight: 1.5
   description: MyString
   photo_file_name: MyString
-  photo_content_type: MyString
-  photo_file_size: 1
-  photo_updated_at: 2011-01-13 08:59:40
-  product_id: 1
   purchase_date: 2011-01-13
   purchase_price: 9.99
+  status: MyString
