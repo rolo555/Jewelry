@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20110129153130) do
     t.integer  "box_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "product_auto_code"
   end
 
   create_table "products", :force => true do |t|

@@ -4,7 +4,7 @@ class ProductsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:products)
+    assert_not_nil assigns(:records)
   end
 
   test "should get new" do
@@ -13,11 +13,14 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should create product" do
+    any_instance_of(Product) do |p|
+      stub(p).boxes {[boxes :one]}
+    end
     assert_difference('Product.count') do
-      post :create, :product => { }
+      post :create, :record => { :name => 'n' }
     end
 
-    assert_redirected_to product_path(assigns(:product))
+    assert_redirected_to products_path
   end
 
   test "should show product" do
@@ -31,8 +34,8 @@ class ProductsControllerTest < ActionController::TestCase
   end
 
   test "should update product" do
-    put :update, :id => products(:one).to_param, :product => { }
-    assert_redirected_to product_path(assigns(:product))
+    put :update, :id => products(:one).to_param, :record => {:name=>"dude", :boxes=>{"123"=>{:box_code=>"123", :description=>"123"}}}
+    assert_redirected_to products_path
   end
 
   test "should destroy product" do

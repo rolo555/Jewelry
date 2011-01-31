@@ -19,4 +19,14 @@ class Product < ActiveRecord::Base
     "#{name}"
   end
 
+  def increase_product_auto_code
+    self.product_auto_code = self.product_auto_code + 1
+    self.save
+    nil
+  end
+
+  def before_create
+    self.product_auto_code = 0
+    nil
+  end
 end

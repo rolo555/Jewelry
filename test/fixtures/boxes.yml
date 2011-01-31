@@ -1,9 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  code: MyString
+  box_code: MyString
   description: MyString
+  product: one
 
 two:
-  code: MyString
+  box_code: MyString
   description: MyString
