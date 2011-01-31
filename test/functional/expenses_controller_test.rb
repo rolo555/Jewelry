@@ -4,7 +4,7 @@ class ExpensesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:expenses)
+    assert_not_nil assigns(:records)
   end
 
   test "should get new" do
@@ -14,10 +14,10 @@ class ExpensesControllerTest < ActionController::TestCase
 
   test "should create expense" do
     assert_difference('Expense.count') do
-      post :create, :expense => { }
+      post :create, :record => { }
     end
 
-    assert_redirected_to expense_path(assigns(:expense))
+    assert_redirected_to expenses_path
   end
 
   test "should show expense" do
@@ -31,8 +31,8 @@ class ExpensesControllerTest < ActionController::TestCase
   end
 
   test "should update expense" do
-    put :update, :id => expenses(:one).to_param, :expense => { }
-    assert_redirected_to expense_path(assigns(:expense))
+    put :update, :id => expenses(:one).to_param, :record => { }
+    assert_redirected_to expenses_path
   end
 
   test "should destroy expense" do

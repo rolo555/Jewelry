@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
 
-
+  map.resources :sales, :active_scaffold => true
   map.resources :incomes, :active_scaffold => true
   map.resources :expenses, :active_scaffold => true
   map.resources :jewelries, :active_scaffold => true

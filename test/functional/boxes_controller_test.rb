@@ -4,7 +4,7 @@ class BoxesControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:boxes)
+    assert_not_nil assigns(:records)
   end
 
   test "should get new" do
@@ -14,10 +14,10 @@ class BoxesControllerTest < ActionController::TestCase
 
   test "should create box" do
     assert_difference('Box.count') do
-      post :create, :box => { }
+      post :create, :record => { :box_code => '9', :description => 'Box nine' }
     end
 
-    assert_redirected_to box_path(assigns(:box))
+    assert_redirected_to boxes_path
   end
 
   test "should show box" do
@@ -31,8 +31,8 @@ class BoxesControllerTest < ActionController::TestCase
   end
 
   test "should update box" do
-    put :update, :id => boxes(:one).to_param, :box => { }
-    assert_redirected_to box_path(assigns(:box))
+    put :update, :id => boxes(:one).to_param, :record => { }
+    assert_redirected_to boxes_path
   end
 
   test "should destroy box" do

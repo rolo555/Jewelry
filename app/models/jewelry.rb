@@ -6,6 +6,7 @@ class Jewelry < ActiveRecord::Base
   #Relaciones
   belongs_to :box
   has_one :expense, :dependent => :destroy
+  has_one :sale, :dependent => :destroy
 
   #Fotografia
   has_attached_file :photo,
@@ -26,12 +27,25 @@ class Jewelry < ActiveRecord::Base
   def after_create
     self.expense = Expense.new :created_at => self.created_at, :updated_at => self.updated_at
     self.expense.save
+    nil
+  end
+
+  def before_create
+    copy_product_auto_code
+    box.product.increase_product_auto_code
+    nil
   end
 
   def after_save
     self.expense.concept = "Compra de joya."
     self.expense.amount = self.purchase_price
     self.expense.save
+    nil
   end
 
+  private
+  
+  def copy_product_auto_code
+    self.product_auto_code = box.product.product_auto_code 
+  end
 end
