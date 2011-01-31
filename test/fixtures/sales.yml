@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 9.99
+  jewelry_id: 1
+  date_of_sale: 2011-01-29
+
+two:
+  amount: 9.99
+  jewelry_id: 1
+  date_of_sale: 2011-01-29

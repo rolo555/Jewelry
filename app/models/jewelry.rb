@@ -6,6 +6,7 @@ class Jewelry < ActiveRecord::Base
   #Relaciones
   belongs_to :box
   has_one :expense, :dependent => :destroy
+  has_one :sale, :dependent => :destroy
 
   #Fotografia
   has_attached_file :photo,

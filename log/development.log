@@ -7307,3 +7307,1073 @@ ActiveScaffold: extending RESTful routes for expenses
 ActiveScaffold: extending RESTful routes for jewelries
 ActiveScaffold: extending RESTful routes for products
 ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 10:52:37) [GET]
+  [4;35;1mSQL (186.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (21.0ms)
+Rendered _list_column_headings (26.0ms)
+Rendered _messages (3.0ms)
+Rendered _list_messages (22.0ms)
+Rendered _list_record_columns (16.0ms)
+Rendered _list_actions (32.0ms)
+Rendered _list_record (89.0ms)
+Rendered _list_pagination (26.0ms)
+Rendered _list (215.0ms)
+Completed in 7249ms (View: 287, DB: 187) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#new (for 127.0.0.1 at 2011-01-29 10:52:50) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _horizontal_subform_header (3.0ms)
+Rendered _form_attribute (4.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (92.0ms)
+  [4;36;1mSQL (31.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "boxes" [0m
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" [0m
+Rendered _form_association_footer (63.0ms)
+Rendered _horizontal_subform (196.0ms)
+Rendered _form_association (222.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (6.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (275.0ms)
+Rendered _create_form (637.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (35.0ms)
+Completed in 704ms (View: 43, DB: 0) | 200 OK [http://localhost/jewelries/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#edit_associated (for 127.0.0.1 at 2011-01-29 10:53:02) [GET]
+  Parameters: {"association"=>"box", "associated_id"=>"1"}
+  [4;35;1mBox Load (1.0ms)[0m   [0mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+Rendering edit_associated
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _horizontal_subform_record (16.0ms)
+Completed in 450ms (View: 445, DB: 1) | 200 OK [http://localhost/jewelries/edit_associated?associated_id=1&association=box]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#create (for 127.0.0.1 at 2011-01-29 10:53:56) [POST]
+  Parameters: {"commit"=>"Create", "iframe"=>"true", "authenticity_token"=>"CaAnUzKgb/S68wyWCpqbV8FKAEsv08rJb84Y2zqEojo=", "associated_id"=>"1", "record"=>{"purchase_date(2i)"=>"10", "box"=>{"box_code"=>"ao1", "id"=>"1", "description"=>"Aretes de Oro"}, "purchase_date(3i)"=>"19", "purchase_price"=>"100", "weight"=>"15", "description"=>"des", "purchase_date(1i)"=>"2015"}}
+  [4;35;1mSQL (0.0ms)[0m   [0mBEGIN[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;35;1mBox Load (29.0ms)[0m   [0mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries".box_id = 1) [0m
+  [4;35;1mProduct Load (27.0ms)[0m   [0mSELECT * FROM "products" WHERE ("products"."id" = 1) [0m
+  [4;36;1mSQL (55.0ms)[0m   [0;1mINSERT INTO "jewelries" ("photo_file_size", "created_at", "purchase_price", "photo_file_name", "updated_at", "jewelry_code", "weight", "photo_content_type", "purchase_date", "photo_updated_at", "description", "box_id", "status") VALUES(NULL, '2011-01-29 14:53:57.111600', 100.0, NULL, '2011-01-29 14:53:57.111600', NULL, 15.0, NULL, '2015-10-19', NULL, 'des', 1, NULL) RETURNING "id"[0m
+  [4;35;1mExpense Load (28.0ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 8) LIMIT 1[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mINSERT INTO "expenses" ("concept", "created_at", "updated_at", "amount", "jewelry_id") VALUES(NULL, '2011-01-29 14:53:57.111600', '2011-01-29 14:53:57.111600', NULL, 8) RETURNING "id"[0m
+[paperclip] Saving attachments.
+  [4;35;1mExpense Update (1.0ms)[0m   [0mUPDATE "expenses" SET "updated_at" = '2011-01-29 14:53:57.571626', "amount" = 100.0, "concept" = 'Compra de joya.' WHERE "id" = 2[0m
+  [4;36;1mBox Load (1.0ms)[0m   [0;1mSELECT "boxes".id FROM "boxes" WHERE (LOWER("boxes"."box_code") = 'ao1' AND "boxes".product_id = 1 AND "boxes".id <> 1) LIMIT 1[0m
+  [4;35;1mSQL (37.0ms)[0m   [0mCOMMIT[0m
+Rendering on_create
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (24.0ms)
+Rendered _messages (1.0ms)
+Completed in 1193ms (View: 1, DB: 0) | 200 OK [http://localhost/jewelries?iframe=true]
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mExpense Load (1.0ms)[0m   [0mSELECT * FROM "expenses" [0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#index (for 127.0.0.1 at 2011-01-29 11:17:11) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "expenses" [0m
+  [4;36;1mExpense Load (0.0ms)[0m   [0;1mSELECT "expenses".* FROM "expenses" ORDER BY "expenses"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;35;1mJewelry Load (2.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" IN (7,8)) [0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (17.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (13.0ms)
+Rendered _list_record_columns (7.0ms)
+Rendered _list_actions (10.0ms)
+Rendered _list_record (29.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (9.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (95.0ms)
+Completed in 150ms (View: 137, DB: 4) | 200 OK [http://localhost/expenses]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#show (for 127.0.0.1 at 2011-01-29 11:17:21) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"1"}
+  [4;35;1mExpense Load (2.0ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses"."id" = 1) [0m
+  [4;36;1mJewelry Load (2.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+Rendered _show_columns (16.0ms)
+Rendered _show (40.0ms)
+Rendered _messages (5.0ms)
+Rendered _list_inline_adapter (338.0ms)
+Completed in 448ms (View: 348, DB: 0) | 200 OK [http://localhost/expenses/1?_method=get&adapter=_list_inline_adapter]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing ExpensesController#show (for 127.0.0.1 at 2011-01-29 11:17:30) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"2"}
+  [4;36;1mExpense Load (2.0ms)[0m   [0;1mSELECT * FROM "expenses" WHERE ("expenses"."id" = 2) [0m
+  [4;35;1mJewelry Load (2.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 8) [0m
+Rendered _show_columns (15.0ms)
+Rendered _show (34.0ms)
+Rendered _messages (5.0ms)
+Rendered _list_inline_adapter (22.0ms)
+Completed in 123ms (View: 34, DB: 0) | 200 OK [http://localhost/expenses/2?_method=get&adapter=_list_inline_adapter]
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+  [4;35;1mSQL (44.0ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateBoxes (20110113055615)
+Migrating to CreateProducts (20110113062515)
+Migrating to CreateJewelries (20110113125940)
+Migrating to CreateExpenses (20110123215335)
+Migrating to CreateSales (20110129153130)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (185.0ms)[0m   [0mCREATE TABLE "sales" ("id" serial primary key, "amount" decimal, "jewelry_id" integer, "date_of_sale" date, "created_at" timestamp, "updated_at" timestamp) [0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110129153130')[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:45:13) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (9.0ms)
+Rendered _list_record (93.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (10.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (145.0ms)
+Completed in 195ms (View: 186, DB: 3) | 200 OK [http://localhost/jewelries]
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:45:44) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (9.0ms)
+Rendered _list_record (26.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (9.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (79.0ms)
+Completed in 132ms (View: 124, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:46:09) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (0.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (10.0ms)
+Rendered _list_column_headings (9.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (15.0ms)
+Rendered _list_record_columns (6.0ms)
+Rendered _list_actions (10.0ms)
+Rendered _list_record (33.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (14.0ms)
+Rendered _list_pagination (3.0ms)
+Rendered _list (169.0ms)
+Completed in 240ms (View: 226, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:47:01) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (22.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (73.0ms)
+Completed in 120ms (View: 112, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:48:15) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (21.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (71.0ms)
+Completed in 172ms (View: 164, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:48:16) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (10.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (21.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (69.0ms)
+Completed in 114ms (View: 105, DB: 3) | 200 OK [http://localhost/jewelries]
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:48:46) [GET]
+  [4;35;1mSQL (5.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_record_columns (5.0ms)
+Rendered _list_actions (10.0ms)
+Rendered _list_record (28.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (4.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (82.0ms)
+Completed in 147ms (View: 131, DB: 6) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 11:49:46) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (9.0ms)
+Rendered _list_record (24.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (11.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (130.0ms)
+Completed in 176ms (View: 167, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#sale (for 127.0.0.1 at 2011-01-29 11:49:52) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"7"}
+
+ActionController::UnknownAction (No action responded to sale. Actions: create, delete, destroy, edit, edit_associated, index, list, nested, new, render_field, row, show, show_search, update, and update_column):
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+ActiveScaffold: extending RESTful routes for sales
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#index (for 127.0.0.1 at 2011-01-29 11:58:40) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sales" [0m
+  [4;35;1mSale Load (1.0ms)[0m   [0mSELECT "sales".* FROM "sales" ORDER BY "sales"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "sales".* FROM "sales" ORDER BY "sales"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (9.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (39.0ms)
+Completed in 90ms (View: 80, DB: 4) | 200 OK [http://localhost/sales]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 11:58:46) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter"}
+Rendered _form_attribute (8.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (25.0ms)
+Rendered _create_form (45.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (11.0ms)
+Completed in 139ms (View: 18, DB: 0) | 200 OK [http://localhost/sales/new?_method=get&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 12:01:14) [GET]
+  [4;35;1mSQL (1.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (7.0ms)
+Rendered _list_column_headings (7.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (12.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (10.0ms)
+Rendered _list_record (29.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (11.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (86.0ms)
+Completed in 200ms (View: 192, DB: 3) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:01:18) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"7"}
+Rendered _form_attribute (9.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (27.0ms)
+Rendered _create_form (46.0ms)
+Rendered _messages (2.0ms)
+Rendered _list_inline_adapter (12.0ms)
+Completed in 90ms (View: 18, DB: 0) | 200 OK [http://localhost/sales/new?_method=get&id=7&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#row (for 127.0.0.1 at 2011-01-29 12:01:52) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mJewelry Load (2.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (25.0ms)
+Completed in 48ms (View: 43, DB: 2) | 200 OK [http://localhost/jewelries/7/row?_method=get]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:01:54) [GET]
+  Parameters: {"id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (9.0ms)
+Rendered _form_attribute (6.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (18.0ms)
+Rendered _create_form (42.0ms)
+Completed in 71ms (View: 68, DB: 0) | 200 OK [http://localhost/sales/new?id=7]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#index (for 127.0.0.1 at 2011-01-29 12:02:03) [GET]
+  [4;36;1mSQL (2.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "sales" [0m
+  [4;35;1mSale Load (1.0ms)[0m   [0mSELECT "sales".* FROM "sales" ORDER BY "sales"."id" ASC LIMIT 15 OFFSET 0[0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT "sales".* FROM "sales" ORDER BY "sales"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (12.0ms)
+Rendered _list_column_headings (19.0ms)
+Rendered _messages (5.0ms)
+Rendered _list_messages (27.0ms)
+Rendered _list_pagination (5.0ms)
+Rendered _list (93.0ms)
+Completed in 262ms (View: 236, DB: 3) | 200 OK [http://localhost/sales]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:02:44) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"8"}
+Rendered _form_attribute (5.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (18.0ms)
+Rendered _create_form (31.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_inline_adapter (8.0ms)
+Completed in 62ms (View: 13, DB: 0) | 200 OK [http://localhost/sales/new?_method=get&id=8&adapter=_list_inline_adapter]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#row (for 127.0.0.1 at 2011-01-29 12:02:53) [GET]
+  Parameters: {"id"=>"8"}
+  [4;35;1mJewelry Load (2.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 8) [0m
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (24.0ms)
+Completed in 45ms (View: 40, DB: 2) | 200 OK [http://localhost/jewelries/8/row?_method=get]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 12:02:54) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (10.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (6.0ms)
+Rendered _list_record (22.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (8.0ms)
+Rendered _list_pagination (1.0ms)
+Rendered _list (73.0ms)
+Completed in 119ms (View: 110, DB: 2) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:02:58) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (9.0ms)
+Rendered _form_attribute (6.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form (81.0ms)
+Rendered _create_form (106.0ms)
+Completed in 138ms (View: 135, DB: 1) | 200 OK [http://localhost/sales/new?id=8]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:03:04) [GET]
+  Parameters: {"id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (12.0ms)
+Rendered _form_attribute (8.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (25.0ms)
+Rendered _create_form (59.0ms)
+Completed in 98ms (View: 93, DB: 0) | 200 OK [http://localhost/sales/new?id=7]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:03:10) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (9.0ms)
+Rendered _form_attribute (6.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (21.0ms)
+Rendered _create_form (48.0ms)
+Completed in 398ms (View: 394, DB: 1) | 200 OK [http://localhost/sales/new?id=8]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:03:25) [GET]
+  Parameters: {"id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (11.0ms)
+Rendered _form_attribute (7.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (24.0ms)
+Rendered _create_form (116.0ms)
+Completed in 156ms (View: 151, DB: 1) | 200 OK [http://localhost/sales/new?id=7]
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 12:07:57) [GET]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (4.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (8.0ms)
+Rendered _list_record (24.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (9.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (75.0ms)
+Completed in 122ms (View: 115, DB: 4) | 200 OK [http://localhost/jewelries]
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:08:00) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (9.0ms)
+Sat Jan 29 12:08:01 -0400 2011#<NoMethodError: undefined method `jewelrys_name' for #<Sale:0x91de140>> -- on the ActiveScaffold column = :jewelrys_name in SalesController
+
+ActionView::TemplateError (undefined method `jewelrys_name' for #<Sale:0x91de140>) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (116.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+ActiveScaffold: extending RESTful routes for sales
+ActiveScaffold: extending RESTful routes for incomes
+ActiveScaffold: extending RESTful routes for expenses
+ActiveScaffold: extending RESTful routes for jewelries
+ActiveScaffold: extending RESTful routes for products
+ActiveScaffold: extending RESTful routes for boxes
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:11:11) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (7.0ms)
+Sat Jan 29 12:11:11 -0400 2011#<NoMethodError: undefined method `jewelrys_name' for #<Sale:0x9107820>> -- on the ActiveScaffold column = :jewelrys_name in SalesController
+
+ActionView::TemplateError (undefined method `jewelrys_name' for #<Sale:0x9107820>) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (98.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:12:23) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (8.0ms)
+Sat Jan 29 12:12:23 -0400 2011#<NoMethodError: undefined method `jewelrys_name' for #<Sale:0x91b1ef0>> -- on the ActiveScaffold column = :jewelrys_name in SalesController
+
+ActionView::TemplateError (undefined method `jewelrys_name' for #<Sale:0x91b1ef0>) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (164.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:14:49) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (9.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form_attribute (4.0ms)
+Rendered _form_attribute (1.0ms)
+Rendered _form (22.0ms)
+Rendered _create_form (50.0ms)
+Completed in 78ms (View: 74, DB: 1) | 200 OK [http://localhost/sales/new?id=7&jewelry=%23%3CActiveScaffold%3A%3AConfig%3A%3ACore%3A0x929b9c8%3E]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:15:32) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (7.0ms)
+Sat Jan 29 12:15:32 -0400 2011#<NoMethodError: undefined method `to_label' for nil:NilClass> -- on the ActiveScaffold column = :jewelry_name in SalesController
+
+ActionView::TemplateError (undefined method `to_label' for nil:NilClass) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    app/helpers/sales_helper.rb:3:in `sale_jewelry_name_form_column'
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (99.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:16:15) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (7.0ms)
+Sat Jan 29 12:16:15 -0400 2011#<NoMethodError: undefined method `to_label' for nil:NilClass> -- on the ActiveScaffold column = :jewelry_name in SalesController
+
+ActionView::TemplateError (undefined method `to_label' for nil:NilClass) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    app/helpers/sales_helper.rb:3:in `sale_jewelry_name_form_column'
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (166.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:22:25) [GET]
+  Parameters: {"jewelry"=>"#<ActiveScaffold::Config::Core:0x929b9c8>", "id"=>"7"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (1.0ms)
+Rendered _form_messages (8.0ms)
+Sat Jan 29 12:22:25 -0400 2011#<NoMethodError: undefined method `to_label' for nil:NilClass> -- on the ActiveScaffold column = :jewelry_name in SalesController
+
+ActionView::TemplateError (undefined method `to_label' for nil:NilClass) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    app/helpers/sales_helper.rb:3:in `sale_jewelry_name_form_column'
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (175.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 12:23:32) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (0.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (6.0ms)
+Rendered _list_column_headings (8.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (13.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (11.0ms)
+Rendered _list_record (29.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (10.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (85.0ms)
+Completed in 201ms (View: 193, DB: 3) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:23:42) [GET]
+  Parameters: {"id"=>"8"}
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (11.0ms)
+Sat Jan 29 12:23:42 -0400 2011#<NoMethodError: undefined method `to_label' for nil:NilClass> -- on the ActiveScaffold column = :jewelry_name in SalesController
+
+ActionView::TemplateError (undefined method `to_label' for nil:NilClass) on line #7 of vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:
+4:     <label for="<%= active_scaffold_input_options(column, scope)[:id] %>"><%= column.label %></label>
+5:   </dt>
+6:   <dd>
+7:     <%= active_scaffold_input_for column, scope %>
+8:     <% if column.options.is_a?(Hash) && column.options[:update_column] -%>
+9:       <%= loading_indicator_tag(:action => :render_field, :id => params[:id]) %>
+10:     <% end -%>
+
+    app/helpers/sales_helper.rb:3:in `sale_jewelry_name_form_column'
+    vendor/plugins/active_scaffold/frontends/default/views/_form_attribute.html.erb:7
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:14
+    vendor/plugins/active_scaffold/frontends/default/views/_form.html.erb:2
+    vendor/plugins/active_scaffold/frontends/default/views/_create_form.html.erb:41
+    vendor/plugins/active_scaffold/frontends/default/views/create.html.erb:3
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (143.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:37:30) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mJewelry Load (3.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+
+NoMethodError (undefined method `jewelry=' for nil:NilClass):
+  app/controllers/sales_controller.rb:8:in `do_new'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  C:/Ruby187/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  C:/Ruby187/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (38.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing SalesController#new (for 127.0.0.1 at 2011-01-29 12:38:40) [GET]
+  Parameters: {"id"=>"7"}
+  [4;35;1mJewelry Load (1.0ms)[0m   [0mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 7) [0m
+Rendering template within layouts/application
+Rendering create
+Rendered _messages (2.0ms)
+Rendered _form_messages (10.0ms)
+Rendered _form_attribute (3.0ms)
+Rendered _form_attribute (5.0ms)
+Rendered _form_attribute (2.0ms)
+Rendered _form (23.0ms)
+Rendered _create_form (50.0ms)
+Completed in 96ms (View: 77, DB: 1) | 200 OK [http://localhost/sales/new?id=7]
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'panic'[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mSET standard_conforming_strings = on[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#index (for 127.0.0.1 at 2011-01-29 12:39:32) [GET]
+  [4;35;1mSQL (2.0ms)[0m   [0mSELECT count(*) AS count_all FROM "jewelries" [0m
+  [4;36;1mJewelry Load (1.0ms)[0m   [0;1mSELECT "jewelries".* FROM "jewelries" ORDER BY "jewelries"."id" ASC LIMIT 15 OFFSET 0[0m
+Rendering template within layouts/application
+Rendering list
+Rendered _list_header (5.0ms)
+Rendered _list_column_headings (6.0ms)
+Rendered _messages (1.0ms)
+Rendered _list_messages (11.0ms)
+Rendered _list_record_columns (4.0ms)
+Rendered _list_actions (7.0ms)
+Rendered _list_record (82.0ms)
+Rendered _list_record_columns (3.0ms)
+Rendered _list_actions (5.0ms)
+Rendered _list_record (9.0ms)
+Rendered _list_pagination (2.0ms)
+Rendered _list (132.0ms)
+Completed in 180ms (View: 172, DB: 3) | 200 OK [http://localhost/jewelries]
+  [4;35;1mSQL (0.0ms)[0m   [0mSET client_min_messages TO 'panic'[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mSET standard_conforming_strings = on[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSET client_min_messages TO 'notice'[0m
+
+
+Processing JewelriesController#show (for 127.0.0.1 at 2011-01-29 12:39:37) [GET]
+  Parameters: {"adapter"=>"_list_inline_adapter", "id"=>"8"}
+  [4;36;1mJewelry Load (2.0ms)[0m   [0;1mSELECT * FROM "jewelries" WHERE ("jewelries"."id" = 8) [0m
+  [4;35;1mSale Load (2.0ms)[0m   [0mSELECT * FROM "sales" WHERE ("sales".jewelry_id = 8) LIMIT 1[0m
+  [4;36;1mBox Load (2.0ms)[0m   [0;1mSELECT * FROM "boxes" WHERE ("boxes"."id" = 1) [0m
+  [4;35;1mExpense Load (2.0ms)[0m   [0mSELECT * FROM "expenses" WHERE ("expenses".jewelry_id = 8) LIMIT 1[0m
+Rendered _show_columns (11.0ms)
+Rendered _show (25.0ms)
+Rendered _messages (3.0ms)
+Rendered _list_inline_adapter (14.0ms)
+Completed in 93ms (View: 21, DB: 0) | 200 OK [http://localhost/jewelries/8?_method=get&adapter=_list_inline_adapter]
