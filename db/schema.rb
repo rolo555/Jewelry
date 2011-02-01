@@ -9,7 +9,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110201221631) do
+ActiveRecord::Schema.define(:version => 20110201232934) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "address"
+    t.integer  "debt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "boxes", :force => true do |t|
     t.string   "box_code"
@@ -65,6 +72,13 @@ ActiveRecord::Schema.define(:version => 20110201221631) do
   create_table "payments", :force => true do |t|
     t.decimal  "amount"
     t.date     "payment_date"
+    t.integer  "debt_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phone_numbers", :force => true do |t|
+    t.string   "number"
     t.integer  "debt_id"
     t.datetime "created_at"
     t.datetime "updated_at"
