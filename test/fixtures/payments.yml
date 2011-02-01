@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  amount: 9.99
+  payment_date: 2011-02-01
+  debt_id: 1
+
+two:
+  amount: 9.99
+  payment_date: 2011-02-01
+  debt_id: 1
