@@ -43,6 +43,10 @@ class Jewelry < ActiveRecord::Base
     nil
   end
 
+  def sale_date_message
+    sale.date_message if sale.present?
+  end
+
   private
   
   def copy_product_auto_code

@@ -7,7 +7,7 @@ class Sale < ActiveRecord::Base
   validates_presence_of :amount, :date_of_sale
   validates_uniqueness_of :jewelry_id
 
-  def to_label
+  def date_message
     "Vendido el #{created_at.strftime("%d %B %Y - %H:%M")}"
   end
 
