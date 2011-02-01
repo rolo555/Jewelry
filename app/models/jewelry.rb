@@ -7,6 +7,7 @@ class Jewelry < ActiveRecord::Base
   belongs_to :box
   has_one :expense, :dependent => :destroy
   has_one :sale, :dependent => :destroy
+  has_one :debt, :dependent => :destroy
 
   #Fotografia
   has_attached_file :photo,
