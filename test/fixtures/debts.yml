@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  debtor: 
+  total_amount: 9.99
+  balance: 9.99
+
+two:
+  debtor: 
+  total_amount: 9.99
+  balance: 9.99
