@@ -44,8 +44,12 @@ class Jewelry < ActiveRecord::Base
     nil
   end
 
-  def sale_date_message
+  def cash_sale_date_message
     sale.date_message if sale.present?
+  end
+
+  def sale_on_account_date_message
+    debt.date_message if debt.present?
   end
 
   private

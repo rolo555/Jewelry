@@ -8,7 +8,7 @@ class Sale < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
 
   def date_message
-    "Vendido el #{created_at.strftime("%d %B %Y - %H:%M")}"
+    "#{as_:sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
   end
 
   def after_create

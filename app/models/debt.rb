@@ -9,8 +9,8 @@ class Debt < ActiveRecord::Base
   validates_presence_of :debtor, :total_amount, :jewelry
   validates_uniqueness_of :jewelry_id
 
-  def to_label
-    "Deuda"
+  def date_message
+    "#{as_:sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
   end
 
 end

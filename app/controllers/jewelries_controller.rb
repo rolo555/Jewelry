@@ -11,5 +11,8 @@ class JewelriesController < ApplicationController
 
     conf.columns[:sale].actions_for_association_links = [:show, :new]
     conf.columns[:sale].link.label = :cash_sale
+
+    conf.columns[:debt].actions_for_association_links = [:show, :new]
+    conf.columns[:debt].link.label = :sale_on_account
   end
 end
