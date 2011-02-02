@@ -1,0 +1,8 @@
+<ul id="nav">
+  <% [Product, Jewelry, Debt, Income].each do |model| %>
+    <% @controller.controller_name == model.name.pluralize.underscore ? style = "selected" : style = "" %>
+    <li class="<%= style %>">
+      <%= link_to model.human_name, :controller => model.name.pluralize.underscore %>
+    </li>
+  <% end %>
+</ul>
