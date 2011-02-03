@@ -11,7 +11,7 @@ class Jewelry < ActiveRecord::Base
 
   #Fotografia
   has_attached_file :photo,
-    :styles => { :thumbnail => "100x100" },
+    :styles => { :thumbnail => "40x40" },
     :default_url => "missing.png"
 
   def before_validation
