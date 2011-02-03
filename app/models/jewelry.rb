@@ -52,9 +52,17 @@ class Jewelry < ActiveRecord::Base
     debt.date_message if debt.present?
   end
 
-  private
-  
   def copy_product_auto_code
     self.product_auto_code = box.product.product_auto_code 
+  end
+
+  private :copy_product_auto_code
+
+  def sale_authorized_for_read?
+    self.debt.blank?
+  end
+
+  def debt_authorized_for_read?
+    self.sale.blank?
   end
 end
