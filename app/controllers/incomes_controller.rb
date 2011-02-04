@@ -4,6 +4,9 @@ class IncomesController < ApplicationController
     conf.list.columns = :created_at, :concept, :amount
     conf.show.columns = :created_at, :concept, :amount
 
+    #sumatoria de amount
+    conf.columns[:amount].calculate = :sum
+
     #Activar busqueda avanzada
     conf.actions << :field_search
     conf.field_search.columns << :created_at
