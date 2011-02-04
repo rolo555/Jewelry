@@ -5,6 +5,7 @@ class Payment < ActiveRecord::Base
 
   #Validaciones
   validates_presence_of :amount, :payment_date
+  validate :payment_date_cant_be_greater_than_today
 
   def to_label
     "#{amount}-#{payment_date}"
@@ -19,6 +20,14 @@ class Payment < ActiveRecord::Base
     self.income.concept = "Pago de #{self.debt.debtor}"
     self.income.amount = amount
     self.income.save
+  end
+
+  def payment_date_cant_be_greater_than_today
+    unless self.payment_date.nil?
+      if (self.payment_date <=> Date.today) > 0
+        errors.add :payment_date, "#{as_('can\'t be greater than')} #{as_('today')}"
+      end
+    end
   end
 
 end
