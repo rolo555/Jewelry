@@ -8,6 +8,8 @@ class JewelriesController < ApplicationController
 
     #Activar busqueda avanzada
     conf.actions << :field_search
+    conf.field_search.columns << :status
+    conf.columns[:status].search_ui = :select
 
     conf.columns[:sale].actions_for_association_links = [:show, :new]
     conf.columns[:sale].link.label = :cash_sale

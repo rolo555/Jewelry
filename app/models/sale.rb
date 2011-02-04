@@ -22,4 +22,9 @@ class Sale < ActiveRecord::Base
     self.income.save
   end
 
+  def before_create
+    jewelry.status = as_:payed if jewelry.present?
+    nil
+  end
+
 end

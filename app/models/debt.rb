@@ -13,4 +13,8 @@ class Debt < ActiveRecord::Base
     "#{as_:sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
   end
 
+  def before_create
+    jewelry.status = as_:not_payed if jewelry.present?
+    nil
+  end
 end

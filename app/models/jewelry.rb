@@ -34,6 +34,7 @@ class Jewelry < ActiveRecord::Base
   def before_create
     copy_product_auto_code
     box.product.increase_product_auto_code
+    self.status = as_:on_sale
     nil
   end
 
@@ -64,5 +65,9 @@ class Jewelry < ActiveRecord::Base
 
   def debt_authorized_for_read?
     self.sale.blank?
+  end
+
+  def self.status_types
+    all.map {|j| j.status}.uniq
   end
 end
