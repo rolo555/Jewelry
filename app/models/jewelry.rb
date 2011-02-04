@@ -20,6 +20,7 @@ class Jewelry < ActiveRecord::Base
 
   #Validaciones
   validates_presence_of :weight, :purchase_date, :purchase_price, :box
+  validate :purchase_date_cant_be_greater_than_today
 
   def to_label
     "#{description}"
@@ -50,6 +51,19 @@ class Jewelry < ActiveRecord::Base
 
   def sale_on_account_date_message
     debt.date_message if debt.present?
+  end
+
+  def purchase_date_cant_be_greater_than_today
+    unless self.purchase_date.nil?
+      if (self.purchase_date <=> Date.today) > 0
+        errors.add :purchase_date, "#{as_('can\'t be greater than')} #{as_('today')}"
+      end
+    end
+  end
+
+  #setter de products necesario para realizar el update del campo virtual products
+  def products=(dummy)
+    
   end
 
   private
