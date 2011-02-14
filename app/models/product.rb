@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
   end
 
   def before_create
-    self.product_auto_code = 0
+    self.product_auto_code = 1
     nil
   end
 end
