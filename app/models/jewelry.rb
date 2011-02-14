@@ -42,6 +42,7 @@ class Jewelry < ActiveRecord::Base
   def after_save
     self.expense.concept = "Compra de joya."
     self.expense.amount = self.purchase_price
+    self.expense.payment_date = self.purchase_date
     self.expense.save
     nil
   end
