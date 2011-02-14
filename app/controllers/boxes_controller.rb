@@ -1,5 +1,5 @@
 class BoxesController < ApplicationController
   active_scaffold :boxe do |conf|
-    conf.columns = [:box_code, :description]
+    conf.columns = [:photo, :box_code, :description]
   end
 end

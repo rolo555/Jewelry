@@ -13,6 +13,11 @@ class Box < ActiveRecord::Base
   validates_length_of :description, :maximum => 50, :if => "self.description.presence"
   validates_uniqueness_of :box_code, :case_sensitive => false, :scope => :product_id
 
+  #Fotografia
+  has_attached_file :photo,
+    :styles => { :thumbnail => "40x40" },
+    :default_url => "missing.png"
+
   def before_validation
     sanitizate_strings :box_code, :description
   end
