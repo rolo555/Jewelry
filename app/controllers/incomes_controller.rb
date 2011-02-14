@@ -9,7 +9,7 @@ class IncomesController < ApplicationController
 
     #Activar busqueda avanzada
     conf.actions << :field_search
-    conf.field_search.columns << :created_at
+    conf.field_search.columns << :payment_date
     conf.field_search.columns << :payment_type
     conf.columns[:payment_type].search_ui = :select
   end
