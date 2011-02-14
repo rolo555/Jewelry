@@ -62,9 +62,12 @@ class Jewelry < ActiveRecord::Base
     end
   end
 
-  #setter de products necesario para realizar el update del campo virtual products
+  #setter y getter de products, necesarios para realizar el update del campo
+  #virtual products, al crear y al buscar
   def products=(dummy)
-    
+  end
+
+  def products
   end
   
   def copy_product_auto_code
