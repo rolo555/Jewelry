@@ -1,8 +1,8 @@
 class IncomesController < ApplicationController
   active_scaffold :income do |conf|
     conf.columns = :concept, :amount
-    conf.list.columns = :created_at, :concept, :amount
-    conf.show.columns = :created_at, :concept, :amount
+    conf.list.columns = :payment_date, :concept, :amount
+    conf.show.columns = :payment_date, :concept, :amount
 
     #sumatoria de amount
     conf.columns[:amount].calculate = :sum
