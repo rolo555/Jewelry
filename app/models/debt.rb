@@ -10,11 +10,11 @@ class Debt < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
 
   def date_message
-    "#{as_:sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
+    "#{I18n.t! :sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
   end
 
   def before_create
-    jewelry.status = as_:not_payed if jewelry.present?
+    jewelry.status = I18n.t! :not_payed if jewelry.present?
     nil
   end
 end

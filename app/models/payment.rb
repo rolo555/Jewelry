@@ -26,7 +26,7 @@ class Payment < ActiveRecord::Base
   def payment_date_cant_be_greater_than_today
     unless self.payment_date.nil?
       if (self.payment_date <=> Date.today) > 0
-        errors.add :payment_date, "#{as_('can\'t be greater than')} #{as_('today')}"
+        errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
       end
     end
   end
