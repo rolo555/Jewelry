@@ -19,6 +19,7 @@ class Payment < ActiveRecord::Base
   def after_save
     self.income.concept = "Pago de #{self.debt.debtor}"
     self.income.amount = amount
+    self.income.payment_date = self.payment_date
     self.income.save
   end
 

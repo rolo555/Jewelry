@@ -20,6 +20,7 @@ class Sale < ActiveRecord::Base
   def after_save
     self.income.concept = "Venta de joya"
     self.income.amount = amount
+    self.income.payment_date = self.date_of_sale
     self.income.save
   end
 
