@@ -2,6 +2,7 @@ class JewelriesController < ApplicationController
   active_scaffold :jewelrie do |conf|
     conf.columns = :products, :box, :weight, :description, :photo, :purchase_date, :purchase_price
     conf.list.columns = :photo, :product_auto_code, :box, :sale, :debt
+    conf.show.columns = :box, :weight, :description, :photo, :purchase_date, :purchase_price
 
     conf.columns[:box].form_ui = :select
     conf.columns[:products].update_column = :box
