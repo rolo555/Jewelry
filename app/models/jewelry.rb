@@ -58,7 +58,7 @@ class Jewelry < ActiveRecord::Base
   def purchase_date_cant_be_greater_than_today
     unless self.purchase_date.nil?
       if (self.purchase_date <=> Date.today) > 0
-        errors.add :purchase_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
+        errors.add :purchase_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
       end
     end
   end

@@ -9,7 +9,7 @@ class Sale < ActiveRecord::Base
   validate :date_of_sale_cant_be_greater_than_today
 
   def date_message
-    "#{I18n.t!:sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
+    "#{I18n.t! "sold_at"} #{I18n.l date_of_sale, :format => :long}"
   end
 
   def after_create

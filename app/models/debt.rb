@@ -10,7 +10,7 @@ class Debt < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
 
   def date_message
-    "#{I18n.t! :sold_at} #{created_at.strftime("%d %B %Y - %H:%M")}"
+    "#{I18n.t! 'sold_at' } #{I18n.l created_at, :format => :long}"
   end
 
   def before_create

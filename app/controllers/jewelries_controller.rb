@@ -15,10 +15,10 @@ class JewelriesController < ApplicationController
     conf.columns[:status].search_ui = :select
 
     conf.columns[:sale].actions_for_association_links = [:show, :new]
-    conf.columns[:sale].link.label = :cash_sale
+    conf.columns[:sale].link.label = I18n.t! :cash_sale
 
     conf.columns[:debt].actions_for_association_links = [:show, :new]
-    conf.columns[:debt].link.label = :sale_on_account
+    conf.columns[:debt].link.label = I18n.t! :sale_on_account
 
     #configuracion de la fecha de compra
     conf.columns[:purchase_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => false }
