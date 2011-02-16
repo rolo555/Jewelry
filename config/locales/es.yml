@@ -1,0 +1,89 @@
+es:
+  activerecord:
+    models:
+      address:
+        one: "Dirección"
+        other: "Direcciones"
+      box:
+        one: "Caja"
+        other: "Cajas"
+      debt:
+        one: "Deuda"
+        other: "Deudas"
+      expense:
+        one: "Egreso"
+        other: "Egresos"
+      income:
+        one: "Ingreso"
+        other: "Ingresos"
+      jewelry:
+        one: "Joya"
+        other: "Joyas"
+      payment:
+        one: "Pago"
+        other: "Pagos"
+      phone_number:
+        one: "Número telefónico"
+        other: "Números telefónicos"
+      product:
+        one: "Producto"
+        other: "Productos"
+      sale:
+        one: "Venta"
+        other: "Ventas"
+    attributes:
+      address:
+        address: Dirección
+      box:
+        box_code: Código de caja
+        description: Descripción
+        photo: Foto
+      debt:
+        addresses: Direcciónes
+        phone_numbers: Números de teléfono
+        payments: Pagos
+        debtor: Deudor
+        total_amount: Monto total
+        balance: Balance
+      expense:
+        concept: Concepto
+        amount: Monto
+        payment_date: Fecha de pago
+      income:
+        concept: Concepto
+        amount: Monto
+        payment_date: Fecha de pago
+      jewelry:
+        products: Productos
+        box: Caja
+        jewelry_code: Código de joya
+        weight: Peso
+        description: Descripcion
+        photo: Foto
+        status: Estado
+        box_id: Codigo de caja
+        product_auto_code: Codigo de joya
+      payment:
+        amount: Monto
+        payment_date: Fecha de pago
+      phone_number:
+        number: Numero
+      product:
+        name: Nombre
+        list_of_boxes: Lista de cajas
+        boxes: Cajas
+      sale:
+        amount: Monto
+        date_of_sale: Fecha de venta
+  #debt
+  sold_at: Vendido el
+  not_payed: Sin pagar
+  #jewelry
+  can't be greater than: No puede ser mayor a
+  today: hoy
+  on_sale: A la venta
+  cash_sale: Al contado
+  sale_on_account: A credito
+  #sale
+  payed: Pagada
+

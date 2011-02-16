@@ -35,7 +35,7 @@ class Jewelry < ActiveRecord::Base
   def before_create
     copy_product_auto_code
     box.product.increase_product_auto_code
-    self.status = as_:on_sale
+    self.status = I18n.t! :on_sale
     nil
   end
 
@@ -58,7 +58,7 @@ class Jewelry < ActiveRecord::Base
   def purchase_date_cant_be_greater_than_today
     unless self.purchase_date.nil?
       if (self.purchase_date <=> Date.today) > 0
-        errors.add :purchase_date, "#{as_('can\'t be greater than')} #{as_('today')}"
+        errors.add :purchase_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
       end
     end
   end
