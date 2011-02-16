@@ -19,7 +19,7 @@ class Jewelry < ActiveRecord::Base
   end
 
   #Validaciones
-  validates_presence_of :weight, :purchase_date, :purchase_price, :box
+  validates_presence_of :box
   validate :purchase_date_cant_be_greater_than_today
 
   def to_label
