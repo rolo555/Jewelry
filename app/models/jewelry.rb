@@ -88,4 +88,8 @@ class Jewelry < ActiveRecord::Base
   def self.status_types
     all.map {|j| j.status}.uniq
   end
+
+  def self.measurement_units
+    [[as_(:grams), "G"], [as_(:karats), "Q"]]
+  end
 end
