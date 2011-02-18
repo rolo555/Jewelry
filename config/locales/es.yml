@@ -65,6 +65,8 @@ es:
         product_auto_code: Codigo de joya
         purchase_date: Fecha de compra
         purchase_price: Precio de compra
+        sale: Venta
+        debt: Deuda
       payment:
         amount: Monto
         payment_date: Fecha de pago
