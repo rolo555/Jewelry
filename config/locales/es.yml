@@ -46,6 +46,7 @@ es:
         total_amount: Monto total
         balance: Balance
         payment_date: Fecha de venta
+        jewelry: Joya
       expense:
         concept: Concepto
         amount: Monto
