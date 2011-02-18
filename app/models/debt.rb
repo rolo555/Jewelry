@@ -15,8 +15,9 @@ class Debt < ActiveRecord::Base
     payment_date.present? ? "#{I18n.t! 'sold_at' } #{I18n.l payment_date, :format => :long}" : "#{I18n.t 'nil_date'}"
   end
 
-  def before_create
+  def after_save
     jewelry.status = I18n.t! :not_payed if jewelry.present?
+    self.jewelry.save!
     nil
   end
 
