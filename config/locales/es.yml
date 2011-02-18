@@ -63,6 +63,8 @@ es:
         status: Estado
         box_id: Codigo de caja
         product_auto_code: Codigo de joya
+        purchase_date: Fecha de compra
+        purchase_price: Precio de compra
       payment:
         amount: Monto
         payment_date: Fecha de pago
