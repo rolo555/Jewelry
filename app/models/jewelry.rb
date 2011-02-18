@@ -41,7 +41,7 @@ class Jewelry < ActiveRecord::Base
 
   def after_save
     self.expense.concept = "Compra de joya."
-    self.expense.amount = self.purchase_price
+    self.expense.amounts = self.amounts
     self.expense.payment_date = self.purchase_date
     self.expense.save
     nil
@@ -87,5 +87,17 @@ class Jewelry < ActiveRecord::Base
 
   def self.status_types
     all.map {|j| j.status}.uniq
+  end
+
+  def amounts
+    [bs, usd]
+  end
+
+  def price
+    if bs
+      "#{bs} #{as_(:Bs)}"
+    else
+      "#{usd} #{as_(:Usd)}"
+    end
   end
 end
