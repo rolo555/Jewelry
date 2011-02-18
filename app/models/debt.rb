@@ -6,8 +6,10 @@ class Debt < ActiveRecord::Base
   has_many :phone_numbers, :dependent => :destroy
 
   #Validaciones
-  validates_presence_of :debtor, :total_amount, :jewelry
+  validates_presence_of :debtor, :total_amount, :jewelry, :payment_date
   validates_uniqueness_of :jewelry_id
+  validate :payment_date_cant_be_greater_than_today
+
 
   def date_message
     payment_date.present? ? "#{I18n.t! 'sold_at' } #{I18n.l payment_date, :format => :long}" : "#{I18n.t 'nil_date'}"
@@ -17,4 +19,13 @@ class Debt < ActiveRecord::Base
     jewelry.status = I18n.t! :not_payed if jewelry.present?
     nil
   end
+
+  def payment_date_cant_be_greater_than_today
+    unless self.payment_date.nil?
+      if (self.payment_date <=> Date.today) > 0
+        errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
+      end
+    end
+  end
+
 end
