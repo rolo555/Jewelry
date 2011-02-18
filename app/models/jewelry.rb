@@ -90,6 +90,10 @@ class Jewelry < ActiveRecord::Base
   end
 
   def self.measurement_units
-    [[as_(:grams), "G"], [as_(:karats), "Q"]]
+    [[as_(:G), "G"], [as_(:K), "Q"]]
+  end
+
+  def weight_and_measurement_unit
+    "#{weight} #{as_(measurement_unit)}"
   end
 end
