@@ -22,6 +22,6 @@ class JewelriesController < ApplicationController
     conf.columns[:debt].link.label = I18n.t! :sale_on_account
 
     #configuracion de la fecha de compra
-    conf.columns[:purchase_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => false }
+    conf.columns[:purchase_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
   end
 end
