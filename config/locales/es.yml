@@ -88,8 +88,8 @@ es:
   can't be greater than: No puede ser mayor a
   today: hoy
   on_sale: A la venta
-  cash_sale: Al contado
-  sale_on_account: A credito
+  cash_sale: Venta al contado
+  sale_on_account: Venta a credito
   #sale
   payed: Pagada
 
