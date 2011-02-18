@@ -47,7 +47,6 @@ es:
         balance: Balance
       expense:
         concept: Concepto
-        amount: Monto
         payment_date: Fecha de pago
       income:
         concept: Concepto
