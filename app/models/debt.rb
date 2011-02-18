@@ -10,7 +10,7 @@ class Debt < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
 
   def date_message
-    "#{I18n.t! 'sold_at' } #{I18n.l created_at, :format => :long}"
+    payment_date.present? ? "#{I18n.t! 'sold_at' } #{I18n.l payment_date, :format => :long}" : "#{I18n.t 'nil_date'}"
   end
 
   def before_create
