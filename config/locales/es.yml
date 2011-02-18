@@ -45,6 +45,7 @@ es:
         debtor: Deudor
         total_amount: Monto total
         balance: Balance
+        payment_date: Fecha de venta
       expense:
         concept: Concepto
         amount: Monto
@@ -82,6 +83,7 @@ es:
   #debt
   sold_at: Vendido el
   not_payed: Sin pagar
+  nil_date: Sin fecha
   #jewelry
   can't be greater than: No puede ser mayor a
   today: hoy
