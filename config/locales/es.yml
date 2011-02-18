@@ -73,7 +73,6 @@ es:
         list_of_boxes: Lista de cajas
         boxes: Cajas
       sale:
-        amount: Monto
         date_of_sale: Fecha de venta
   #debt
   sold_at: Vendido el
