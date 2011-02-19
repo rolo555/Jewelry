@@ -23,7 +23,7 @@ class Jewelry < ActiveRecord::Base
   validate :purchase_date_cant_be_greater_than_today
 
   def to_label
-    "#{description}"
+    "#{jewelry_code}"
   end
 
   def after_create
