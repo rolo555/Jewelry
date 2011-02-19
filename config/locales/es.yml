@@ -51,6 +51,7 @@ es:
         concept: Concepto
         amount: Monto
         payment_date: Fecha de pago
+        jewelry: Codigo de joya
       income:
         concept: Concepto
         amount: Monto
