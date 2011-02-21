@@ -23,4 +23,10 @@ module JewelriesHelper
       super
     end
   end
+
+  def jewelry_weight_and_measurement_unit_form_column(record, options)
+    form_column(active_scaffold_config.columns[:weight], nil) + " " +
+      form_column(active_scaffold_config.columns[:measurement_unit], nil)
+  end
+
 end
