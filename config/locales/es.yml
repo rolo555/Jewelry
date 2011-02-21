@@ -92,6 +92,8 @@ es:
   on_sale: A la venta
   cash_sale: Venta al contado
   sale_on_account: Venta a credito
+  code: Código
+  weight: Peso
   #sale
   payed: Pagada
 

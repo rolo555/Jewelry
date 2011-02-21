@@ -23,7 +23,11 @@ class Jewelry < ActiveRecord::Base
   validate :purchase_date_cant_be_greater_than_today
 
   def to_label
-    "#{jewelry_code}"
+    menssage = "#{I18n.t :code}: #{jewelry_code}"
+    if self.weight.present?
+      menssage += ",  #{I18n.t :weight}: #{weight_and_measurement_unit}"
+    end
+    menssage
   end
 
   def after_create
