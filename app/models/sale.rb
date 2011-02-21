@@ -15,6 +15,7 @@ class Sale < ActiveRecord::Base
   def after_create
     self.income = Income.new :created_at => self.created_at, :updated_at => self.updated_at
     self.income.save
+    nil
   end
   
   def after_save
@@ -22,10 +23,8 @@ class Sale < ActiveRecord::Base
     self.income.amount = amount
     self.income.payment_date = self.date_of_sale
     self.income.save
-  end
-
-  def before_create
     jewelry.status = I18n.t!:payed if jewelry.present?
+    self.jewelry.save!
     nil
   end
 

@@ -46,10 +46,12 @@ es:
         total_amount: Monto total
         balance: Balance
         payment_date: Fecha de venta
+        jewelry: Joya
       expense:
         concept: Concepto
         amount: Monto
         payment_date: Fecha de pago
+        jewelry: Codigo de joya
       income:
         concept: Concepto
         amount: Monto
@@ -85,11 +87,11 @@ es:
   not_payed: Sin pagar
   nil_date: Sin fecha
   #jewelry
-  can't be greater than: No puede ser mayor a
+  can't be greater than: no puede ser mayor a
   today: hoy
   on_sale: A la venta
-  cash_sale: Al contado
-  sale_on_account: A credito
+  cash_sale: Venta al contado
+  sale_on_account: Venta a credito
   #sale
   payed: Pagada
 

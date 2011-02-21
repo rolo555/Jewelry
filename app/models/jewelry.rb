@@ -23,7 +23,7 @@ class Jewelry < ActiveRecord::Base
   validate :purchase_date_cant_be_greater_than_today
 
   def to_label
-    "#{description}"
+    "#{jewelry_code}"
   end
 
   def after_create
@@ -36,6 +36,11 @@ class Jewelry < ActiveRecord::Base
     copy_product_auto_code
     box.product.increase_product_auto_code
     self.status = I18n.t! :on_sale
+    nil
+  end
+
+  def before_save
+    self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
     nil
   end
 
