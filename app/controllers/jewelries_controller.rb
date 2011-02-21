@@ -1,8 +1,8 @@
 class JewelriesController < ApplicationController
   active_scaffold :jewelrie do |conf|
-    conf.columns = :products, :box, :weight, :description, :photo, :purchase_date, :purchase_price
+    conf.columns = :products, :box, :weight, :measurement_unit, :weight_and_measurement_unit, :description, :photo, :purchase_date, :purchase_price
     conf.list.columns = :photo, :jewelry_code, :box, :sale, :debt
-    conf.show.columns = :box, :weight, :description, :photo, :purchase_date, :purchase_price
+    conf.show.columns = :box, :weight_and_measurement_unit, :description, :photo, :purchase_date, :purchase_price
 
     conf.columns[:box].form_ui = :select
     conf.columns[:products].update_column = :box
@@ -24,5 +24,8 @@ class JewelriesController < ApplicationController
 
     #configuracion de la fecha de compra
     conf.columns[:purchase_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
+
+    conf.columns[:measurement_unit].form_ui = :radio
+    conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
   end
 end

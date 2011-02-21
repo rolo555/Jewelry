@@ -97,4 +97,12 @@ class Jewelry < ActiveRecord::Base
   def self.status_types
     all.map {|j| j.status}.uniq
   end
+
+  def self.measurement_units
+    [[as_(:G), "G"], [as_(:K), "Q"]]
+  end
+
+  def weight_and_measurement_unit
+    "#{weight} #{as_(measurement_unit)}"
+  end
 end
