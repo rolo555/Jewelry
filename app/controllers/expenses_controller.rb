@@ -1,6 +1,7 @@
 class ExpensesController < ApplicationController
   active_scaffold :expense do |conf|
     conf.list.columns = :payment_date, :concept, :jewelry, :amount
+    conf.columns.exclude :jewelry
     #sumatoria de amount
     conf.columns[:amount].calculate = :sum
     
