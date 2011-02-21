@@ -39,6 +39,10 @@ class Jewelry < ActiveRecord::Base
     nil
   end
 
+  def product_auto_code
+    self.box.product.product_auto_code
+  end
+
   def before_save
     self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
     nil
