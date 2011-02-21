@@ -4,7 +4,7 @@ class Sale < ActiveRecord::Base
   has_one :income, :as => :payment, :dependent => :destroy
 
   #Validaciones
-  validates_presence_of :amount, :date_of_sale
+  validates_presence_of :date_of_sale
   validates_uniqueness_of :jewelry_id
   validate :date_of_sale_cant_be_greater_than_today
 
@@ -19,7 +19,7 @@ class Sale < ActiveRecord::Base
   
   def after_save
     self.income.concept = "Venta de joya"
-    self.income.amount = amount
+    self.income.amounts = amounts
     self.income.payment_date = self.date_of_sale
     self.income.save
   end
@@ -34,6 +34,18 @@ class Sale < ActiveRecord::Base
       if (self.date_of_sale <=> Date.today) > 0
         errors.add :date_of_sale, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
       end
+    end
+  end
+
+  def amounts
+    [bs, usd]
+  end
+
+  def price
+    if bs
+      "#{bs} #{as_(:Bs)}"
+    else
+      "#{usd} #{as_(:Usd)}"
     end
   end
 end
