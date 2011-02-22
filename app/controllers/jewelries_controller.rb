@@ -1,6 +1,6 @@
 class JewelriesController < ApplicationController
   active_scaffold :jewelrie do |conf|
-    conf.columns = :products, :box, :weight, :description, :photo, :purchase_date, :bs, :usd
+    conf.columns = :products, :box, :weight, :description, :photo, :purchase_date, :amount
     conf.list.columns = :photo, :product_auto_code, :box, :sale, :debt
     conf.show.columns = :box, :weight, :description, :photo, :purchase_date, :price
 
