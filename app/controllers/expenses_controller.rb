@@ -7,5 +7,7 @@ class ExpensesController < ApplicationController
     #modificar el link a ver
     conf.columns[:jewelry].actions_for_association_links = [:show]
 
+    #No mostrar el link delete
+    conf.delete.link = false
   end
 end

@@ -93,4 +93,9 @@ class Jewelry < ActiveRecord::Base
   def self.status_types
     all.map {|j| j.status}.uniq
   end
+
+  #Desactivar delete
+  def authorized_for_delete?
+    false
+  end
 end

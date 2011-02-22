@@ -7,5 +7,8 @@ class ProductsController < ApplicationController
     #de boxes
     conf.create.multipart = true
     conf.update.multipart = true
+
+    #No mostrar el link delete
+    conf.delete.link = false
   end
 end
