@@ -89,6 +89,14 @@ class Jewelry < ActiveRecord::Base
     all.map {|j| j.status}.uniq
   end
 
+  def bs
+    amount if currency.eql? "BOB"
+  end
+
+  def usd
+    amount if currency.eql? "USD"
+  end
+
   def amounts
     [bs, usd]
   end
@@ -99,5 +107,9 @@ class Jewelry < ActiveRecord::Base
     else
       "#{usd} #{as_(:Usd)}"
     end
+  end
+
+  def self.currencies
+    [[as_(:BOB), "BOB"], [as_(:USD), "USD"]]
   end
 end
