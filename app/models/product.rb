@@ -33,4 +33,9 @@ class Product < ActiveRecord::Base
     self.product_auto_code = 1
     nil
   end
+
+  #Desactivar delete
+  def authorized_for_delete?
+    false
+  end
 end

@@ -10,5 +10,10 @@ class DebtsController < ApplicationController
 
     #configuracion de la fecha de compra
     conf.columns[:payment_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
+
+    #No mostrar link create y delete
+    conf.create.link = false
+    conf.delete.link = false
+
   end
 end

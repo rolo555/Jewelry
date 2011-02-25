@@ -8,4 +8,18 @@ class Income < ActiveRecord::Base
   def to_label
     "#{concept}"
   end
+
+  #Desactivar delete, update y create
+  def authorized_for_delete?
+    false
+  end
+
+  def authorized_for_update?
+    false
+  end
+
+  def authorized_for_create?
+    false
+  end
+
 end

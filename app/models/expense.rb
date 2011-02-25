@@ -9,5 +9,9 @@ class Expense < ActiveRecord::Base
   #Validaciones
   validates_numericality_of :amount, :greater_than_or_equal_to => 0, :if => "self.amount.present?"
 
+  #Desactivar delete
+  def authorized_for_delete?
+    false
+  end
 
 end
