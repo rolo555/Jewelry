@@ -18,7 +18,6 @@ class Sale < ActiveRecord::Base
   end
   
   def after_save
-    debugger
     self.income.concept = "Venta de joya"
     self.income.amounts = amounts
     self.income.payment_date = self.date_of_sale
