@@ -14,6 +14,16 @@ class Income < ActiveRecord::Base
     self.bs, self.usd = amounts
   end
 
+  def amount
+    if bs.present?
+      bs
+    elsif usd.present?
+      usd
+    else
+      nil
+    end
+  end
+
   #Desactivar delete, update y create
   def authorized_for_delete?
     false
