@@ -40,16 +40,12 @@ class Jewelry < ActiveRecord::Base
     copy_product_auto_code
     box.product.increase_product_auto_code
     self.status = I18n.t! :on_sale
+    self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
     nil
   end
 
   def product_auto_code
     self.box.product.product_auto_code
-  end
-
-  def before_save
-    self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
-    nil
   end
 
   def after_save
@@ -125,6 +121,24 @@ class Jewelry < ActiveRecord::Base
       end
     end
     incomes
+  end
+
+  def calculate_refund
+    refund = 0
+    incomes.each do |i|
+      refund += i.amount
+    end
+    refund
+  end
+
+  def destroy_dependences
+    if self.sale.present?
+      self.sale.destroy
+    elsif self.debt.present?
+      self.debt.destroy
+    end
+    self.status = I18n.t! :on_sale
+    self.save!
   end
 
 end
