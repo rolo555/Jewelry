@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110218212820) do
+ActiveRecord::Schema.define(:version => 20110224153623) do
 
   create_table "addresses", :force => true do |t|
     t.string   "address"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20110218212820) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
+    t.string   "currency"
   end
 
   create_table "expenses", :force => true do |t|
@@ -52,12 +53,13 @@ ActiveRecord::Schema.define(:version => 20110218212820) do
 
   create_table "incomes", :force => true do |t|
     t.string   "concept"
-    t.decimal  "amount"
     t.integer  "payment_id"
     t.string   "payment_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
+    t.decimal  "bs"
+    t.decimal  "usd"
   end
 
   create_table "jewelries", :force => true do |t|
@@ -75,8 +77,8 @@ ActiveRecord::Schema.define(:version => 20110218212820) do
     t.datetime "updated_at"
     t.integer  "product_auto_code"
     t.string   "measurement_unit"
-    t.decimal  "bs"
-    t.decimal  "usd"
+    t.decimal  "amount"
+    t.string   "currency"
   end
 
   create_table "payments", :force => true do |t|
@@ -85,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20110218212820) do
     t.integer  "debt_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currency"
   end
 
   create_table "phone_numbers", :force => true do |t|
@@ -102,12 +105,12 @@ ActiveRecord::Schema.define(:version => 20110218212820) do
   end
 
   create_table "sales", :force => true do |t|
+    t.decimal  "amount"
     t.integer  "jewelry_id"
     t.date     "date_of_sale"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "bs"
-    t.decimal  "usd"
+    t.string   "currency"
   end
 
 end
