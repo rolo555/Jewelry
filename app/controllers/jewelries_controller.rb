@@ -27,5 +27,15 @@ class JewelriesController < ApplicationController
 
     conf.columns[:measurement_unit].form_ui = :radio
     conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
+
+    #test de mensaje
+    conf.action_links.add 'test',
+      :label => "Link text",
+      :inline => false,
+      :popup => true,
+      :type => :member,
+      :action => :test,
+      :confirm => "Dude"
+
   end
 end
