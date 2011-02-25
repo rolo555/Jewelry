@@ -49,7 +49,6 @@ es:
         jewelry: Joya
       expense:
         concept: Concepto
-        amount: Monto
         payment_date: Fecha de pago
         jewelry: Codigo de joya
       income:
@@ -80,7 +79,6 @@ es:
         list_of_boxes: Lista de cajas
         boxes: Cajas
       sale:
-        amount: Monto
         date_of_sale: Fecha de venta
   #debt
   sold_at: Vendido el

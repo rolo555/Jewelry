@@ -46,7 +46,7 @@ class Jewelry < ActiveRecord::Base
 
   def after_save
     self.expense.concept = "Compra de joya."
-    self.expense.amount = self.purchase_price
+    self.expense.amounts = self.amounts
     self.expense.payment_date = self.purchase_date
     self.expense.save
     nil
@@ -100,5 +100,29 @@ class Jewelry < ActiveRecord::Base
 
   def weight_and_measurement_unit
     "#{weight} #{as_(measurement_unit)}"
+  end
+
+  def bs
+    amount if currency.eql? "BOB"
+  end
+
+  def usd
+    amount if currency.eql? "USD"
+  end
+
+  def amounts
+    [bs, usd]
+  end
+
+  def price
+    if bs
+      "#{bs} #{as_(:Bs)}"
+    else
+      "#{usd} #{as_(:Usd)}"
+    end
+  end
+
+  def self.currencies
+    [[as_(:BOB), "BOB"], [as_(:USD), "USD"]]
   end
 end

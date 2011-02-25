@@ -10,6 +10,7 @@ class Debt < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
   validate :payment_date_cant_be_greater_than_today
 
+  validates_numericality_of :balance, :greater_than_or_equal_to => 0
 
   def date_message
     payment_date.present? ? "#{I18n.t! 'sold_at' } #{I18n.l payment_date, :format => :long}" : "#{I18n.t 'nil_date'}"
@@ -28,5 +29,24 @@ class Debt < ActiveRecord::Base
       end
     end
   end
+  
+  def bs
+    total_amount if currency.eql? "BOB"
+  end
 
+  def usd
+    total_amount if currency.eql? "USD"
+  end
+
+  def price
+    if bs
+      "#{bs} #{as_(:Bs)}"
+    else
+      "#{usd} #{as_(:Usd)}"
+    end
+  end
+
+  def before_validation
+    self.balance = total_amount - payments.map{|p| p.amount}.sum
+  end
 end
