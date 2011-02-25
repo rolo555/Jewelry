@@ -32,13 +32,18 @@ class JewelriesController < ApplicationController
     conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
 
     #test de mensaje
-    conf.action_links.add 'test',
-      :label => "Link text",
-      :inline => false,
-      :popup => true,
+    conf.action_links.add :cancel,
       :type => :member,
-      :action => :test,
-      :confirm => "Dude"
+      :page => true,
+      :confirm => "#{I18n.t!('confirmation message')}"
 
   end
+
+  def cancel
+    jewelry = Jewelry.find params[:id]
+    flash[:warning] = "#{I18n.t('refund message')} #{jewelry.calculate_refund}"
+    jewelry.destroy_dependences
+    redirect_to :action=>'index'
+  end
+
 end
