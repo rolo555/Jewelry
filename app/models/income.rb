@@ -13,4 +13,17 @@ class Income < ActiveRecord::Base
   def amounts=(amounts)
     self.bs, self.usd = amounts
   end
+
+  #Desactivar delete, update y create
+  def authorized_for_delete?
+    false
+  end
+
+  def authorized_for_update?
+    false
+  end
+
+  def authorized_for_create?
+    false
+  end
 end

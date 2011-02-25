@@ -49,4 +49,13 @@ class Debt < ActiveRecord::Base
   def before_validation
     self.balance = total_amount - payments.map{|p| p.amount}.sum
   end
+
+  #Desactivar create y delete
+  def authorized_for_create?
+    false
+  end
+
+  def authorized_for_delete?
+    false
+  end
 end

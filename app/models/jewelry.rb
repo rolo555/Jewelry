@@ -23,7 +23,11 @@ class Jewelry < ActiveRecord::Base
   validate :purchase_date_cant_be_greater_than_today
 
   def to_label
-    "#{jewelry_code}"
+    menssage = "#{I18n.t :code}: #{jewelry_code}"
+    if self.weight.present?
+      menssage += ",  #{I18n.t :weight}: #{weight_and_measurement_unit}"
+    end
+    menssage
   end
 
   def after_create
@@ -37,6 +41,10 @@ class Jewelry < ActiveRecord::Base
     box.product.increase_product_auto_code
     self.status = I18n.t! :on_sale
     nil
+  end
+
+  def product_auto_code
+    self.box.product.product_auto_code
   end
 
   def before_save
@@ -92,6 +100,11 @@ class Jewelry < ActiveRecord::Base
 
   def self.status_types
     all.map {|j| j.status}.uniq
+  end
+
+  #Desactivar delete
+  def authorized_for_delete?
+    false
   end
 
   def self.measurement_units

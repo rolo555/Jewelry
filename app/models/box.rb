@@ -26,4 +26,8 @@ class Box < ActiveRecord::Base
     "#{box_code} - #{description}"
   end
 
+  #Desactivar delete
+  def authorized_for_delete?
+    false
+  end
 end

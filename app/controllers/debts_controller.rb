@@ -15,5 +15,9 @@ class DebtsController < ApplicationController
     conf.columns[:currency].options[:options] = Sale.currencies
 
     conf.columns[:balance].options[:disabled] = "disabled"
+
+    #No mostrar link create y delete
+    conf.create.link = false
+    conf.delete.link = false
   end
 end
