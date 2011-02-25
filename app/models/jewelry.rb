@@ -109,4 +109,17 @@ class Jewelry < ActiveRecord::Base
   def weight_and_measurement_unit
     "#{weight} #{as_(measurement_unit)}"
   end
+
+  def incomes
+    incomes = []
+    if self.sale.present?
+      incomes << self.sale.income
+    elsif self.debt.present?
+      self.debt.payments.each do |p|
+        incomes << p.income
+      end
+    end
+    incomes
+  end
+
 end
