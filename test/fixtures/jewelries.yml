@@ -5,7 +5,6 @@ one:
   weight: 1.5
   description: MyString
   purchase_date: 2011-01-13
-  purchase_price: 9.99
   status: MyString
   box: one
 
@@ -15,5 +14,4 @@ two:
   description: MyString
   photo_file_name: MyString
   purchase_date: 2011-01-13
-  purchase_price: 9.99
   status: MyString

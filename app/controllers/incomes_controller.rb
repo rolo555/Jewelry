@@ -1,14 +1,14 @@
 class IncomesController < ApplicationController
   active_scaffold :income do |conf|
-    conf.columns = :concept, :amount
-    conf.list.columns = :payment_date, :concept, :amount, :payment
-    conf.show.columns = :payment_date, :concept, :amount
+    conf.columns = :concept, :bs, :usd
+    conf.list.columns = :payment_date, :concept, :bs, :usd
+    conf.show.columns = :payment_date, :concept, :price
 
     conf.columns[:payment].actions_for_association_links = [:show]
 
-
-    #sumatoria de amount
-    conf.columns[:amount].calculate = :sum
+    #Sumatoria de bs y usd
+    conf.columns[:bs].calculate = :sum
+    conf.columns[:usd].calculate = :sum
 
     #Activar busqueda avanzada
     conf.actions << :field_search

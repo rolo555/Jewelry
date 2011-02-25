@@ -4,7 +4,7 @@ class Sale < ActiveRecord::Base
   has_one :income, :as => :payment, :dependent => :destroy
 
   #Validaciones
-  validates_presence_of :amount, :date_of_sale
+  validates_presence_of :date_of_sale, :amount, :currency
   validates_uniqueness_of :jewelry_id
   validate :date_of_sale_cant_be_greater_than_today
 
@@ -20,7 +20,7 @@ class Sale < ActiveRecord::Base
   
   def after_save
     self.income.concept = "Venta de joya"
-    self.income.amount = amount
+    self.income.amounts = amounts
     self.income.payment_date = self.date_of_sale
     self.income.save
     jewelry.status = I18n.t!:payed if jewelry.present?
@@ -29,10 +29,32 @@ class Sale < ActiveRecord::Base
   end
 
   def date_of_sale_cant_be_greater_than_today
-    unless self.date_of_sale.nil?
-      if (self.date_of_sale <=> Date.today) > 0
-        errors.add :date_of_sale, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
-      end
+    if self.date_of_sale.present? and self.date_of_sale > Date.today
+      errors.add :date_of_sale, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
     end
+  end
+
+  def bs
+    amount if currency.eql? "BOB"
+  end
+
+  def usd
+    amount if currency.eql? "USD"
+  end
+
+  def amounts
+    [self.bs, self.usd]
+  end
+
+  def price
+    if bs
+      "#{bs} #{as_(:BOB)}"
+    else
+      "#{usd} #{as_(:USD)}"
+    end
+  end
+
+  def self.currencies
+    [[as_(:BOB), "BOB"], [as_(:USD), "USD"]]
   end
 end
