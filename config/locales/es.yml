@@ -60,6 +60,7 @@ es:
         box: Caja
         jewelry_code: Código de joya
         weight: Peso
+        weight_and_measurement_unit: Peso
         description: Descripcion
         photo: Foto
         status: Estado
@@ -69,6 +70,8 @@ es:
         purchase_price: Precio de compra
         sale: Venta
         debt: Deuda
+        price: Monto
+        amount_with_currency: Monto
       payment:
         amount: Monto
         payment_date: Fecha de pago
@@ -94,7 +97,14 @@ es:
   weight: Peso
   cancel: Cancelar
   confirmation message: ¿Esta seguro que quiere cancelar la venta de esta joya? Si confirma se eliminaran todos los ingresos relacionados a esta.
-  refund message: Realizar devolución de 
+  refund message: Realizar devolución de
+  jewelry purchase: Compra de joya
+  bob: Bs
+  usd: $us
+  grams: Gramos
+  karats: Quilates
+
   #sale
   payed: Pagada
+  jewelry sale: Venta de joya
 
