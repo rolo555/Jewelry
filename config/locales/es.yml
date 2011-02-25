@@ -94,6 +94,9 @@ es:
   sale_on_account: Venta a credito
   code: Código
   weight: Peso
+  cancel: Cancelar
+  confirmation message: ¿Esta seguro que quiere cancelar la venta de esta joya? Si confirma se eliminaran todos los ingresos relacionados a esta.
+  refund message: Realizar devolución de 
   #sale
   payed: Pagada
 
