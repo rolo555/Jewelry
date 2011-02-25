@@ -15,5 +15,11 @@ class IncomesController < ApplicationController
     conf.field_search.columns << :payment_date
     conf.field_search.columns << :payment_type
     conf.columns[:payment_type].search_ui = :select
+
+    #No mostrar link delete, edit y create
+    conf.delete.link = false
+    conf.update.link = false
+    conf.create.link = false
+    
   end
 end

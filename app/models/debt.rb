@@ -29,4 +29,13 @@ class Debt < ActiveRecord::Base
     end
   end
 
+  #Desactivar create y delete
+  def authorized_for_create?
+    false
+  end
+
+  def authorized_for_delete?
+    false
+  end
+
 end

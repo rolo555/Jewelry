@@ -25,6 +25,9 @@ class JewelriesController < ApplicationController
     #configuracion de la fecha de compra
     conf.columns[:purchase_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
 
+    #No mostrar el link delete
+    conf.delete.link = false
+
     conf.columns[:measurement_unit].form_ui = :radio
     conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
   end

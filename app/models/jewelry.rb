@@ -102,6 +102,11 @@ class Jewelry < ActiveRecord::Base
     all.map {|j| j.status}.uniq
   end
 
+  #Desactivar delete
+  def authorized_for_delete?
+    false
+  end
+
   def self.measurement_units
     [[as_(:G), "G"], [as_(:K), "Q"]]
   end
