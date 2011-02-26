@@ -39,18 +39,24 @@ es:
         description: Descripción
         photo: Foto
       debt:
-        addresses: Direcciónes
+        addresses: Direcciones
         phone_numbers: Números de teléfono
         payments: Pagos
         debtor: Deudor
-        total_amount: Monto total
+        total_amount_with_currency: Monto
+        price: Monto
         balance: Balance
         payment_date: Fecha de venta
         jewelry: Joya
+        bob: Bs
+        usd: $us
       expense:
         concept: Concepto
         payment_date: Fecha de pago
-        jewelry: Codigo de joya
+        jewelry: Joya
+        bob: Bs
+        usd: $us
+        price: Monto
       income:
         concept: Concepto
         amount: Monto
@@ -72,6 +78,8 @@ es:
         debt: Deuda
         price: Monto
         amount_with_currency: Monto
+        bob: Bs
+        usd: $us
       payment:
         amount: Monto
         payment_date: Fecha de pago
@@ -99,8 +107,6 @@ es:
   confirmation message: ¿Esta seguro que quiere cancelar la venta de esta joya? Si confirma se eliminaran todos los ingresos relacionados a esta.
   refund message: Realizar devolución de
   jewelry purchase: Compra de joya
-  bob: Bs
-  usd: $us
   grams: Gramos
   karats: Quilates
 
