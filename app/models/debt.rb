@@ -1,4 +1,5 @@
 class Debt < ActiveRecord::Base
+
   #Relaciones
   belongs_to :jewelry
   has_many :payments, :dependent => :destroy
@@ -9,11 +10,29 @@ class Debt < ActiveRecord::Base
   validates_presence_of :debtor, :total_amount, :jewelry, :payment_date
   validates_uniqueness_of :jewelry_id
   validate :payment_date_cant_be_greater_than_today
+  validates_numericality_of :balance, :greater_than_or_equal_to => 0, :if => "self.balance.present?"
 
-  validates_numericality_of :balance, :greater_than_or_equal_to => 0
+  def payment_date_cant_be_greater_than_today
+    if self.payment_date.present? and self.payment_date > Date.today
+      errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
+    end
+  end
+
+  #Permisos
+  def authorized_for_create?
+    false
+  end
+
+  def authorized_for_delete?
+    false
+  end
 
   def date_message
     payment_date.present? ? "#{I18n.t! 'sold_at' } #{I18n.l payment_date, :format => :long}" : "#{I18n.t 'nil_date'}"
+  end
+
+  def before_validation
+    self.balance = total_amount - payments.map{|p| p.amount}.sum
   end
 
   def after_save
@@ -22,40 +41,13 @@ class Debt < ActiveRecord::Base
     nil
   end
 
-  def payment_date_cant_be_greater_than_today
-    unless self.payment_date.nil?
-      if (self.payment_date <=> Date.today) > 0
-        errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
-      end
-    end
-  end
-  
-  def bs
-    total_amount if currency.eql? "BOB"
-  end
-
-  def usd
-    total_amount if currency.eql? "USD"
-  end
-
   def price
-    if bs
-      "#{bs} #{as_(:Bs)}"
-    else
-      "#{usd} #{as_(:Usd)}"
-    end
+    "#{total_amount} #{I18n.t! currency, :scope => "activerecord.attributes.debt"}"
   end
 
-  def before_validation
-    self.balance = total_amount - payments.map{|p| p.amount}.sum
+  def debtor=(value)
+    value.strip! if value.present?
+    self.write_attribute(:debtor, value)
   end
 
-  #Desactivar create y delete
-  def authorized_for_create?
-    false
-  end
-
-  def authorized_for_delete?
-    false
-  end
 end
