@@ -5,7 +5,7 @@ class Address < ActiveRecord::Base
 
   #Validaciones
   validates_presence_of :address
-  validates_length_of :address, :maximum => 100, :if => address.present?
+  validates_length_of :address, :maximum => 100, :if => "address.present?"
 
   def address=(value)
     value.strip!
