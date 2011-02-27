@@ -29,9 +29,9 @@ class JewelriesController < ApplicationController
     conf.delete.link = false
 
     conf.columns[:measurement_unit].form_ui = :radio
-    conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
+    conf.columns[:measurement_unit].options = { :options => [:grams, :karats] }
     conf.columns[:currency].form_ui = :radio
-    conf.columns[:currency].options[:options] = Sale.currencies
+    conf.columns[:currency].options = { :options => [:usd, :bob] }
 
     conf.action_links.add :cancel,
       :type => :member,

@@ -48,6 +48,7 @@ es:
         balance: Balance
         payment_date: Fecha de venta
         jewelry: Joya
+        currency: Moneda
         bob: Bs
         usd: $us
       expense:
@@ -61,6 +62,12 @@ es:
         concept: Concepto
         amount: Monto
         payment_date: Fecha de pago
+        bob: Bs
+        usd: $us
+        price: Monto
+        payment_type: Tipo de pago
+        sale: Venta al contado
+        payment: Pago deuda
       jewelry:
         products: Productos
         box: Caja
@@ -83,6 +90,7 @@ es:
       payment:
         amount: Monto
         payment_date: Fecha de pago
+        payment of: Pago de
       phone_number:
         number: Numero
       product:
@@ -91,6 +99,7 @@ es:
         boxes: Cajas
       sale:
         date_of_sale: Fecha de venta
+        sold at: Vendido en
   #debt
   sold_at: Vendido el
   not_payed: Sin pagar
@@ -113,4 +122,7 @@ es:
   #sale
   payed: Pagada
   jewelry sale: Venta de joya
+
+  bob: Bs
+  usd: $us
 
