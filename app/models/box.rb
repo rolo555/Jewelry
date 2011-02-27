@@ -1,5 +1,3 @@
-include ModelHelper
-
 class Box < ActiveRecord::Base
 
   #Relaciones

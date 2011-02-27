@@ -1,32 +1,16 @@
-include ModelHelper
-
 class Product < ActiveRecord::Base
-  protected :before_validation
 
   #Relaciones
   has_many :boxes, :dependent => :destroy
 
   #Validaciones
   validates_presence_of :name, :boxes
-  validates_length_of :name, :maximum => 50, :if => "self.name.presence"
+  validates_length_of :name, :maximum => 50, :if => "name.present?"
   validates_uniqueness_of :name, :case_sensitive => false
 
-  def before_validation
-    sanitizate_strings :name
-  end
-
-  def to_label
-    "#{name}"
-  end
-
-  def to_s
-    name
-  end
-
-  def increase_product_auto_code
-    self.product_auto_code = self.product_auto_code + 1
-    self.save
-    nil
+  #Permisos
+  def authorized_for_delete?
+    false
   end
 
   def before_create
@@ -34,8 +18,23 @@ class Product < ActiveRecord::Base
     nil
   end
 
-  #Desactivar delete
-  def authorized_for_delete?
-    false
+  def increase_product_auto_code
+    self.product_auto_code = self.product_auto_code + 1
+    self.save!
+    nil
   end
+
+  def name=(value)
+    value.strip! if value.present?
+    self.write_attribute(:name, value)
+  end
+
+  def to_label
+    name
+  end
+
+  def to_s
+    to_label
+  end
+
 end
