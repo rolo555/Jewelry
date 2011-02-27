@@ -16,4 +16,8 @@ module DebtsHelper
     list(record.payments) { |payment| payment.to_label }
   end
 
+  def debt_status_search_column(record, options)
+    select nil, nil, Debt.status_types, {:include_blank => true}, options
+  end
+
 end

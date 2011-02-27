@@ -7,20 +7,17 @@ class Debt < ActiveRecord::Base
   has_many :phone_numbers, :dependent => :destroy
 
   #Validaciones
-  validates_presence_of :debtor, :total_amount, :jewelry, :payment_date
+  validates_presence_of :debtor, :total_amount, :payment_date, :currency
   validates_uniqueness_of :jewelry_id
   validate :payment_date_cant_be_greater_than_today
-  validates_numericality_of :balance, :greater_than_or_equal_to => 0, :if => "self.balance.present?"
+  validates_numericality_of :balance, :greater_than_or_equal_to => 0, :if => "balance.present?"
+
+  delegate :status, :to => :jewelry, :allow_nil => true
 
   def payment_date_cant_be_greater_than_today
     if self.payment_date.present? and self.payment_date > Date.today
       errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
     end
-  end
-
-  #Permisos
-  def authorized_for_create?
-    false
   end
 
   def authorized_for_delete?
@@ -32,22 +29,35 @@ class Debt < ActiveRecord::Base
   end
 
   def before_validation
-    self.balance = total_amount - payments.map{|p| p.amount}.sum
+    self.balance = total_amount - payments.map{|p| p.amount}.sum if payments.present?
   end
 
   def after_save
-    jewelry.status = I18n.t! :not_payed if jewelry.present?
-    self.jewelry.save!
+    jewelry.update_status if jewelry.present?
     nil
   end
 
   def price
-    "#{total_amount} #{I18n.t! currency, :scope => "activerecord.attributes.debt"}"
+    "#{total_amount} #{I18n.t!(currency) if currency.present?}"
   end
 
   def debtor=(value)
     value.strip! if value.present?
     self.write_attribute(:debtor, value)
+  end
+
+  def payed?
+    balance == 0
+  end
+
+  def self.status_types
+    all.map {|d| d.status}.uniq
+  end
+
+  def to_label
+    product = jewelry.to_label if jewelry.present?
+    date = I18n.l(payment_date, :format => :long) if payment_date.present?
+    [debtor, product, date].join " "
   end
 
 end
