@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     conf.actions << :field_search
     conf.columns[:boxes].search_ui = :text
     conf.columns[:boxes].search_sql = "boxes.description||boxes.box_code"
+    conf.columns[:name].search_ui = :text
     
     #Desactivar enlace que abre las cajas
     conf.columns[:boxes].clear_link
