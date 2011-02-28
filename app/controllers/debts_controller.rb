@@ -3,7 +3,10 @@ class DebtsController < ApplicationController
     #Configurar las columnas que se mostrarán en general
     conf.columns = :payment_date, :debtor, :addresses, :phone_numbers, :total_amount, :currency, :total_amount_with_currency, :payments, :balance, :status
 
-    conf.create.columns.exclude :status
+    #Configurar las columnas que se mostrarán al editar
+    conf.columns = :payment_date, :debtor, :addresses, :phone_numbers, :price, :payments, :balance
+
+    conf.create.columns.exclude :status, :balance
     conf.update.columns.exclude :status
 
     #Configurar las columnas que se mostrarán al listar

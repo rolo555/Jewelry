@@ -44,6 +44,7 @@ es:
         payments: Pagos
         debtor: Deudor
         total_amount_with_currency: Monto
+        total_amount: Monto
         price: Monto
         balance: Balance
         payment_date: Fecha de venta
