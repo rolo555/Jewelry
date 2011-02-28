@@ -56,6 +56,7 @@ es:
         concept: Concepto
         amount: Monto
         payment_date: Fecha de pago
+        show_all: Mostrar todos
       jewelry:
         products: Productos
         box: Caja
@@ -96,4 +97,5 @@ es:
   weight: Peso
   #sale
   payed: Pagada
-
+  #expense
+  show_all: Mostrar todos

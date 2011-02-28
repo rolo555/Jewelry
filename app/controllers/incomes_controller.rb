@@ -1,4 +1,6 @@
 class IncomesController < ApplicationController
+  before_filter :update_config
+  
   active_scaffold :income do |conf|
     conf.columns = :concept, :amount
     conf.list.columns = :payment_date, :concept, :amount, :payment
@@ -16,10 +18,34 @@ class IncomesController < ApplicationController
     conf.field_search.columns << :payment_type
     conf.columns[:payment_type].search_ui = :select
 
-    #No mostrar link delete, edit y create
+    #no mostrar link delete, edit y create
     conf.delete.link = false
     conf.update.link = false
     conf.create.link = false
-    
+
+    #boton para mostrar todos
+    conf.action_links.add :show_all,
+      :type => :collection,
+      :parameters => { :id => " " },
+      :page => true,
+      :label => I18n.t!(:show_all)
+
   end
+
+  def update_config
+    if params["pag"] == "true"
+      active_scaffold_config.list.per_page = 9999999
+    else
+      active_scaffold_config.list.per_page = 15
+    end
+  end
+
+  def show_all
+    if params["pag"] == "true"
+      redirect_to :action => :index
+    else
+      redirect_to :action => :index, :pag => true
+    end
+  end
+
 end
