@@ -89,6 +89,8 @@ es:
         amount_with_currency: Monto
         bob: Bs
         usd: $us
+        karats: Quilates
+        grams: Gramos
       payment:
         amount: Monto
         payment_date: Fecha de pago

@@ -5,6 +5,7 @@ class JewelriesController < ApplicationController
     conf.show.columns = :box, :weight_and_measurement_unit, :description, :photo, :purchase_date, :price
 
     conf.columns[:box].form_ui = :select
+    conf.columns[:box].options = { :include_blank => true }
     conf.columns[:products].update_column = :box
 
     #Descativar enlace que abre el nested

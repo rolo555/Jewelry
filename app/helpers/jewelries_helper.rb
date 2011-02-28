@@ -8,11 +8,11 @@ module JewelriesHelper
   end
 
   def jewelry_status_search_column(record, options)
-    select nil, nil, Jewelry.status_types, {:include_blank => as_('- select -')}, options
+    select nil, nil, Jewelry.status_types, {:include_blank => true}, options
   end
 
   def jewelry_products_form_column(record, options)
-    select nil, nil, options_for_select(Product.all), {:include_blank => as_('- select -')}, options
+    select nil, nil, options_for_select(Product.all), {:include_blank => true}, options
   end
 
   def options_for_association_conditions(association)
