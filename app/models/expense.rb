@@ -28,6 +28,10 @@ class Expense < ActiveRecord::Base
     false
   end
 
+  def authorized_for_edit?
+    self.jewelry.blank?
+  end
+
   def concept=(value)
     value.strip! if value.present?
     self.write_attribute(:concept, value)
