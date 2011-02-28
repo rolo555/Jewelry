@@ -25,12 +25,17 @@ class Payment < ActiveRecord::Base
   end
 
   def after_save
+    update_income
+    nil
+  end
+
+  def update_income
     self.income.concept = "#{I18n.t! "payment of", :scope => "activerecord.attributes.payment"} #{debt.debtor} - #{debt.jewelry.to_label}"
     self.income.update_amount self.amount, self.currency
     self.income.payment_date = self.payment_date
     self.income.save!
-    nil
   end
+
 
   def to_label
     "#{amount} #{I18n.t! currency} - #{I18n.l payment_date, :format => :long}"
