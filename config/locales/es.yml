@@ -76,6 +76,7 @@ es:
         jewelry_code: Código de joya
         weight: Peso
         weight_and_measurement_unit: Peso
+        measurement_unit: Unidad
         description: Descripcion
         photo: Foto
         status: Estado
