@@ -34,10 +34,12 @@ class Expense < ActiveRecord::Base
   end
 
   def update_amount(amount, currency)
-    CURRENCIES.each { |c|
-      self.send("#{c}=", nil)
-    }
-    self.send("#{currency}=", amount)
+    if amount.present? and currency.present?
+      CURRENCIES.each { |c|
+        self.send("#{c}=", nil)
+      }
+      self.send("#{currency}=", amount)
+    end
   end
 
   def price
