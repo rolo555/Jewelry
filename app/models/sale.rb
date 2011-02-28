@@ -20,8 +20,8 @@ class Sale < ActiveRecord::Base
   end
 
   def after_create
-    income = Income.new
-    income.save
+    self.income = Income.new
+    income.save!
     nil
   end
 
@@ -32,8 +32,8 @@ class Sale < ActiveRecord::Base
   end
 
   def update_income
-    income.concept = I18n.t! "jewelry sale"
-    income.amounts = amounts
+    income.concept = "#{I18n.t!("jewelry sale")} - #{jewelry.to_label}"
+    income.update_amount self.amount, self.currency
     income.payment_date = self.date_of_sale
     income.save
   end
@@ -51,7 +51,7 @@ class Sale < ActiveRecord::Base
   end
 
   def price
-    "#{amount} #{I18n.t! currency, :scope => "currencies"}"
+    "#{amount} #{I18n.t! currency}"
   end
 
 end
