@@ -4,16 +4,16 @@ class DebtsController < ApplicationController
     conf.columns = :payment_date, :debtor, :addresses, :phone_numbers, :total_amount, :currency, :total_amount_with_currency, :payments, :balance, :status
 
     #Configurar las columnas que se mostrarán al editar
-    conf.update.columns = :payment_date, :debtor, :addresses, :phone_numbers, :price, :payments, :balance
+    conf.update.columns = :payment_date, :debtor, :addresses, :phone_numbers, :price, :payments, :balance_with_currency
 
     conf.create.columns.exclude :status, :balance
     conf.update.columns.exclude :status
 
     #Configurar las columnas que se mostrarán al listar
-    conf.list.columns = :payment_date, :debtor, :price, :balance, :jewelry
+    conf.list.columns = :payment_date, :debtor, :price, :balance_with_currency, :jewelry
 
     #Configurar las columnas que se mostrarán al ver
-    conf.show.columns = :debtor, :addresses, :price, :payments, :balance
+    conf.show.columns = :debtor, :addresses, :price, :payments, :balance_with_currency
 
     #Activar busqueda avanzada
     conf.actions << :field_search
@@ -32,9 +32,6 @@ class DebtsController < ApplicationController
     #Mostrar currency con un radio button
     conf.columns[:currency].form_ui = :radio
     conf.columns[:currency].options = {:options => [:usd, :bob]}
-
-    #Agregar estilo disabled a balance
-    conf.columns[:balance].options[:disabled] = "disabled"
 
     #Eliminar link para crear y eliminar
     conf.create.link = false

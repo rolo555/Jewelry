@@ -47,6 +47,7 @@ es:
         total_amount: Monto
         price: Monto
         balance: Balance
+        balance_with_currency: Balance
         payment_date: Fecha de venta
         jewelry: Joya
         currency: Moneda
