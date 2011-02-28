@@ -108,6 +108,8 @@ es:
         currency: Moneda
         amount_with_currency: Monto
         amount: Monto
+        bob: Bs
+        usd: $us
   #expense
   uniqueness_of_currency: Se debe utilizar una sola moneda
   #debt
