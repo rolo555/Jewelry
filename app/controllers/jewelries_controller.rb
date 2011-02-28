@@ -1,8 +1,8 @@
 class JewelriesController < ApplicationController
   active_scaffold :jewelrie do |conf|
-    conf.columns = :products, :box, :weight, :measurement_unit, :weight_and_measurement_unit, :description, :photo, :purchase_date, :purchase_price
+    conf.columns = :products, :box, :weight, :measurement_unit, :weight_and_measurement_unit, :description, :photo, :purchase_date, :amount, :currency, :amount_with_currency
     conf.list.columns = :photo, :jewelry_code, :box, :sale, :debt
-    conf.show.columns = :box, :weight_and_measurement_unit, :description, :photo, :purchase_date, :purchase_price
+    conf.show.columns = :box, :weight_and_measurement_unit, :description, :photo, :purchase_date, :price
 
     conf.columns[:box].form_ui = :select
     conf.columns[:products].update_column = :box
@@ -30,5 +30,21 @@ class JewelriesController < ApplicationController
 
     conf.columns[:measurement_unit].form_ui = :radio
     conf.columns[:measurement_unit].options[:options] = Jewelry.measurement_units
+    conf.columns[:currency].form_ui = :radio
+    conf.columns[:currency].options[:options] = Sale.currencies
+
+    conf.action_links.add :cancel,
+      :type => :member,
+      :page => true,
+      :confirm => "#{I18n.t!('confirmation message')}"
+
   end
+
+  def cancel
+    jewelry = Jewelry.find params[:id]
+    flash[:warning] = "#{I18n.t('refund message')} #{jewelry.calculate_refund}"
+    jewelry.destroy_dependences
+    redirect_to :action=>'index'
+  end
+
 end

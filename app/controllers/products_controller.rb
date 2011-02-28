@@ -1,14 +1,23 @@
 class ProductsController < ApplicationController
+  
   active_scaffold :product do |conf|
+    #Configuración de las columnas que se mostrarán en general
     conf.columns = :name, :boxes
-    conf.list.columns << :list_of_boxes
-    conf.list.columns.exclude :boxes
-    #Agregacion de multipart para que agrege los archivos adjuntos de las fotos
-    #de boxes
+
+    #Activar busqueda avanzada
+    conf.actions << :field_search
+    conf.columns[:boxes].search_ui = :text
+    conf.columns[:boxes].search_sql = "boxes.description||boxes.box_code"
+    
+    #Desactivar enlace que abre las cajas
+    conf.columns[:boxes].clear_link
+
+    #Permitir subir adjuntos
     conf.create.multipart = true
     conf.update.multipart = true
 
-    #No mostrar el link delete
+    #Eliminar el link delete
     conf.delete.link = false
   end
+
 end

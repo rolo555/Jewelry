@@ -39,19 +39,24 @@ es:
         description: Descripción
         photo: Foto
       debt:
-        addresses: Direcciónes
+        addresses: Direcciones
         phone_numbers: Números de teléfono
         payments: Pagos
         debtor: Deudor
-        total_amount: Monto total
+        total_amount_with_currency: Monto
+        price: Monto
         balance: Balance
         payment_date: Fecha de venta
         jewelry: Joya
+        bob: Bs
+        usd: $us
       expense:
         concept: Concepto
-        amount: Monto
         payment_date: Fecha de pago
-        jewelry: Codigo de joya
+        jewelry: Joya
+        bob: Bs
+        usd: $us
+        price: Monto
       income:
         concept: Concepto
         amount: Monto
@@ -62,6 +67,7 @@ es:
         box: Caja
         jewelry_code: Código de joya
         weight: Peso
+        weight_and_measurement_unit: Peso
         description: Descripcion
         photo: Foto
         status: Estado
@@ -71,6 +77,10 @@ es:
         purchase_price: Precio de compra
         sale: Venta
         debt: Deuda
+        price: Monto
+        amount_with_currency: Monto
+        bob: Bs
+        usd: $us
       payment:
         amount: Monto
         payment_date: Fecha de pago
@@ -81,7 +91,6 @@ es:
         list_of_boxes: Lista de cajas
         boxes: Cajas
       sale:
-        amount: Monto
         date_of_sale: Fecha de venta
   #debt
   sold_at: Vendido el
@@ -95,7 +104,14 @@ es:
   sale_on_account: Venta a credito
   code: Código
   weight: Peso
+  cancel: Cancelar
+  confirmation message: ¿Esta seguro que quiere cancelar la venta de esta joya? Si confirma se eliminaran todos los ingresos relacionados a esta.
+  refund message: Realizar devolución de
+  jewelry purchase: Compra de joya
+  grams: Gramos
+  karats: Quilates
   #sale
   payed: Pagada
+  jewelry sale: Venta de joya
   #expense
   show_all: Mostrar todos
