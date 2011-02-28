@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :addresses, :active_scaffold => true
   map.resources :payments, :active_scaffold => true
   map.resources :debts, :active_scaffold => true
+  map.resources :debts, :member => { :print => :get }
   map.resources :sales, :active_scaffold => true
   map.resources :incomes, :active_scaffold => true
   map.resources :expenses, :active_scaffold => true

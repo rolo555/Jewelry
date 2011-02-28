@@ -1,10 +1,12 @@
 class Income < ActiveRecord::Base
 
+  CURRENCIES = [:usd, :bob]
+
   #Relaciones
   belongs_to :payment, :polymorphic => true
 
   #Validation
-  validates_numericality_of :bs, :greater_than_or_equal_to => 0, :if => "bs.present?"
+  validates_numericality_of :bob, :greater_than_or_equal_to => 0, :if => "bob.present?"
   validates_numericality_of :usd, :greater_than_or_equal_to => 0, :if => "usd.present?"
 
   #Permisos
@@ -20,28 +22,31 @@ class Income < ActiveRecord::Base
     false
   end
 
-  def amounts=(amounts)
-    self.bs, self.usd = amounts
+  def update_amount(amount, currency)
+    if amount.present? and currency.present?
+      CURRENCIES.each { |c|
+      self.send("#{c}=", nil)
+      }
+      self.send("#{currency}=", amount)
+    end
   end
 
   def price
-    "#{amount} #{I18n.t! currency, :scope => "activerecord.attributes.income"}" if amount.present?
+    "#{amount} #{I18n.t! currency }" if amount.present?
   end
 
   def currency
-    if bs.present?
-      "bob"
-    elsif usd.present?
-      "usd"
-    end
+    currencies = CURRENCIES.map { |c|
+      c if eval("self.#{c}.present?")
+    }.compact
+    currencies.first unless currencies.empty?
   end
 
   def amount
-    if bs.present?
-      bs
-    elsif usd.present?
-      usd
-    end
+    currencies = CURRENCIES.map { |c|
+      eval("self.#{c}")
+    }.compact
+    currencies.first unless currencies.empty?
   end
 
   def self.payment_types

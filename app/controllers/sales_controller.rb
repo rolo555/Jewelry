@@ -6,7 +6,7 @@ class SalesController < ApplicationController
     conf.columns[:date_of_sale].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => false }
 
     conf.columns[:currency].form_ui = :radio
-    conf.columns[:currency].options[:options] = Sale.currencies
+    conf.columns[:currency].options = { :options => [:usd, :bob] }
   end
 
 end

@@ -1,4 +1,5 @@
 class Sale < ActiveRecord::Base
+
   #Relaciones
   belongs_to :jewelry
   has_one :income, :as => :payment, :dependent => :destroy
@@ -8,61 +9,49 @@ class Sale < ActiveRecord::Base
   validates_uniqueness_of :jewelry_id
   validate :date_of_sale_cant_be_greater_than_today
 
-  def date_message
-    "#{I18n.t! "sold_at"} #{I18n.l date_of_sale, :format => :long}"
-  end
-
-  def after_create
-    income = Income.new
-    income.save
-    nil
-  end
-
-  def update_income
-    income.concept = I18n.t! "jewelry sale"
-    income.amounts = amounts
-    income.payment_date = self.date_of_sale
-    income.save
-  end
-
-  def update_jewelry
-    jewelry.status = I18n.t!:payed if jewelry.present?
-    jewelry.save!
-  end
-
-  def after_save
-    update_income
-    update_jewelry
-    nil
-  end
-
   def date_of_sale_cant_be_greater_than_today
     if self.date_of_sale.present? and self.date_of_sale > Date.today
       errors.add :date_of_sale, "#{I18n.t!('can\'t be greater than')} #{I18n.t!('today')}"
     end
   end
 
+  def date_message
+    "#{I18n.t! "sold at", :scope => "activerecord.attributes.sale"} #{I18n.l date_of_sale, :format => :long}"
+  end
+
+  def after_create
+    self.income = Income.new
+    income.save!
+    nil
+  end
+
+  def after_save
+    update_income
+    jewelry.update_status if jewelry.present?
+    nil
+  end
+
+  def update_income
+    income.concept = "#{I18n.t!("jewelry sale")} - #{jewelry.to_label}"
+    income.update_amount self.amount, self.currency
+    income.payment_date = self.date_of_sale
+    income.save
+  end
+
   def bs
-    amount if currency.eql? "BOB"
+    amount if currency.eql? "bob"
   end
 
   def usd
-    amount if currency.eql? "USD"
+    amount if currency.eql? "usd"
   end
 
   def amounts
-    [self.bs, self.usd]
+    [bs, usd]
   end
 
   def price
-    if bs
-      "#{bs} #{as_(:BOB)}"
-    else
-      "#{usd} #{as_(:USD)}"
-    end
+    "#{amount} #{I18n.t! currency}"
   end
 
-  def self.currencies
-    [[as_(:BOB), "BOB"], [as_(:USD), "USD"]]
-  end
 end
