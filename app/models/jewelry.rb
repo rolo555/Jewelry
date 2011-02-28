@@ -38,6 +38,23 @@ class Jewelry < ActiveRecord::Base
     false
   end
 
+  def before_create
+    copy_product_auto_code
+    self.status = I18n.t! :on_sale
+    generate_jewelry_code
+    nil
+  end
+
+  def before_save
+    unless new_record?
+      if self.box_id_changed?
+        copy_product_auto_code
+        generate_jewelry_code
+        box.product.increase_product_auto_code
+      end
+    end
+  end
+
   def after_create
     box.product.increase_product_auto_code
     self.expense = Expense.new :concept => I18n.t!("jewelry purchase"), :usd => 0
@@ -53,11 +70,8 @@ class Jewelry < ActiveRecord::Base
     nil
   end
 
-  def before_create
-    copy_product_auto_code
-    self.status = I18n.t! :on_sale
+  def generate_jewelry_code
     self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
-    nil
   end
 
   def copy_product_auto_code
