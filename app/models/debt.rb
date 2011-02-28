@@ -1,5 +1,11 @@
 class Debt < ActiveRecord::Base
 
+  def after_initialize
+    if new_record?
+      self.payment_date ||= Date.today
+    end
+  end
+
   #Relaciones
   belongs_to :jewelry
   has_many :payments, :dependent => :destroy
