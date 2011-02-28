@@ -1,4 +1,5 @@
 class Payment < ActiveRecord::Base
+
   #Relaciones
   belongs_to :debt
   has_one :income, :as => :payment, :dependent => :destroy
@@ -18,8 +19,9 @@ class Payment < ActiveRecord::Base
   end
 
   def after_create
-    self.income = Income.new :created_at => self.created_at, :updated_at => self.updated_at
+    self.income = Income.new
     self.income.save!
+    nil
   end
 
   def after_save
@@ -27,22 +29,11 @@ class Payment < ActiveRecord::Base
     self.income.update_amount self.amount, self.currency
     self.income.payment_date = self.payment_date
     self.income.save!
-  end
-
-  def bs
-    amount if currency.eql? "bob"
-  end
-
-  def usd
-    amount if currency.eql? "usd"
-  end
-
-  def amounts
-    [bs, usd]
+    nil
   end
 
   def to_label
-    "#{amount} #{I18n.t! currency, :scope => "activerecord.attributes.debt"} - #{I18n.l payment_date, :format => :long}"
+    "#{amount} #{I18n.t! currency} - #{I18n.l payment_date, :format => :long}"
   end
 
 end
