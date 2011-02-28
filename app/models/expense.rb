@@ -9,6 +9,20 @@ class Expense < ActiveRecord::Base
   validates_numericality_of :bob, :greater_than_or_equal_to => 0, :if => "bob.present?"
   validates_numericality_of :usd, :greater_than_or_equal_to => 0, :if => "usd.present?"
 
+  validate :payment_date_cant_be_greater_than_today, :uniqueness_of_currency
+
+  def uniqueness_of_currency
+    if self.bob.present? and self.usd.present?
+      errors.add_to_base "#{I18n.t('uniqueness_of_currency')}"
+    end
+  end
+
+  def payment_date_cant_be_greater_than_today
+    if self.payment_date.present? and self.payment_date > Date.today
+      errors.add :payment_date, "#{I18n.t!('can\'t be greater than')} #{I18n.t!(:today)}"
+    end
+  end
+
   #Permisos
   def authorized_for_delete?
     false
@@ -19,10 +33,11 @@ class Expense < ActiveRecord::Base
     self.write_attribute(:concept, value)
   end
 
-  def amounts=(amounts)
-    CURRENCIES.each do |c|
-      send("#{c}=", amounts[c])
-    end
+  def update_amount(amount, currency)
+    CURRENCIES.each { |c|
+      self.send("#{c}=", nil)
+    }
+    self.send("#{currency}=", amount)
   end
 
   def price

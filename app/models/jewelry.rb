@@ -40,14 +40,14 @@ class Jewelry < ActiveRecord::Base
 
   def after_create
     box.product.increase_product_auto_code
-    self.expense = Expense.new :created_at => self.created_at, :updated_at => self.updated_at
+    self.expense = Expense.new :concept => I18n.t!("jewelry purchase"), :usd => 0
     self.expense.save!
     nil
   end
 
   def after_save
     self.expense.concept = I18n.t! "jewelry purchase"
-    self.expense.amounts = self.amounts
+    self.expense.update_amount self.amount, self.currency
     self.expense.payment_date = self.purchase_date
     self.expense.save!
     nil

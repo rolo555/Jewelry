@@ -1,16 +1,16 @@
 class ExpensesController < ApplicationController
   active_scaffold :expense do |conf|
     #Configurar las columnas que se mostrarán en general
-    conf.columns = :payment_date, :concept, :bs, :usd
+    conf.columns = :payment_date, :concept, :bob, :usd
 
     #Configurar las columnas que se mostrarán al listar
-    conf.list.columns = :payment_date, :concept, :jewelry, :bs, :usd
+    conf.list.columns = :payment_date, :concept, :jewelry, :bob, :usd
 
     #Configurar las columnas que se mostrarán al ver
     conf.show.columns = :payment_date, :concept, :jewelry, :price
     
     #Mostrar la sumatoria de bs y usd
-    conf.columns[:bs].calculate = :sum
+    conf.columns[:bob].calculate = :sum
     conf.columns[:usd].calculate = :sum
 
     #Cambiar el link de jewelry
@@ -18,5 +18,8 @@ class ExpensesController < ApplicationController
 
     #Eliminar link para eliminar
     conf.delete.link = false
+
+    #configuracion de la fecha de pago
+    conf.columns[:payment_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => false }
   end
 end
