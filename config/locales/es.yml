@@ -51,6 +51,7 @@ es:
         currency: Moneda
         bob: Bs
         usd: $us
+        status: Estado
       expense:
         concept: Concepto
         payment_date: Fecha de pago

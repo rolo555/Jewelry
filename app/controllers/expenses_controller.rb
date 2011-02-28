@@ -20,6 +20,14 @@ class ExpensesController < ApplicationController
     conf.delete.link = false
 
     #configuracion de la fecha de pago
-    conf.columns[:payment_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => false }
+    conf.columns[:payment_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
+
+    #Activar búsqueda avanzada
+    conf.actions << :field_search
+    conf.field_search.columns = :payment_date, :concept, :jewelry
+    conf.columns[:concept].search_ui = :text
+    conf.columns[:jewelry].search_ui = :text
+    conf.columns[:jewelry].search_sql = "jewelries.jewelry_code"
+
   end
 end
