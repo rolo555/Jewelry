@@ -1,19 +1,41 @@
 class DebtsController < ApplicationController
   active_scaffold :debt do |conf|
-    conf.columns = :payment_date, :debtor, :addresses, :phone_numbers, :total_amount, :payments, :balance
-    conf.columns.exclude :jewelry
-    conf.list.columns = :debtor, :total_amount, :balance, :jewelry
-    conf.show.columns = :debtor, :addresses, :total_amount, :payments, :balance
+    #Configurar las columnas que se mostrarán en general
+    conf.columns = :payment_date, :debtor, :addresses, :phone_numbers, :total_amount, :currency, :total_amount_with_currency, :payments, :balance, :status
+
+    conf.create.columns.exclude :status
+    conf.update.columns.exclude :status
+
+    #Configurar las columnas que se mostrarán al listar
+    conf.list.columns = :payment_date, :debtor, :price, :balance, :jewelry
+
+    #Configurar las columnas que se mostrarán al ver
+    conf.show.columns = :debtor, :addresses, :price, :payments, :balance
+
+    #Activar busqueda avanzada
+    conf.actions << :field_search
+    conf.field_search.columns = :debtor, :payment_date, :jewelry, :status
+    conf.columns[:jewelry].search_ui = :text
+    conf.columns[:jewelry].search_sql = "jewelries.jewelry_code"
+    conf.columns[:status].search_ui = :text
+    conf.columns[:status].search_sql = "jewelries.status"
 
     #Desactivar enlace que abre la joya
     conf.columns[:jewelry].clear_link
 
-    #configuracion de la fecha de compra
+    #Configurar de la fecha de pago
     conf.columns[:payment_date].options = {:end_year => Date.today.year-5, :start_year => Date.today.year, :include_blank => true }
 
-    #No mostrar link create y delete
+    #Mostrar currency con un radio button
+    conf.columns[:currency].form_ui = :radio
+    conf.columns[:currency].options = {:options => [:usd, :bob]}
+
+    #Agregar estilo disabled a balance
+    conf.columns[:balance].options[:disabled] = "disabled"
+
+    #Eliminar link para crear y eliminar
     conf.create.link = false
     conf.delete.link = false
-
   end
+
 end

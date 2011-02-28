@@ -2,15 +2,23 @@ class ExpensesController < ApplicationController
   before_filter :update_config
   
   active_scaffold :expense do |conf|
-    conf.list.columns = :payment_date, :concept, :jewelry, :amount
-    conf.columns.exclude :jewelry
-    #sumatoria de amount
-    conf.columns[:amount].calculate = :sum
+    #Configurar las columnas que se mostrarán en general
+    conf.columns = :payment_date, :concept, :bs, :usd
+
+    #Configurar las columnas que se mostrarán al listar
+    conf.list.columns = :payment_date, :concept, :jewelry, :bs, :usd
+
+    #Configurar las columnas que se mostrarán al ver
+    conf.show.columns = :payment_date, :concept, :jewelry, :price
     
-    #modificar el link a ver
+    #Mostrar la sumatoria de bs y usd
+    conf.columns[:bs].calculate = :sum
+    conf.columns[:usd].calculate = :sum
+
+    #Cambiar el link de jewelry
     conf.columns[:jewelry].actions_for_association_links = [:show]
 
-    #no mostrar el link delete
+    #Eliminar link para eliminar
     conf.delete.link = false
 
     #boton para mostrar todos

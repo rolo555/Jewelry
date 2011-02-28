@@ -38,25 +38,28 @@ ActiveRecord::Schema.define(:version => 20110218204447) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
+    t.string   "currency"
   end
 
   create_table "expenses", :force => true do |t|
     t.string   "concept"
-    t.decimal  "amount"
     t.integer  "jewelry_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
+    t.decimal  "bs"
+    t.decimal  "usd"
   end
 
   create_table "incomes", :force => true do |t|
     t.string   "concept"
-    t.decimal  "amount"
     t.integer  "payment_id"
     t.string   "payment_type"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
+    t.decimal  "bs"
+    t.decimal  "usd"
   end
 
   create_table "jewelries", :force => true do |t|
@@ -68,13 +71,14 @@ ActiveRecord::Schema.define(:version => 20110218204447) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.date     "purchase_date"
-    t.decimal  "purchase_price"
     t.string   "status"
     t.integer  "box_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "product_auto_code"
     t.string   "measurement_unit"
+    t.decimal  "amount"
+    t.string   "currency"
   end
 
   create_table "payments", :force => true do |t|
@@ -83,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20110218204447) do
     t.integer  "debt_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currency"
   end
 
   create_table "phone_numbers", :force => true do |t|
@@ -105,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20110218204447) do
     t.date     "date_of_sale"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "currency"
   end
 
 end

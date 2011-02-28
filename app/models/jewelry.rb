@@ -31,6 +31,7 @@ class Jewelry < ActiveRecord::Base
   end
 
   def after_create
+    box.product.increase_product_auto_code
     self.expense = Expense.new :created_at => self.created_at, :updated_at => self.updated_at
     self.expense.save
     nil
@@ -38,8 +39,8 @@ class Jewelry < ActiveRecord::Base
 
   def before_create
     copy_product_auto_code
-    box.product.increase_product_auto_code
     self.status = I18n.t! :on_sale
+    self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
     nil
   end
 
@@ -47,14 +48,9 @@ class Jewelry < ActiveRecord::Base
     self.box.product.product_auto_code
   end
 
-  def before_save
-    self.jewelry_code = "#{self.box.box_code}-#{self.product_auto_code}"
-    nil
-  end
-
   def after_save
-    self.expense.concept = "Compra de joya."
-    self.expense.amount = self.purchase_price
+    self.expense.concept = I18n.t! "jewelry purchase"
+    self.expense.amounts = self.amounts
     self.expense.payment_date = self.purchase_date
     self.expense.save
     nil
@@ -108,10 +104,64 @@ class Jewelry < ActiveRecord::Base
   end
 
   def self.measurement_units
-    [[as_(:G), "G"], [as_(:K), "Q"]]
+    [[I18n.t!(:grams), "grams"], [I18n.t!(:karats), "karats"]]
   end
 
   def weight_and_measurement_unit
-    "#{weight} #{as_(measurement_unit)}"
+    "#{weight} #{I18n.t!(measurement_unit)}"
+  end
+
+  def incomes
+    incomes = []
+    if self.sale.present?
+      incomes << self.sale.income
+    elsif self.debt.present?
+      self.debt.payments.each do |p|
+        incomes << p.income
+      end
+    end
+    incomes
+  end
+
+  def calculate_refund
+    refund = 0
+    incomes.each do |i|
+      refund += i.amount
+    end
+    refund
+  end
+
+  def destroy_dependences
+    if self.sale.present?
+      self.sale.destroy
+    elsif self.debt.present?
+      self.debt.destroy
+    end
+    self.status = I18n.t! :on_sale
+    self.save!
+  end
+
+  def bs
+    amount if currency.eql? "BOB"
+  end
+
+  def usd
+    amount if currency.eql? "USD"
+  end
+
+  def amounts
+    [bs, usd]
+  end
+
+  def price
+    if bs
+      "#{bs} #{I18n.t!(:bob)}"
+    elsif usd
+      "#{usd} #{I18n.t!(:usd)}"
+    end
+  end
+
+  def self.currencies
+    [[I18n.t!(:bob), "BOB"], [I18n.t!(:usd), "USD"]]
   end
 end
