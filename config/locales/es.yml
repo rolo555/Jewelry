@@ -101,6 +101,9 @@ es:
       sale:
         date_of_sale: Fecha de venta
         sold at: Vendido en
+        currency: Moneda
+        amount_with_currency: Monto
+        amount: Monto
   #expense
   uniqueness_of_currency: Se debe utilizar una sola moneda
   #debt

@@ -38,18 +38,6 @@ class Sale < ActiveRecord::Base
     income.save
   end
 
-  def bs
-    amount if currency.eql? "bob"
-  end
-
-  def usd
-    amount if currency.eql? "usd"
-  end
-
-  def amounts
-    [bs, usd]
-  end
-
   def price
     "#{amount} #{I18n.t! currency}"
   end
