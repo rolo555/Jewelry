@@ -38,6 +38,10 @@ class Debt < ActiveRecord::Base
     self.balance = total_amount - payments.map{|p| p.amount}.sum if payments.present?
   end
 
+  def before_save
+    self.balance = self.total_amount if self.total_amount.present? and self.payments.blank?
+  end
+
   def after_save
     jewelry.update_status if jewelry.present?
     nil
@@ -48,7 +52,7 @@ class Debt < ActiveRecord::Base
   end
 
   def balance_with_currency
-    "#{balance} #{I18n.t!(currency) if currency.present?}"
+    "#{balance} #{I18n.t!(currency) if currency.present?}" if balance.present?
   end
 
   def debtor=(value)
