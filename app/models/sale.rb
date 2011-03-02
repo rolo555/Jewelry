@@ -1,5 +1,11 @@
 class Sale < ActiveRecord::Base
 
+  def after_initialize
+    if new_record?
+      self.currency ||= :usd
+    end
+  end
+
   #Relaciones
   belongs_to :jewelry
   has_one :income, :as => :payment, :dependent => :destroy

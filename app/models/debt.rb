@@ -3,6 +3,7 @@ class Debt < ActiveRecord::Base
   def after_initialize
     if new_record?
       self.payment_date ||= Date.today
+      self.currency ||= :usd
     end
   end
 
