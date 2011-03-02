@@ -42,4 +42,10 @@ class Sale < ActiveRecord::Base
     "#{amount} #{I18n.t! currency}"
   end
 
+  def to_label
+    product = jewelry.to_label if jewelry.present?
+    date = I18n.l(date_of_sale, :format => :long) if date_of_sale.present?
+    [product, date].join " "
+  end
+
 end
