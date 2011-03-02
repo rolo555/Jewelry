@@ -43,9 +43,9 @@ es:
         phone_numbers: Números de teléfono
         payments: Pagos
         debtor: Deudor
-        total_amount_with_currency: Monto
-        total_amount: Monto
-        price: Monto
+        total_amount_with_currency: Precio de venta
+        total_amount: Precio de venta
+        price: Precio de venta
         balance: Balance
         balance_with_currency: Balance
         payment_date: Fecha de venta
@@ -87,8 +87,9 @@ es:
         purchase_price: Precio de compra
         sale: Venta
         debt: Deuda
-        price: Monto
-        amount_with_currency: Monto
+        price: Precio de compra
+        amount_with_currency: Precio de compra
+        amount: Precio de compra
         bob: Bs
         usd: $us
         karats: Quilates
@@ -107,8 +108,9 @@ es:
         date_of_sale: Fecha de venta
         sold at: Vendido en
         currency: Moneda
-        amount_with_currency: Monto
-        amount: Monto
+        amount_with_currency: Precio de venta
+        amount: Precio de venta
+        price: Precio de venta
         bob: Bs
         usd: $us
   #expense
