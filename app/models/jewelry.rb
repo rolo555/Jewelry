@@ -18,6 +18,7 @@ class Jewelry < ActiveRecord::Base
   #Validaciones
   validates_presence_of :box
   validate :purchase_date_cant_be_greater_than_today
+  validates_numericality_of :amount, :greater_than => 0, :if => "self.amount.present?"
 
   def purchase_date_cant_be_greater_than_today
     if self.purchase_date.present? and self.purchase_date > Date.today

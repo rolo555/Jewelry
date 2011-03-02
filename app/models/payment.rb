@@ -7,6 +7,7 @@ class Payment < ActiveRecord::Base
   #Validaciones
   validates_presence_of :amount, :payment_date
   validate :payment_date_cant_be_greater_than_today
+  validates_numericality_of :amount, :greater_than => 0, :if => "self.amount.present?"
 
   def payment_date_cant_be_greater_than_today
     if self.payment_date.present? and self.payment_date > Date.today

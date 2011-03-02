@@ -7,6 +7,7 @@ class Sale < ActiveRecord::Base
   #Validaciones
   validates_presence_of :date_of_sale, :amount, :currency
   validates_uniqueness_of :jewelry_id
+  validates_numericality_of :amount, :greater_than => 0, :if => "self.amount.present?"
   validate :date_of_sale_cant_be_greater_than_today
 
   def date_of_sale_cant_be_greater_than_today

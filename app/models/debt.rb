@@ -16,6 +16,7 @@ class Debt < ActiveRecord::Base
   validates_presence_of :debtor, :total_amount, :payment_date, :currency
   validates_uniqueness_of :jewelry_id
   validate :payment_date_cant_be_greater_than_today
+  validates_numericality_of :total_amount, :greater_than => 0, :if => "self.total_amount.present?"
   validates_numericality_of :balance, :greater_than_or_equal_to => 0, :if => "balance.present?"
 
   delegate :status, :to => :jewelry, :allow_nil => true
