@@ -38,6 +38,10 @@ class Jewelry < ActiveRecord::Base
     false
   end
 
+  def authorized_for_cancel?
+    self.status != I18n.t!(:on_sale)
+  end
+
   def before_create
     copy_product_auto_code
     self.status = I18n.t! :on_sale
