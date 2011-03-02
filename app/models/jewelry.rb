@@ -120,10 +120,12 @@ class Jewelry < ActiveRecord::Base
 
   def calculate_refund
     refund = 0
+    currency = ""
     incomes.each do |i|
       refund += i.amount
+      currency = i.currency
     end
-    refund
+    "#{refund} #{I18n.t! currency}"
   end
 
   def destroy_dependences
