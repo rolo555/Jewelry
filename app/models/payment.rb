@@ -14,11 +14,6 @@ class Payment < ActiveRecord::Base
     end
   end
 
-  #Permisos
-  def authorized_for_delete?
-    false
-  end
-
   def before_create
     self.currency = debt.currency
   end
