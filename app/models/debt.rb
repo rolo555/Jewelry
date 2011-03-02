@@ -64,6 +64,14 @@ class Debt < ActiveRecord::Base
     all.map {|d| d.status}.uniq
   end
 
+  def update_incomes
+    if self.payments.present?
+      self.payments.each do |p|
+        p.update_income
+      end
+    end
+  end
+
   def to_label
     product = jewelry.to_label if jewelry.present?
     date = I18n.l(payment_date, :format => :long) if payment_date.present?

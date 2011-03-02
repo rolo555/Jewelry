@@ -20,6 +20,17 @@ class Box < ActiveRecord::Base
     false
   end
 
+  def after_save
+    unless new_record?
+      if self.jewelries.present?
+        self.jewelries.each do |j|
+          j.sale.update_income if j.sale.present?
+          j.debt.update_incomes if j.debt.present?
+        end
+      end
+    end
+  end
+
   def box_code=(value)
     value.strip! if value.present?
     self.write_attribute(:box_code, value)
