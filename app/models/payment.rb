@@ -35,7 +35,8 @@ class Payment < ActiveRecord::Base
   end
 
   def update_income
-    self.income.concept = "#{I18n.t! "payment of", :scope => "activerecord.attributes.payment"} #{debt.debtor} - #{debt.jewelry.to_label}"
+    self.income.concept = "#{I18n.t! "payment of", 
+    :scope => "activerecord.attributes.payment"} #{debt.debtor} - #{debt.jewelry.to_label} - #{debt.jewelry.box.description}"
     self.income.update_amount self.amount, self.currency
     self.income.payment_date = self.payment_date
     self.income.save!

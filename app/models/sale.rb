@@ -32,10 +32,10 @@ class Sale < ActiveRecord::Base
   end
 
   def update_income
-    income.concept = "#{I18n.t!("jewelry sale")} - #{jewelry.to_label}"
+    income.concept = "#{I18n.t!("jewelry sale")} - #{jewelry.to_label} - #{jewelry.box.description}"
     income.update_amount self.amount, self.currency
     income.payment_date = self.date_of_sale
-    income.save
+    income.save!
   end
 
   def price
