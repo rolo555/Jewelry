@@ -1,7 +1,7 @@
 class JewelriesController < ApplicationController
   active_scaffold :jewelrie do |conf|
     conf.columns = :products, :box, :weight, :measurement_unit, :weight_and_measurement_unit, :description, :photo, :purchase_date, :amount, :currency, :amount_with_currency
-    conf.list.columns = :photo, :jewelry_code, :box, :sale, :debt
+    conf.list.columns = :photo, :jewelry_code, :box, :weight_and_measurement_unit, :sale, :debt
     conf.show.columns = :box, :weight_and_measurement_unit, :description, :photo, :purchase_date, :price
 
     conf.columns[:box].form_ui = :select
