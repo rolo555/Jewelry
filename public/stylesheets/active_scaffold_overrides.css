@@ -5,3 +5,56 @@ tbody#as_jewelries-tbody td.sale-column, tbody#as_jewelries-tbody td.debt-column
 input.text-input {
     background-color: white;
 }
+
+img#logo {
+    width: auto;
+    margin: auto;
+    display: block;
+}
+
+#nav_container {
+    border-bottom: solid 1px #ccc;
+}
+
+#nav {
+    margin: auto;
+    padding: 0;
+    display: inline-block;
+    list-style: none;
+    text-align: center;
+    overflow: hidden;
+}
+
+#nav li {
+    float: left;
+    margin-right: 0;
+}
+
+#nav li a {
+    text-decoration: none;
+}
+
+#nav li a:visited {
+    color: #3399ff;
+}
+
+#nav li a {
+    padding: 0.5em;
+    display: block;
+    background-color: #eee;
+    color: #3399ff;
+}
+
+#nav li a:hover {
+    background-color: #ffffcc;
+}
+
+#nav li a:active {
+    color: #666;
+    cursor: default;
+    background-color: #fff;
+}
+
+#nav li.selected a {
+    background-color: #ffffcc;
+}
