@@ -40,6 +40,12 @@ class ExpensesController < ApplicationController
 
   end
 
+  def conditions_for_collection
+    ["(bob > ?) OR (usd > ?)", 0, 0]
+  end
+
+
+
   def update_config
     if params["pag"] == "true"
       active_scaffold_config.list.per_page = 9999999
