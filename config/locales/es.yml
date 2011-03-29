@@ -46,8 +46,8 @@ es:
         total_amount_with_currency: Precio de venta
         total_amount: Precio de venta
         price: Precio de venta
-        balance: Balance
-        balance_with_currency: Balance
+        balance: Saldo
+        balance_with_currency: Saldo
         payment_date: Fecha de venta
         jewelry: Joya
         currency: Moneda
@@ -83,13 +83,13 @@ es:
         status: Estado
         box_id: Codigo de caja
         product_auto_code: Codigo de joya
-        purchase_date: Fecha de compra
-        purchase_price: Precio de compra
+        purchase_date: Fecha de adquisición
+        purchase_price: Precio de adquisición
         sale: Venta
         debt: Deuda
-        price: Precio de compra
-        amount_with_currency: Precio de compra
-        amount: Precio de compra
+        price: Precio de adquisición
+        amount_with_currency: Precio de adquisición
+        amount: Precio de adquisición
         bob: Bs
         usd: $us
         karats: Quilates
