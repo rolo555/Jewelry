@@ -8,11 +8,13 @@ class Expense < ActiveRecord::Base
   #Validaciones
   validates_numericality_of :bob, :greater_than_or_equal_to => 0, :if => "bob.present?"
   validates_numericality_of :usd, :greater_than_or_equal_to => 0, :if => "usd.present?"
+  validates_presence_of :concept
+  validates_presence_of :payment_date
 
   validate :payment_date_cant_be_greater_than_today, :uniqueness_of_currency
 
   def uniqueness_of_currency
-    if self.bob.present? and self.usd.present?
+    if (self.bob.present? and self.usd.present?) or (self.bob.blank? and self.usd.blank?)
       errors.add_to_base "#{I18n.t('uniqueness_of_currency')}"
     end
   end
