@@ -31,6 +31,9 @@ es:
       sale:
         one: "Venta"
         other: "Ventas"
+      record:
+        one: Historial
+        other: Historial
     attributes:
       address:
         address: Dirección
@@ -113,6 +116,11 @@ es:
         price: Precio de venta
         bob: Bs
         usd: $us
+      record:
+        created_at: Fecha
+        table: Tipo
+        code: Código
+        message: Mensaje
   #expense
   uniqueness_of_currency: Se debe utilizar una sola moneda
   #debt

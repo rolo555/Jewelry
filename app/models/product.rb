@@ -18,6 +18,15 @@ class Product < ActiveRecord::Base
     nil
   end
 
+  def before_update
+    if self.name_changed?
+      Record.create :table => "Producto",
+        :code => self.name_was,
+        :message => "Se modificó el nombre.
+      Antes era '#{self.name_was}' y ahora es '#{self.name}'"
+    end
+  end
+
   def increase_product_auto_code
     self.product_auto_code = self.product_auto_code + 1
     self.save!
