@@ -30,6 +30,12 @@ class Payment < ActiveRecord::Base
     nil
   end
 
+  def before_destroy
+    Record.create :table => "Pago",
+        :code => "Venta de la joya #{self.jewelry.jewelry_code}",
+        :message => "Se eliminó un pago de #{self.amount_with_currency}"
+  end
+
   def update_income
     self.income.concept = "#{I18n.t! "payment of", 
     :scope => "activerecord.attributes.payment"} #{debt.debtor} - #{debt.jewelry.to_label} - #{debt.jewelry.box.description}"
@@ -38,9 +44,16 @@ class Payment < ActiveRecord::Base
     self.income.save!
   end
 
+  def jewelry
+    debt.jewelry if debt.present?
+  end
+
+  def amount_with_currency
+    "#{amount} #{I18n.t! currency}"
+  end
 
   def to_label
-    "#{amount} #{I18n.t! currency} - #{I18n.l payment_date, :format => :long}"
+    "#{self.amount_with_currency} - #{I18n.l payment_date, :format => :long}"
   end
 
 end
