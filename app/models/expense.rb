@@ -13,6 +13,12 @@ class Expense < ActiveRecord::Base
 
   validate :payment_date_cant_be_greater_than_today, :uniqueness_of_currency
 
+  def after_create
+    Record.create :table => "Egreso",
+      :code => "'#{self.concept}' de la fecha #{self.payment_date}",
+        :message => "Se creó con un monto de #{self.price}"
+  end
+
   def uniqueness_of_currency
     if (self.bob.present? and self.usd.present?) or (self.bob.blank? and self.usd.blank?)
       errors.add_to_base "#{I18n.t('uniqueness_of_currency')}"
