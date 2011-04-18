@@ -30,17 +30,39 @@ class Payment < ActiveRecord::Base
     nil
   end
 
+  def before_update
+    if self.amount_changed? or self.payment_date_changed?
+      message = ""
+      message += "Se modifico el monto.\nAntes era '#{self.amount_was} #{I18n.t! currency}' y ahora es '#{amount_with_currency}'.\n" if self.amount_changed?
+      message += "Se modifico al fecha de pago.\nAntes era '#{I18n.l payment_date_was, :format => :long}' y ahora es '#{I18n.l payment_date, :format => :long}'." if self.payment_date_changed?
+      create_record message
+    end
+  end
+
   def update_income
-    self.income.concept = "#{I18n.t! "payment of", 
+    self.income.concept = "#{I18n.t! "payment of",
     :scope => "activerecord.attributes.payment"} #{debt.debtor} - #{debt.jewelry.to_label} - #{debt.jewelry.box.description}"
     self.income.update_amount self.amount, self.currency
     self.income.payment_date = self.payment_date
     self.income.save!
   end
 
+  def jewelry
+    debt.jewelry if debt.present?
+  end
+
+  def amount_with_currency
+    "#{amount} #{I18n.t! currency}"
+  end
 
   def to_label
     "#{amount} #{I18n.t! currency} - #{I18n.l payment_date, :format => :long}"
+  end
+
+  def create_record(message)
+    Record.create :table => "Pago",
+      :code => "Venta de la joya #{self.jewelry.jewelry_code}",
+      :message => message
   end
 
 end
