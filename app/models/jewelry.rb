@@ -63,13 +63,12 @@ class Jewelry < ActiveRecord::Base
   def before_update
     if self.description_changed? || self.photo_file_name_changed?
       msg = ""
-      if self.description_changed?
-        msg = "Se modifico la descripcion.
+      if self.photo_file_name_changed?
+        msg += "Se modifico la fotografia"
+      elsif self.description_changed?
+        msg += "\nSe modifico la descripcion
         Antes: '#{self.description_was}'
         Ahora: '#{self.description}'"
-      end
-      if self.photo_file_name_changed?
-        msg += "\nSe modifico la fotografia."
       end
       Record.create :table => "Joya",
         :code => self.jewelry_code,
