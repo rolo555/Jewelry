@@ -63,6 +63,10 @@ class Debt < ActiveRecord::Base
     "#{balance} #{I18n.t!(currency) if currency.present?}" if balance.present?
   end
 
+  def total_payments_with_currency
+    "#{payments.map{|p| p.amount}.sum} #{I18n.t!(currency) if currency.present?}"
+  end
+
   def debtor=(value)
     value.strip! if value.present?
     self.write_attribute(:debtor, value)
