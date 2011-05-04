@@ -37,8 +37,8 @@ class Payment < ActiveRecord::Base
   def before_update
     if self.amount_changed? or self.payment_date_changed?
       message = ""
-      message += "Se modificó el monto.\nAntes era '#{self.amount_was} #{I18n.t! currency}' y ahora es '#{amount_with_currency}'.\n" if self.amount_changed?
-      message += "Se modificó al fecha de pago.\nAntes era '#{I18n.l payment_date_was, :format => :long}' y ahora es '#{I18n.l payment_date, :format => :long}'." if self.payment_date_changed?
+      message += "Se modificó el monto\nAntes era '#{self.amount_was} #{I18n.t! currency}' y ahora es '#{amount_with_currency}'\n" if self.amount_changed?
+      message += "Se modificó al fecha de pago\nAntes era '#{I18n.l payment_date_was, :format => :long}' y ahora es '#{I18n.l payment_date, :format => :long}'" if self.payment_date_changed?
       create_record message
     end
   end

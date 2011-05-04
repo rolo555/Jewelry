@@ -11,7 +11,7 @@ class PhoneNumber < ActiveRecord::Base
     if self.number_changed?
       Record.create :table => "Deuda",
         :code => "Venta de la joya #{self.jewelry.jewelry_code}",
-        :message => "Se modificó el número de telefono.\nAntes era '#{self.number_was}' y ahora es '#{self.number}'."
+        :message => "Se modificó el número de telefono\nAntes era '#{self.number_was}' y ahora es '#{self.number}'"
     end
   end
 
