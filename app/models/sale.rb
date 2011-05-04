@@ -38,6 +38,12 @@ class Sale < ActiveRecord::Base
     nil
   end
 
+  def before_destroy
+    Record.create :table => "Venta",
+      :code => "Venta de la joya #{self.jewelry.jewelry_code}",
+      :message => "Se eliminó la venta de #{self.price}"
+  end
+
   def update_income
     income.concept = "#{I18n.t!("jewelry sale")} - #{jewelry.to_label} - #{jewelry.box.description}"
     income.update_amount self.amount, self.currency
