@@ -31,6 +31,20 @@ class Box < ActiveRecord::Base
     end
   end
 
+  def before_update
+    message = ""
+    message << "Se modificó el código de la caja
+    Antes era '#{box_code_was}' y ahora es '#{box_code}'
+    " if box_code_changed?
+    message << "Se modificó la descripción
+    Antes era '#{description_was}' y ahora es '#{description}'
+    " if description_changed?
+    message << "Se modificó la fotografía
+    " if photo_file_name_changed?
+    create_record message if message.present?
+  end
+
+
   def box_code=(value)
     value.strip! if value.present?
     self.write_attribute(:box_code, value)
@@ -45,4 +59,11 @@ class Box < ActiveRecord::Base
     "#{box_code} - #{description}"
   end
 
+  def create_record(message)
+    Record.create :table => "Caja",
+      :code => to_label,
+      :message => message
+  end
+
 end
+
