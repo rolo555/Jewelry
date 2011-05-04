@@ -11,7 +11,7 @@ class Address < ActiveRecord::Base
     if self.address_changed?
       Record.create :table => "Deuda",
         :code => "Venta de la joya #{self.jewelry.jewelry_code}",
-        :message => "Se modificó la dirección.\nAntes era '#{self.address_was}' y ahora es '#{self.address}'."
+        :message => "Se modificó la dirección\nAntes era '#{self.address_was}' y ahora es '#{self.address}'"
     end
   end
 
