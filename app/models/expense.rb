@@ -14,9 +14,23 @@ class Expense < ActiveRecord::Base
   validate :payment_date_cant_be_greater_than_today, :uniqueness_of_currency
 
   def after_create
-    Record.create :table => "Egreso",
-      :code => "'#{self.concept}' de la fecha #{self.payment_date}",
-        :message => "Se creó con un monto de #{self.price}"
+    create_record "Se creó con un monto de #{self.price}"
+  end
+
+  def before_update
+    message = ""
+    message += "Se modificó la fecha de pago
+    Antes era '#{payment_date_was}' y ahora es '#{payment_date}'
+    " if payment_date_changed?
+    message += "Se modificó el concepto
+    Antes era '#{concept_was}' y ahora es '#{concept}'
+    " if concept_changed?
+    message += "Se modificó el monto en bolivianos
+    Antes era '#{bob_was}' y ahora es '#{bob}'
+    " if bob_changed?
+    message += "Se modificó el monto en dolares
+    Antes era '#{usd_was}' y ahora es '#{usd}'" if usd_changed?
+    create_record message if message.present?
   end
 
   def uniqueness_of_currency
@@ -78,4 +92,11 @@ class Expense < ActiveRecord::Base
     [concept, product, date].join " "
   end
 
+  def create_record(message)
+    Record.create :table => "Egreso",
+      :code => "'#{self.concept}' de la fecha #{self.payment_date}",
+      :message => message
+  end
+
 end
+

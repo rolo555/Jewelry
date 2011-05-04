@@ -58,7 +58,6 @@ ActiveRecord::Schema.define(:version => 20110414132057) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.date     "payment_date"
-    t.integer  "jewelry_id"
     t.decimal  "bob"
     t.decimal  "usd"
   end
@@ -114,11 +113,11 @@ ActiveRecord::Schema.define(:version => 20110414132057) do
   end
 
   create_table "sales", :force => true do |t|
+    t.decimal  "amount"
     t.integer  "jewelry_id"
     t.date     "date_of_sale"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "amount"
     t.string   "currency"
   end
 
