@@ -9,7 +9,7 @@ class Expense < ActiveRecord::Base
   validates_numericality_of :bob, :greater_than_or_equal_to => 0, :if => "bob.present?"
   validates_numericality_of :usd, :greater_than_or_equal_to => 0, :if => "usd.present?"
   validates_presence_of :concept
-  validates_presence_of :payment_date
+  validates_presence_of :payment_date, :unless => "self.jewelry.present?"
 
   validate :payment_date_cant_be_greater_than_today, :uniqueness_of_currency
 
