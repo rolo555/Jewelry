@@ -60,6 +60,22 @@ class Jewelry < ActiveRecord::Base
     end
   end
 
+  def before_update
+    if self.description_changed? || self.photo_file_name_changed?
+      msg = ""
+      if self.photo_file_name_changed?
+        msg += "Se modifico la fotografia"
+      elsif self.description_changed?
+        msg += "\nSe modifico la descripcion
+        Antes: '#{self.description_was}'
+        Ahora: '#{self.description}'"
+      end
+      Record.create :table => "Joya",
+        :code => self.jewelry_code,
+        :message => msg
+    end
+  end
+
   def after_create
     box.product.increase_product_auto_code
     self.expense = Expense.new :concept => I18n.t!("jewelry purchase"), :usd => 0
