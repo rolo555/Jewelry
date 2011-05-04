@@ -51,7 +51,7 @@ class Debt < ActiveRecord::Base
 
   def before_destroy
     Record.create :table => "Deuda",
-      :code => jewelry.to_label,
+      :code => "Venta de la joya #{jewelry.jewelry_code}",
       :message => "Se eliminó la deuda de '#{self.debtor}' que pagó #{total_payments_with_currency}"
   end
 
