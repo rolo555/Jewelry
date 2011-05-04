@@ -31,9 +31,7 @@ class Payment < ActiveRecord::Base
   end
 
   def before_destroy
-    Record.create :table => "Pago",
-      :code => "Venta de la joya #{self.jewelry.jewelry_code}",
-      :message => "Se eliminó un pago de #{self.amount_with_currency}"
+    create_record "Se eliminó un pago de #{self.amount_with_currency}"
   end
 
   def before_update
